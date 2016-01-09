@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript">
+  var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//dexsinister.github.io/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+  
+  <title>GCD简单使用 | DexSinis Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。
+dispatch queue分成以下三种：
+1）运行在主线程的Main queue，通过dispatch_get_main_queue获取。
+复制代码/*!
+
+@function dispatch_get_main_queue*
+@abstract
+Returns the default queue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GCD简单使用">
+<meta property="og:url" content="http://yoursite.com/2015/11/15/GCD简单使用/index.html">
+<meta property="og:site_name" content="DexSinis Blog">
+<meta property="og:description" content="Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。
+dispatch queue分成以下三种：
+1）运行在主线程的Main queue，通过dispatch_get_main_queue获取。
+复制代码/*!
+
+@function dispatch_get_main_queue*
+@abstract
+Returns the default queue">
+<meta property="og:updated_time" content="2015-11-19T09:34:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GCD简单使用">
+<meta name="twitter:description" content="Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。
+dispatch queue分成以下三种：
+1）运行在主线程的Main queue，通过dispatch_get_main_queue获取。
+复制代码/*!
+
+@function dispatch_get_main_queue*
+@abstract
+Returns the default queue">
+  
+    <link rel="alternative" href="/atom.xml" title="DexSinis Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67376920-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DexSinis Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-GCD简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/15/GCD简单使用/" class="article-date">
+  <time datetime="2015-11-15T03:50:07.000Z" itemprop="datePublished">2015-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GCD简单使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Grand Central Dispatch (GCD)是Apple开发的一个多核编程的解决方法。</p>
+<p>dispatch queue分成以下三种：</p>
+<p>1）运行在主线程的Main queue，通过dispatch_get_main_queue获取。</p>
+<p>复制代码<br>/*!</p>
+<ul>
+<li>@function dispatch_get_main_queue<br>*</li>
+<li>@abstract</li>
+<li>Returns the default queue that is bound to the main thread.<br>*</li>
+<li>@discussion</li>
+<li>In order to invoke blocks submitted to the main queue, the application must</li>
+<li>call dispatch_main(), NSApplicationMain(), or use a CFRunLoop on the main</li>
+<li>thread.<br>*</li>
+<li>@result</li>
+<li>Returns the main queue. This queue is created automatically on behalf of</li>
+<li>the main thread before main() is called.<br>*/<br><strong>OSX_AVAILABLE_STARTING(</strong>MAC_10_6,__IPHONE_4_0)<br>DISPATCH_EXPORT struct dispatch_queue_s _dispatch_main_q;<br>#define dispatch_get_main_queue() \<br>DISPATCH_GLOBAL_OBJECT(dispatch_queue_t, _dispatch_main_q)<br>复制代码<br>可以看出，dispatch_get_main_queue也是一种dispatch_queue_t。</li>
+</ul>
+<p>2）并行队列global dispatch queue，通过dispatch_get_global_queue获取，由系统创建三个不同优先级的dispatch queue。并行队列的执行顺序与其加入队列的顺序相同。</p>
+<p>3）串行队列serial queues一般用于按顺序同步访问，可创建任意数量的串行队列，各个串行队列之间是并发的。</p>
+<p>当想要任务按照某一个特定的顺序执行时，串行队列是很有用的。串行队列在同一个时间只执行一个任务。我们可以使用串行队列代替锁去保护共享的数据。和锁不同，一个串行队列可以保证任务在一个可预知的顺序下执行。</p>
+<p>serial queues通过dispatch_queue_create创建，可以使用函数dispatch_retain和dispatch_release去增加或者减少引用计数。</p>
+<p>GCD的用法：</p>
+<p>复制代码<br> //  后台执行：<br> dispatch_async(dispatch_get_global_queue(0, 0), ^{<br>      // something<br> });</p>
+<p> // 主线程执行：<br> dispatch_async(dispatch_get_main_queue(), ^{<br>      // something<br> });</p>
+<p> // 一次性执行：<br> static dispatch_once_t onceToken;<br> dispatch_once(&amp;onceToken, ^{<br>     // code to be executed once<br> });</p>
+<p> // 延迟2秒执行：<br> double delayInSeconds = 2.0;<br> dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);<br> dispatch_after(popTime, dispatch_get_main_queue(), ^(void){<br>     // code to be executed on the main queue after delay<br> });</p>
+<p> // 自定义dispatch_queue_t<br> dispatch_queue_t urls_queue = dispatch_queue_create(“blog.devtang.com”, NULL);<br> dispatch_async(urls_queue, ^{<br>　 　// your code<br> });<br> dispatch_release(urls_queue);</p>
+<p> // 合并汇总结果<br> dispatch_group_t group = dispatch_group_create();<br> dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{<br>      // 并行执行的线程一<br> });<br> dispatch_group_async(group, dispatch_get_global_queue(0,0), ^{<br>      // 并行执行的线程二<br> });<br> dispatch_group_notify(group, dispatch_get_global_queue(0,0), ^{<br>      // 汇总结果<br> });<br>复制代码<br>一个应用GCD的例子：</p>
+<p>复制代码<br>    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{<br>        NSURL <em> url = [NSURL URLWithString:@”<a href="http://www.baidu.com" target="_blank" rel="external">http://www.baidu.com</a>“];<br>        NSError </em> error;<br>        NSString * data = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&amp;error];<br>        if (data != nil) {<br>            dispatch_async(dispatch_get_main_queue(), ^{<br>                NSLog(@”call back, the data is: %@”, data);<br>            });<br>        } else {<br>            NSLog(@”error when download:%@”, error);<br>        }<br>    });<br>复制代码<br>GCD的另一个用处是可以让程序在后台较长久的运行。</p>
+<p>在没有使用GCD时，当app被按home键退出后，app仅有最多5秒钟的时候做一些保存或清理资源的工作。但是在使用GCD后，app最多有10分钟的时间在后台长久运行。这个时间可以用来做清理本地缓存，发送统计数据等工作。</p>
+<p>让程序在后台长久运行的示例代码如下：</p>
+<p>复制代码<br>// AppDelegate.h文件<br>@property (assign, nonatomic) UIBackgroundTaskIdentifier backgroundUpdateTask;</p>
+<p>// AppDelegate.m文件</p>
+<ul>
+<li><p>(void)applicationDidEnterBackground:(UIApplication *)application<br>{<br>  [self beingBackgroundUpdateTask];<br>  // 在这里加上你需要长久运行的代码<br>  [self endBackgroundUpdateTask];<br>}</p>
+</li>
+<li><p>(void)beingBackgroundUpdateTask<br>{<br>  self.backgroundUpdateTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{</p>
+<pre><code><span class="title">[self endBackgroundUpdateTask]</span><span class="comment">;</span>
+</code></pre><p>  }];<br>}</p>
+</li>
+<li><p>(void)endBackgroundUpdateTask<br>{<br>  [[UIApplication sharedApplication] endBackgroundTask: self.backgroundUpdateTask];<br>  self.backgroundUpdateTask = UIBackgroundTaskInvalid;<br>}<br>复制代码</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/15/GCD简单使用/" data-id="cij5xh6o4002ui33mtzr1cnjt" class="article-share-link" data-share="baidu" data-title="GCD简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/11/15/GCD简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/11/15/UITextField简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          UITextField简单使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/11/15/NSNotification简单使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">NSNotification简单使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/11/15/GCD简单使用/" data-title="GCD简单使用" data-url="http://yoursite.com/2015/11/15/GCD简单使用/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS-Swift/">IOS-Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开源项目/">IOS开源项目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios开发/">ios开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios经验/">ios经验</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心情/">心情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IOS-Swift/" style="font-size: 10px;">IOS-Swift</a> <a href="/tags/IOS开发SDK/" style="font-size: 20px;">IOS开发SDK</a> <a href="/tags/IOS开发经验总结/" style="font-size: 16.67px;">IOS开发经验总结</a> <a href="/tags/IOS开源项目/" style="font-size: 10px;">IOS开源项目</a> <a href="/tags/IOS网站博客/" style="font-size: 10px;">IOS网站博客</a> <a href="/tags/MarkDown/" style="font-size: 16.67px;">MarkDown</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios开发/" style="font-size: 10px;">ios开发</a> <a href="/tags/ios经验/" style="font-size: 10px;">ios经验</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/07/textsadasd/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/教你如何获取ios系统信息/">教你如何获取ios系统信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/Git的简单使用/">Git的简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/05/MVC，MVP 和 MVVM 架构/">MVC，MVP 和 MVVM 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/30/UIViewController简单使用/">UIViewController简单使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 DexSinister<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

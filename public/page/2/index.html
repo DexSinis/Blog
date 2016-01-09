@@ -1,0 +1,1707 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript">
+  var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//dexsinister.github.io/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+  
+  <title>DexSinis Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="How to use Hexo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DexSinis Blog">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="DexSinis Blog">
+<meta property="og:description" content="How to use Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DexSinis Blog">
+<meta name="twitter:description" content="How to use Hexo">
+  
+    <link rel="alternative" href="/atom.xml" title="DexSinis Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67376920-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DexSinis Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-NSNotification简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/15/NSNotification简单使用/" class="article-date">
+  <time datetime="2015-11-15T03:50:07.000Z" itemprop="datePublished">2015-11-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/15/NSNotification简单使用/">NSNotification简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>接着上回说的iOS页面传值问题</p>
+<p>传送门———-&gt;iOS页面传值之代理传值</p>
+<p>接下来我们说说NSNotificationCenter传值方式</p>
+<p>在开始之前，我们首先得知道KVO模式</p>
+<p>Key-Value Observing (KVO) 键值监听</p>
+<p>就是说当你告诉通知中心一个Key 他会根据Value的变化做些事情，或者是获取一些数据</p>
+<p>说上千回，不如用上一回。 </p>
+<p>我们在B控制器发送一个监听</p>
+<p>[[NSNotificationCenter defaultCenter] postNotificationName:@”ChangeNameNotification” object:self userInfo:@{@”name”:self.textField.text}];</p>
+<p>而在A控制器中设置A本身为一个监听者（好比A这时候正在监听它，可以这么理解，一个KVO可以用多个监视者。这里只有一个控制器A）</p>
+<p>具体代码</p>
+<p>[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(ChangeNameNotification:) name:@”ChangeNameNotification” object:nil];</p>
+<p>再在A控制器中实现ChangeNameNotification：方法</p>
+<p>-(void)ChangeNameNotification:(NSNotification*)notification{</p>
+<pre><code><span class="built_in">NSDictionary</span> *nameDictionary = [notification userInfo];
+
+
+
+<span class="keyword">self</span><span class="variable">.textLabel</span><span class="variable">.text</span> = [nameDictionary objectForKey:<span class="string">@"name"</span>];
+</code></pre><p>}</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/15/NSNotification简单使用/" data-id="cij5xh6nk001zi33miv7va0vp" class="article-share-link" data-share="baidu" data-title="NSNotification简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/11/15/NSNotification简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-exports 和 module.exports 的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/exports 和 module.exports 的区别/" class="article-date">
+  <time datetime="2015-11-08T09:30:07.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/08/exports 和 module.exports 的区别/">exports 和 module.exports 的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>exports 和 module.exports 的区别<br> 发布于 2年前  作者 nswbmw  12877 次浏览<br>我理解的exports 和 module.exports 的区别，欢迎大家吐槽~</p>
+<p>为了更好的理解 exports 和 module.exports 的关系，我们先来补点 js 基础。示例：</p>
+<p>app.js</p>
+<p>var a = {name: ‘nswbmw 1’};<br>var b = a;</p>
+<p>console.log(a);<br>console.log(b);</p>
+<p>b.name = ‘nswbmw 2’;<br>console.log(a);<br>console.log(b);</p>
+<p>var b = {name: ‘nswbmw 3’};<br>console.log(a);<br>console.log(b);<br>运行 app.js 结果为：</p>
+<p>D:>node app<br>{ name: ‘nswbmw 1’ }<br>{ name: ‘nswbmw 1’ }<br>{ name: ‘nswbmw 2’ }<br>{ name: ‘nswbmw 2’ }<br>{ name: ‘nswbmw 2’ }<br>{ name: ‘nswbmw 3’ }</p>
+<p>D:><br>解释一下：a 是一个对象，b 是对 a 的引用，即 a 和 b 指向同一个对象，即 a 和 b 指向同一块内存地址，所以前两个输出一样。当对 b 作修改时，即 a 和 b 指向同一块内存地址的内容发生了改变，所以 a 也会体现出来，所以第三四个输出一样。当对 b 完全覆盖时，b 就指向了一块新的内存地址（并没有对原先的内存块作修改），a 还是指向原来的内存块，即 a 和 b 不再指向同一块内存，也就是说此时 a 和 b 已毫无关系，所以最后两个输出不一样。</p>
+<p>明白了上述例子后，我们进入正题。<br>我们只需知道三点即可知道 exports 和 module.exports 的区别了：</p>
+<p>exports 是指向的 module.exports 的引用<br>module.exports 初始值为一个空对象 {}，所以 exports 初始值也是 {}<br>require() 返回的是 module.exports 而不是 exports<br>所以：</p>
+<p>我们通过</p>
+<p>  var name = ‘nswbmw’;<br>  exports.name = name;<br>  exports.sayName = function() {<br>    console.log(name);<br>  }<br>给 exports 赋值其实是给 module.exports 这个空对象添加了两个属性而已，上面的代码相当于：</p>
+<p>  var name = ‘nswbmw’;<br>  module.exports.name = name;<br>  module.exports.sayName = function() {<br>    console.log(name);<br>  }<br>我们通常这样使用 exports 和 module.exports</p>
+<p>一个简单的例子，计算圆的面积：</p>
+<p>使用 exports</p>
+<p>app.js</p>
+<p>  var circle = require(‘./circle’);<br>  console.log(circle.area(4));<br>circle.js</p>
+<p>  exports.area = function(r) {<br>    return r <em> r </em> Math.PI;<br>  }<br>使用 module.exports</p>
+<p>app.js</p>
+<p>  var area = require(‘./area’);<br>  console.log(area(4));<br>area.js</p>
+<p>  module.exports = function(r) {<br>    return r <em> r </em> Math.PI;<br>  }<br>上面两个例子输出是一样的。你也许会问，为什么不这样写呢？</p>
+<p>app.js</p>
+<p>  var area = require(‘./area’);<br>  console.log(area(4));<br>area.js</p>
+<p>  exports = function(r) {<br>    return r <em> r </em> Math.PI;<br>  }<br>运行上面的例子会报错。这是因为，前面的例子中通过给 exports 添加属性，只是对 exports 指向的内存做了修改，而</p>
+<p>  exports = function(r) {<br>    return r <em> r </em> Math.PI;<br>  }<br>其实是对 exports 进行了覆盖，也就是说 exports 指向了一块新的内存（内容为一个计算圆面积的函数），也就是说 exports 和 module.exports 不再指向同一块内存，也就是说此时 exports 和 module.exports 毫无联系，也就是说 module.exports 指向的那块内存并没有做任何改变，仍然为一个空对象 {} ，也就是说 area.js 导出了一个空对象，所以我们在 app.js 中调用 area(4) 会报 TypeError: object is not a function 的错误。</p>
+<p>所以，一句话做个总结：当我们想让模块导出的是一个对象时， exports 和 module.exports 均可使用（但 exports 也不能重新覆盖为一个新的对象），而当我们想导出非对象接口时，就必须也只能覆盖 module.exports 。</p>
+<p>我们经常看到这样的用写法：</p>
+<p>  exports = module.exports = somethings<br>上面的代码等价于</p>
+<p>  module.exports = somethings<br>  exports = module.exports<br>原因也很简单， module.exports = somethings 是对 module.exports 进行了覆盖，此时 module.exports 和 exports 的关系断裂，module.exports 指向了新的内存块，而 exports 还是指向原来的内存块，为了让 module.exports 和 exports 还是指向同一块内存或者说指向同一个 “对象”，所以我们就 exports = module.exports 。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/08/exports 和 module.exports 的区别/" data-id="cij5xh6mp000zi33mu2rto9tl" class="article-share-link" data-share="baidu" data-title="exports 和 module.exports 的区别">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/11/08/exports 和 module.exports 的区别/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-koa简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/08/koa简单使用/" class="article-date">
+  <time datetime="2015-11-08T09:10:07.000Z" itemprop="datePublished">2015-11-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/11/08/koa简单使用/">koa简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>简书</strong><br><a href="http://www.jianshu.com/p/01796348328a" target="_blank" rel="external">http://www.jianshu.com/p/01796348328a</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/11/08/koa简单使用/" data-id="cij5xh6mg000ki33mb6piokac" class="article-share-link" data-share="baidu" data-title="koa简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/11/08/koa简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Node/">Node</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-markdown" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/29/markdown/" class="article-date">
+  <time datetime="2015-10-29T03:37:37.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3>Some HTML</h3>
+
+<p>Hello world! 本网站是一个在线的工具集合，域名为org域名，翻译为“一个工具”（a tool）.</p><br><p>aTool主要包含有以下的功能：</p><br><hr><br><br><ol><br>  <li>在线多媒体处理工具</li><br>  <li>在线站长工具</li><br>  <li>在线代码转换工具</li><br>  <li>在线便民工具</li><br>  <li>在线小游戏</li><br></ol><br><hr><br><p>更多工具，To be continue…</p>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/29/markdown/" data-id="cij5xh6mf000ji33mv17nsvz1" class="article-share-link" data-share="baidu" data-title="">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/29/markdown/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/29/hello-world/" class="article-date">
+  <time datetime="2015-10-29T03:37:33.000Z" itemprop="datePublished">2015-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/29/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/29/hello-world/" data-id="cij5xh6mm000ri33m06t6qntn" class="article-share-link" data-share="baidu" data-title="Hello World">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/29/hello-world/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-ReactNative简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/15/ReactNative简单使用/" class="article-date">
+  <time datetime="2015-10-15T03:50:07.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/ReactNative简单使用/">ReactNative简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>介绍</strong><br><a href="http://www.linuxidc.com/Linux/2015-09/123239.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2015-09/123239.htm</a></p>
+<p><strong>React</strong><br><a href="http://baike.baidu.com/link?url=sgXYXYrN7O5-Wbdfx1kMyqAno2vr7bVobWp7A_stqJ9YZOCrDcfwlnuCcoqg9GSHs7nbfJ2NIpqQGx0O2SZvBsqzP4MkzFVNN7SSMZQLT4BZYM-0jHJ4jmwVsDP8YHQX1Ob0A02bKgi2l8niGT_rYRgQVzXrbm4k4WjJPSvt5GcP8IbvS3ESvPngt7o51n_9a6xAFL2q1zzNNK1q5L-L8ZyWKUWRUj0MQi0iwqxvQyi" target="_blank" rel="external">http://baike.baidu.com/link?url=sgXYXYrN7O5-Wbdfx1kMyqAno2vr7bVobWp7A_stqJ9YZOCrDcfwlnuCcoqg9GSHs7nbfJ2NIpqQGx0O2SZvBsqzP4MkzFVNN7SSMZQLT4BZYM-0jHJ4jmwVsDP8YHQX1Ob0A02bKgi2l8niGT_rYRgQVzXrbm4k4WjJPSvt5GcP8IbvS3ESvPngt7o51n_9a6xAFL2q1zzNNK1q5L-L8ZyWKUWRUj0MQi0iwqxvQyi</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2015/03/react.html</a><br><strong>JSX</strong><br><a href="http://reactjs.cn/react/docs/jsx-in-depth.html" target="_blank" rel="external">http://reactjs.cn/react/docs/jsx-in-depth.html</a><br><strong>flex-css</strong><br><a href="http://www.tuicool.com/articles/a6Rjmi2" target="_blank" rel="external">http://www.tuicool.com/articles/a6Rjmi2</a><br><a href="http://www.cocoachina.com/ios/20150420/11608.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20150420/11608.html</a></p>
+<p><strong>React Native For Android 架构初探</strong><br><a href="http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=207782506&amp;idx=1&amp;sn=3ff6b03c0d59fbda406f64739d9272cf&amp;scene=1&amp;srcid=1009Q3qo6mLeT2ydjdzUwLQ7&amp;from=groupmessage&amp;isappinstalled=0#rd" target="_blank" rel="external">http://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=207782506&amp;idx=1&amp;sn=3ff6b03c0d59fbda406f64739d9272cf&amp;scene=1&amp;srcid=1009Q3qo6mLeT2ydjdzUwLQ7&amp;from=groupmessage&amp;isappinstalled=0#rd</a></p>
+<p><strong>整理了一份React-Native学习指南</strong><br><a href="http://www.tuicool.com/articles/zaInUbA" target="_blank" rel="external">http://www.tuicool.com/articles/zaInUbA</a></p>
+<p><strong>工具</strong><br><a href="http://www.cocoachina.com/ios/20150327/11439.html" target="_blank" rel="external">http://www.cocoachina.com/ios/20150327/11439.html</a><br><a href="https://github.com/facebook/nuclide" target="_blank" rel="external">https://github.com/facebook/nuclide</a></p>
+<p><strong>例子说明</strong><br>参考文档<br><a href="http://wiki.jikexueyuan.com/project/react-native/GettingStarted.html" target="_blank" rel="external">http://wiki.jikexueyuan.com/project/react-native/GettingStarted.html</a></p>
+<p><img src="/MyImage/ReactNative/ReactNativeProjectBase.png" alt="工程结构"></p>
+<pre><code><span class="string">'use strict'</span>;
+<span class="comment">/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ */</span>
+<span class="string">'use strict'</span>;
+
+<span class="keyword">var</span> React = <span class="keyword">require</span>(<span class="string">'react-native'</span>);
+<span class="keyword">var</span> NSUITableViewController = <span class="keyword">require</span>(<span class="string">'./NSUITableViewController'</span>); <span class="comment">//引入其他模块</span>
+<span class="keyword">var</span> NSUINavigationController = <span class="keyword">require</span>(<span class="string">'./NSUINavigationController'</span>);
+<span class="keyword">var</span> REQUEST_URL = <span class="string">'https://raw.githubusercontent.com/facebook/react-native/master/docs/MoviesExample.json'</span>;
+<span class="keyword">var</span> {
+ AppRegistry,
+ Image,
+ StyleSheet,
+ Text,
+ View,
+ ListView,
+ NavigatorIOS,   <span class="comment">//注册导航控件</span>
+ TabBarIOS,      <span class="comment">//注册tarbar控件</span>
+} = React;
+
+<span class="keyword">var</span> PropertyFinder = React.createClass({
+
+getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<span class="keyword">return</span> {
+  dataSource: <span class="keyword">new</span> ListView.DataSource({
+    rowHasChanged: (row1, row2) =&gt; row1 !== row2,
+  }),
+  loaded: <span class="keyword">false</span>,
+};
+ },   <span class="comment">//设置状态</span>
+
+  componentDidMount: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+    this.fetchData();
+ },   <span class="comment">//componentDidMount 是 React 组件里面只会调用一次的函数。</span>
+
+ fetchData: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  fetch(REQUEST_URL)
+   .then((response) =&gt; response.json())
+      .then((responseData) =&gt; {
+      this.setState({
+         dataSource: this.state.dataSource.cloneWithRows(responseData.movies),
+          loaded: <span class="keyword">true</span>,
+      });
+   })
+      .done();
+ },   <span class="comment">//获取数据</span>
+
+  render: <span class="function"><span class="keyword">function</span><span class="params">()</span>  </span>{   <span class="comment">//渲染函数</span>
+
+    <span class="keyword">return</span> (
+      &lt;TabBarIOS&gt;
+        &lt;TabBarIOS.Item title=<span class="string">"React Native"</span> 
+        selected={this.state.selectedTab === <span class="string">'blueTab'</span>} 
+        icon={<span class="keyword">require</span>(<span class="string">'./flux.png'</span>)}
+        onPress={() =&gt; {
+                           this.setState({
+                           selectedTab: <span class="string">'blueTab'</span>,
+                                   });
+                            }}
+        &gt;
+         &lt;NavigatorIOS
+        style=&lt;!--￼<span class="number">0</span>--&gt;
+        tintColor=<span class="string">'#cccccc'</span>
+        barTintColor=<span class="string">'#ccffcc'</span>
+        initialRoute=&lt;!--￼<span class="number">1</span>--&gt;/&gt;
+        &lt;/TabBarIOS.Item&gt;
+             &lt;TabBarIOS.Item title=<span class="string">"React Native"</span> 
+              selected={this.state.selectedTab === <span class="string">'redTab'</span>} 
+              icon={<span class="keyword">require</span>(<span class="string">'./flux.png'</span>)}
+                    onPress={() =&gt; {
+                           this.setState({
+                           selectedTab: <span class="string">'redTab'</span>,
+                                   });
+                            }}
+             &gt;
+         &lt;NavigatorIOS
+        style=&lt;!--￼<span class="number">2</span>--&gt;
+        tintColor=<span class="string">'#cccccc'</span>
+        barTintColor=<span class="string">'#c00cccc'</span>
+        initialRoute=&lt;!--￼<span class="number">3</span>--&gt;/&gt;
+        &lt;/TabBarIOS.Item&gt;
+                 &lt;TabBarIOS.Item title=<span class="string">"React Native"</span> 
+              selected={this.state.selectedTab === <span class="string">'greenTab'</span>} 
+              icon={<span class="keyword">require</span>(<span class="string">'./flux.png'</span>)}
+                    onPress={() =&gt; {
+                           this.setState({
+                           selectedTab: <span class="string">'greenTab'</span>,
+                                   });
+                            }}
+             &gt;
+         &lt;NavigatorIOS
+        style=&lt;!--￼<span class="number">4</span>--&gt;
+        tintColor=<span class="string">'#cccccc'</span>
+        barTintColor=<span class="string">'#ccccff'</span>
+        initialRoute=&lt;!--￼<span class="number">5</span>--&gt;/&gt;
+        &lt;/TabBarIOS.Item&gt;
+      &lt;/TabBarIOS&gt;
+
+    );   
+},
+
+_renderContent: <span class="function"><span class="keyword">function</span><span class="params">(color: string, pageText: string, num?: number)</span> </span>{
+<span class="keyword">return</span> (
+  &lt;View style={[styles.tabContent, {backgroundColor: color}]}&gt;
+    &lt;Text style={styles.tabText}&gt;{pageText}&lt;/Text&gt;
+    &lt;Text style={styles.tabText}&gt;{num} re-renders of the {pageText}&lt;/Text&gt;
+  &lt;/View&gt;
+);
+  },
+  renderLoadingView: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<span class="keyword">return</span> (
+  &lt;View style={styles.container}&gt;
+    &lt;Text&gt;
+      Loading movies...
+    &lt;/Text&gt;
+  &lt;/View&gt;
+);
+  },
+
+  renderMovie: <span class="function"><span class="keyword">function</span><span class="params">(movie)</span> </span>{
+<span class="keyword">return</span> (
+  &lt;View style={styles.container}&gt;
+    &lt;Image
+      source=&lt;!--￼<span class="number">6</span>--&gt;
+      style={styles.thumbnail}
+    /&gt;
+    &lt;View style={styles.rightContainer}&gt;
+      &lt;Text style={styles.title}&gt;{movie.title}&lt;/Text&gt;
+      &lt;Text style={styles.year}&gt;{movie.year}&lt;/Text&gt;
+    &lt;/View&gt;
+  &lt;/View&gt;
+);
+  },
+});
+
+<span class="keyword">var</span> Style = StyleSheet.create({
+  container: {
+  flex: <span class="number">1</span>,
+  backgroundColor: <span class="string">'#F5FCFF'</span>
+ },
+  navigator: {
+  backgroundColor: <span class="string">'#EFEFEF'</span>
+ }
+});
+
+<span class="keyword">var</span> styles = StyleSheet.create({
+ container: {
+   flex: <span class="number">1</span>,
+   flexDirection: <span class="string">'row'</span>,
+  justifyContent: <span class="string">'center'</span>,
+  alignItems: <span class="string">'center'</span>,
+  backgroundColor: <span class="string">'#F5FCFF'</span>,
+  },
+  rightContainer: {
+    flex: <span class="number">1</span>,
+  },
+ title: {
+   fontSize: <span class="number">20</span>,
+   marginBottom: <span class="number">8</span>,
+   textAlign: <span class="string">'center'</span>,
+ },
+ year: {
+   textAlign: <span class="string">'center'</span>,
+  },
+  welcome: {
+   fontSize: <span class="number">20</span>,
+   textAlign: <span class="string">'center'</span>,
+   margin: <span class="number">10</span>,
+ },
+instructions: {
+   textAlign: <span class="string">'center'</span>,
+    color: <span class="string">'#333333'</span>,
+    marginBottom: <span class="number">5</span>,
+  },
+ thumbnail: {
+   width: <span class="number">53</span>,
+   height: <span class="number">81</span>,
+  },
+ listView: {
+   paddingTop: <span class="number">20</span>,
+   backgroundColor: <span class="string">'#F5FCFF'</span>,
+},
+});
+
+AppRegistry.registerComponent(<span class="string">'PropertyFinder'</span>, () =&gt; PropertyFinder);
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/15/ReactNative简单使用/" data-id="cij5xh6na001qi33madlknf2j" class="article-share-link" data-share="baidu" data-title="ReactNative简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/15/ReactNative简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AFNetworking简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/09/AFNetworking简单使用/" class="article-date">
+  <time datetime="2015-10-09T03:50:07.000Z" itemprop="datePublished">2015-10-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/09/AFNetworking简单使用/">AFNetworking简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>AFNetworking是一个轻量级的iOS网络通信类库。它建立在NSURLConnection和NSOperation等类库的基础上，让很多网络通信功能的实现变得十分简单。它支持HTTP请求和基于REST的网络服务（包括GET、POST、 PUT、DELETE等）。支持ARC。<br>Github地址：<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">https://github.com/AFNetworking/AFNetworking</a></strong></p>
+<pre><code><span class="comment">//</span>
+<span class="comment">//  MJViewController.m</span>
+<span class="comment">//  03.AFN演练</span>
+<span class="comment">//</span>
+<span class="comment">//  Created by apple on 14-4-30.</span>
+<span class="comment">//  Copyright (c) 2014年 itcast. All rights reserved.</span>
+<span class="comment">//</span>
+
+<span class="preprocessor">#import <span class="title">"MJViewController.h"</span></span>
+<span class="preprocessor">#import <span class="title">"AFNetworking.h"</span></span>
+<span class="class"><span class="keyword">@interface</span> <span class="title">MJViewController</span> ()</span>
+<span class="keyword">@end</span>
+
+<span class="class"><span class="keyword">@implementation</span> <span class="title">MJViewController</span></span>
+<span class="comment">/**
+要使用常规的AFN网络访问
+
+ 1. AFHTTPRequestOperationManager *manager =             [AFHTTPRequestOperationManager manager];
+
+所有的网络请求,均有manager发起
+
+ 2. 需要注意的是,默认提交请求的数据是二进制的,返回格式是JSON
+
+1&gt; 如果提交数据是JSON的,需要将请求格式设置为AFJSONRequestSerializer
+2&gt; 如果返回格式不是JSON的,
+
+ 3. 请求格式
+
+ AFHTTPRequestSerializer            二进制格式
+ AFJSONRequestSerializer            JSON
+ AFPropertyListRequestSerializer    PList(是一种特殊的XML,解析起来相对容易)
+
+ 4. 返回格式
+
+ AFHTTPResponseSerializer           二进制格式
+ AFJSONResponseSerializer           JSON
+ AFXMLParserResponseSerializer          XML,只能返回XMLParser,还需要自己通过代理方法解析
+ AFXMLDocumentResponseSerializer (Mac OS X)
+ AFPropertyListResponseSerializer   PList
+ AFImageResponseSerializer          Image
+ AFCompoundResponseSerializer       组合
+ */</span>
+
+- (<span class="keyword">void</span>)viewDidLoad
+{
+[<span class="keyword">super</span> viewDidLoad];
+
+[<span class="keyword">self</span> reach];
+}
+
+<span class="preprocessor">#pragma mark - 演练</span>
+<span class="preprocessor">#pragma mark - 检测网络连接</span>
+- (<span class="keyword">void</span>)reach
+{
+    <span class="comment">/**
+ AFNetworkReachabilityStatusUnknown          = -1,  // 未知
+ AFNetworkReachabilityStatusNotReachable     = 0,   // 无连接
+ AFNetworkReachabilityStatusReachableViaWWAN = 1,   // 3G 花钱
+ AFNetworkReachabilityStatusReachableViaWiFi = 2,   // 局域网络,不花钱
+ */</span>
+<span class="comment">// 如果要检测网络状态的变化,必须用检测管理器的单例的startMonitoring</span>
+[[AFNetworkReachabilityManager sharedManager] startMonitoring];
+
+<span class="comment">// 检测网络连接的单例,网络变化时的回调方法</span>
+[[AFNetworkReachabilityManager sharedManager]     setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>, status);
+}];
+}
+
+<span class="preprocessor">#pragma mark - Session 下载</span>
+- (<span class="keyword">void</span>)sessionDownload
+{
+<span class="built_in">NSURLSessionConfiguration</span> *config = [<span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration];
+AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:config];
+
+<span class="built_in">NSString</span> *urlString = <span class="string">@"http://localhost/itcast/videos/01.C语言-语法预览.mp4"</span>;
+urlString = [urlString stringByAddingPercentEscapesUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];
+
+<span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:urlString];
+<span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];
+
+<span class="built_in">NSURLSessionDownloadTask</span> *task = [manager downloadTaskWithRequest:request progress:<span class="literal">nil</span> destination:^<span class="built_in">NSURL</span> *(<span class="built_in">NSURL</span> *targetPath, <span class="built_in">NSURLResponse</span> *response) {
+    <span class="comment">// 指定下载文件保存的路径</span>
+<span class="comment">//        NSLog(@"%@ %@", targetPath, response.suggestedFilename);</span>
+    <span class="comment">// 将下载文件保存在缓存路径中</span>
+    <span class="built_in">NSString</span> *cacheDir = <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSCachesDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>)[<span class="number">0</span>];
+    <span class="built_in">NSString</span> *path = [cacheDir stringByAppendingPathComponent:response<span class="variable">.suggestedFilename</span>];
+
+    <span class="comment">// URLWithString返回的是网络的URL,如果使用本地URL,需要注意</span>
+    <span class="built_in">NSURL</span> *fileURL1 = [<span class="built_in">NSURL</span> URLWithString:path];
+    <span class="built_in">NSURL</span> *fileURL = [<span class="built_in">NSURL</span> fileURLWithPath:path];
+
+    <span class="built_in">NSLog</span>(<span class="string">@"== %@ |||| %@"</span>, fileURL1, fileURL);
+
+    <span class="keyword">return</span> fileURL;
+} completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSURL</span> *filePath, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@ %@"</span>, filePath, error);
+}];
+
+[task resume];
+}
+
+<span class="preprocessor">#pragma mark - POST JSON</span>
+- (<span class="keyword">void</span>)postJSON
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+<span class="built_in">NSDictionary</span> *dict = @{<span class="string">@"name"</span>: <span class="string">@"zhangsan"</span>};
+<span class="built_in">NSDictionary</span> *dict1 = @{<span class="string">@"name"</span>: <span class="string">@"wangwu"</span>};
+<span class="built_in">NSArray</span> *array = @[dict, dict1];
+<span class="comment">// 设置请求格式</span>
+manager<span class="variable">.requestSerializer</span> = [AFJSONRequestSerializer serializer];
+<span class="comment">// 设置返回格式</span>
+manager<span class="variable">.responseSerializer</span> = [AFHTTPResponseSerializer serializer];
+
+[manager POST:<span class="string">@"http://localhost/postjson.php"</span> parameters:array success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSString</span> *result = [[<span class="built_in">NSString</span> alloc] initWithData:responseObject encoding:<span class="built_in">NSUTF8StringEncoding</span>];
+
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, result);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+
+}];
+
+}
+
+<span class="preprocessor">#pragma mark - 随机文件名上传</span>
+- (<span class="keyword">void</span>)postUpload1
+{
+<span class="comment">// 本地上传给服务器时,没有确定的URL,不好用MD5的方式处理</span>
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+manager<span class="variable">.responseSerializer</span> = [AFHTTPResponseSerializer serializer];
+
+[manager POST:<span class="string">@"http://localhost/demo/upload.php"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) {
+
+    <span class="built_in">NSURL</span> *fileURL = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:<span class="string">@"头像1.png"</span> withExtension:<span class="literal">nil</span>];
+
+    <span class="comment">// 要上传保存在服务器中的名称</span>
+    <span class="comment">// 使用时间来作为文件名 2014-04-30 14:20:57.png</span>
+    <span class="comment">// 让不同的用户信息,保存在不同目录中</span>
+    <span class="built_in">NSDateFormatter</span> *formatter = [[<span class="built_in">NSDateFormatter</span> alloc] init];
+    <span class="comment">// 设置日期格式</span>
+    formatter<span class="variable">.dateFormat</span> = <span class="string">@"yyyy-MM-dd HH:mm:ss"</span>;
+    <span class="built_in">NSString</span> *fileName = [formatter stringFromDate:[<span class="built_in">NSDate</span> date]];
+
+    [formData appendPartWithFileURL:fileURL name:<span class="string">@"uploadFile"</span> fileName:fileName mimeType:<span class="string">@"image/png"</span> error:<span class="literal">NULL</span>];
+
+} success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSLog</span>(<span class="string">@"OK"</span>);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"error"</span>);
+}];
+}
+
+<span class="preprocessor">#pragma mark - POST上传</span>
+- (<span class="keyword">void</span>)postUpload
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+<span class="comment">// AFHTTPResponseSerializer就是正常的HTTP请求响应结果:NSData</span>
+<span class="comment">// 当请求的返回数据不是JSON,XML,PList,UIImage之外,使用AFHTTPResponseSerializer</span>
+<span class="comment">// 例如返回一个html,text...</span>
+<span class="comment">//</span>
+<span class="comment">// 实际上就是AFN没有对响应数据做任何处理的情况</span>
+manager<span class="variable">.responseSerializer</span> = [AFHTTPResponseSerializer serializer];
+
+<span class="comment">// formData是遵守了AFMultipartFormData的对象</span>
+[manager POST:<span class="string">@"http://localhost/demo/upload.php"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) {
+
+    <span class="comment">// 将本地的文件上传至服务器</span>
+    <span class="built_in">NSURL</span> *fileURL = [[<span class="built_in">NSBundle</span> mainBundle] URLForResource:<span class="string">@"头像1.png"</span> withExtension:<span class="literal">nil</span>];
+
+    [formData appendPartWithFileURL:fileURL name:<span class="string">@"uploadFile"</span> error:<span class="literal">NULL</span>];
+} success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSString</span> *result = [[<span class="built_in">NSString</span> alloc] initWithData:responseObject encoding:<span class="built_in">NSUTF8StringEncoding</span>];
+
+    <span class="built_in">NSLog</span>(<span class="string">@"完成 %@"</span>, result);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"错误 %@"</span>, error<span class="variable">.localizedDescription</span>);
+}];
+}
+
+<span class="preprocessor">#pragma mark - JSON</span>
+- (<span class="keyword">void</span>)XMLData
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+<span class="comment">// 返回的数据格式是XML</span>
+manager<span class="variable">.responseSerializer</span> = [AFXMLParserResponseSerializer serializer];
+
+<span class="built_in">NSDictionary</span> *dict = @{<span class="string">@"format"</span>: <span class="string">@"xml"</span>};
+
+<span class="comment">// 网络访问是异步的,回调是主线程的,因此程序员不用管在主线程更新UI的事情</span>
+[manager GET:<span class="string">@"http://localhost/videos.php"</span> parameters:dict success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+
+    <span class="comment">// 如果结果是XML,同样需要使用6个代理方法解析,或者使用第三方库</span>
+    <span class="comment">// 第三方库第三方框架,效率低,内存泄漏</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseObject);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);
+}];
+}
+
+<span class="preprocessor">#pragma mark - JSON</span>
+- (<span class="keyword">void</span>)JSONData
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+<span class="comment">// 原本需要拼接get访问URL ? &amp; =</span>
+<span class="built_in">NSDictionary</span> *dict = @{<span class="string">@"format"</span>: <span class="string">@"json"</span>};
+
+<span class="comment">// 网络访问是异步的,回调是主线程的,因此程序员不用管在主线程更新UI的事情</span>
+[manager GET:<span class="string">@"http://localhost/videos.php"</span> parameters:dict success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseObject);
+    <span class="comment">// 提问:NSURLConnection异步方法回调,是在子线程</span>
+    <span class="comment">// 得到回调之后,通常更新UI,是在主线程</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);
+}];
+}
+
+<span class="preprocessor">#pragma mark - POST登录</span>
+- (<span class="keyword">void</span>)postLogin
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+<span class="comment">// 原本需要拼接get访问URL ? &amp; =</span>
+<span class="built_in">NSDictionary</span> *dict = @{<span class="string">@"username"</span>: <span class="string">@"wangwu"</span>, <span class="string">@"password"</span> : <span class="string">@"wang"</span>};
+
+<span class="comment">// 网络访问是异步的,回调是主线程的,因此程序员不用管在主线程更新UI的事情</span>
+[manager POST:<span class="string">@"http://localhost/login.php"</span> parameters:dict success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseObject);
+    <span class="comment">// 提问:NSURLConnection异步方法回调,是在子线程</span>
+    <span class="comment">// 得到回调之后,通常更新UI,是在主线程</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);
+}];
+}
+
+<span class="preprocessor">#pragma mark - GET登录</span>
+- (<span class="keyword">void</span>)getLogin
+{
+AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+
+<span class="comment">// 原本需要拼接get访问URL ? &amp; =</span>
+<span class="built_in">NSDictionary</span> *dict = @{<span class="string">@"username"</span>: <span class="string">@"wangwu"</span>, <span class="string">@"password"</span> : <span class="string">@"wang"</span>};
+
+<span class="comment">// 网络访问是异步的,回调是主线程的,因此程序员不用管在主线程更新UI的事情</span>
+[manager GET:<span class="string">@"http://localhost/login.php"</span> parameters:dict success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, responseObject);
+    <span class="comment">// 提问:NSURLConnection异步方法回调,是在子线程</span>
+    <span class="comment">// 得到回调之后,通常更新UI,是在主线程</span>
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, [<span class="built_in">NSThread</span> currentThread]);
+} failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, error);
+}];
+}
+
+<span class="keyword">@end</span>
+
+
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+    镔哥哥做项目，一般的数据请求不管他多复杂，只要自己写好了请求，那么调用永远是那么的简单，那么我介绍一下
+
+一：需要用到第三方框架AFNetworking，直接写在工程pch头文件里就行因为经常用到它，这在网上随便下载就行，最好用cocopod来下载，这样什么都有了，cocopod是什么，我就不说，博客上面有介绍。
+
+开始啦：
+
+<span class="number">1</span>：自定义网络请求 DataRequestManager类专门管理网络用的
+
+朋友们以下代码就可以直接复制来用了
+
+<span class="variable">.h</span>文件
+
+<span class="comment">//  DataRequestManager.h</span>
+
+<span class="comment">//  TestKeyBoard</span>
+
+<span class="comment">//  Created by mac on 14-10-21.</span>
+
+<span class="comment">//  Copyright (c) 2014 年 mac. All rights reserved.</span>
+
+<span class="preprocessor">#import <span class="title">&lt;Foundation/Foundation.h&gt;</span></span>
+
+<span class="class"><span class="keyword">@protocol</span> <span class="title">DataRequestManagerDelegate</span>&lt; <span class="title">NSObject</span> &gt;</span>
+
+<span class="comment">// 通过代理传值到需要的地方</span>
+
+- ( <span class="keyword">void</span> )passValue:( <span class="keyword">id</span> )value;
+
+<span class="keyword">@optional</span>
+
+- ( <span class="keyword">void</span> )passGetValue:( <span class="keyword">id</span> )getValue;
+
+<span class="keyword">@end</span>
+
+<span class="class"><span class="keyword">@interface</span> <span class="title">DataRequestManager</span> : <span class="title">NSObject</span></span>
+
+{
+
+AFHTTPRequestOperationManager *manager; <span class="comment">// 创建请求（ iOS 6-7 ）</span>
+
+AFURLSessionManager *sessionManager;    <span class="comment">// 创建请求（ iOS7 专用）</span>
+
+AFHTTPRequestOperation *operation;      <span class="comment">// 创建请求管理（用于上传和下载）</span>
+
+}
+
+<span class="keyword">@property</span> ( <span class="keyword">nonatomic</span> , <span class="keyword">assign</span> ) <span class="keyword">id</span> &lt; DataRequestManagerDelegate &gt; delegate;
+
+<span class="comment">//GET 请求调用方法</span>
+
+- ( <span class="keyword">void</span> )methodGetWithURL:( <span class="built_in">NSString</span> *)urlString;
+
+<span class="comment">//POST 请求调用方法</span>
+
+- ( <span class="keyword">void</span> )methodPostWithURL:( <span class="built_in">NSString</span> *)urlString parameters:( <span class="built_in">NSDictionary</span> *)parameters;
+
+<span class="comment">// 上传图片</span>
+
+- ( <span class="keyword">void</span> )methodUploadWithURL:( <span class="built_in">NSString</span> *)urlString parameters:( <span class="built_in">NSDictionary</span> *)parameters image:( <span class="built_in">UIImage</span> *)image;
+
+<span class="keyword">@end</span>
+
+<span class="variable">.m</span>文件
+
+<span class="comment">//  DataRequestManager.m</span>
+
+<span class="comment">//  TestKeyBoard</span>
+
+<span class="comment">//</span>
+
+<span class="comment">//  Created by mac on 14-10-21.</span>
+
+<span class="comment">//  Copyright (c) 2014 年 mac. All rights reserved.</span>
+
+<span class="comment">//</span>
+
+<span class="preprocessor">#import <span class="title">"DataRequestManager.h"</span></span>
+
+<span class="preprocessor">#import <span class="title">"AFNetworking.h"</span></span>
+
+<span class="class"><span class="keyword">@implementation</span> <span class="title">DataRequestManager</span></span>
+
+<span class="comment">//GET 请求</span>
+
+- ( <span class="keyword">void</span> )methodGetWithURL:( <span class="built_in">NSString</span> *)urlString
+
+{
+
+<span class="comment">// 致空请求</span>
+
+<span class="keyword">if</span> ( manager ) {
+
+manager = <span class="literal">nil</span> ;
+
+}
+
+<span class="comment">// 创建请求</span>
+
+manager = [ AFHTTPRequestOperationManager manager ];
+
+<span class="comment">// 设置请求的解析器为 AFHTTPResponseSerializer （用于直接解析数据 NSData ），默认为 AFJSONResponseSerializer （用于解析 JSON ）</span>
+
+<span class="comment">//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span>
+
+<span class="comment">// 发送 GET 请求</span>
+
+[ manager GET :urlString parameters : <span class="literal">nil</span> success :^( AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+
+<span class="comment">// 请求成功（当解析器为 AFJSONResponseSerializer 时）</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"getSuccess: %@"</span> , responseObject);
+
+[ <span class="keyword">self</span> . delegate passGetValue :responseObject];
+
+<span class="comment">// 请求成功（当解析器为 AFHTTPResponseSerializer 时）</span>
+
+<span class="comment">//        NSString *JSONString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];</span>
+
+<span class="comment">//        NSLog(@"success:%@", JSONString);</span>
+
+} failure :^( AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+
+<span class="comment">// 请求失败</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Error: %@"</span> , error);
+
+}];
+
+}
+
+<span class="preprocessor">#pragma mark - POST Request (iOS 6-7)</span>
+
+<span class="comment">//POST 请求</span>
+
+- ( <span class="keyword">void</span> )methodPostWithURL:( <span class="built_in">NSString</span> *)urlString parameters:( <span class="built_in">NSDictionary</span> *)parameters
+
+{
+
+<span class="comment">// 致空请求</span>
+
+<span class="keyword">if</span> ( manager ) {
+
+manager = <span class="literal">nil</span> ;
+
+}
+
+<span class="comment">// 添加参数</span>
+
+<span class="comment">// 创建请求</span>
+
+manager = [ AFHTTPRequestOperationManager manager ];
+
+<span class="comment">// 设置请求的解析器为 AFHTTPResponseSerializer （用于直接解析数据 NSData ），默认为 AFJSONResponseSerializer （用于解析 JSON ）</span>
+
+<span class="comment">//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span>
+
+<span class="comment">// 发送 POST 请求</span>
+
+[ manager POST :urlString parameters :parameters success :^( AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+
+<span class="comment">// 请求成功（当解析器为 AFJSONResponseSerializer 时）</span>
+
+<span class="comment">//        NSLog(@"Success: %@", responseObject);</span>
+
+[ <span class="keyword">self</span> . delegate passValue :responseObject];
+
+<span class="comment">// 请求成功（当解析器为 AFHTTPResponseSerializer 时）</span>
+
+<span class="comment">//        NSString *JSONString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];</span>
+
+<span class="comment">//        NSLog(@"success:%@", JSONString);</span>
+
+} failure :^( AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+
+<span class="comment">// 请求失败</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Error: %@"</span> , error);
+
+}];
+
+}
+
+<span class="preprocessor">#pragma mark - Upload Request (iOS 6-7)</span>
+
+<span class="comment">// 上传（以表单方式上传，以图片为例）</span>
+
+- ( <span class="keyword">void</span> )methodUploadWithURL:( <span class="built_in">NSString</span> *)urlString parameters:( <span class="built_in">NSDictionary</span> *)parameters image:( <span class="built_in">UIImage</span> *)image
+
+{
+
+<span class="comment">// 致空请求</span>
+
+<span class="keyword">if</span> ( manager ) {
+
+manager = <span class="literal">nil</span> ;
+
+}
+
+<span class="comment">// 添加参数</span>
+
+<span class="comment">// 创建请求</span>
+
+manager = [ AFHTTPRequestOperationManager manager ];
+
+<span class="comment">// 设置请求的解析器为 AFHTTPResponseSerializer （用于直接解析数据 NSData ），默认为 AFJSONResponseSerializer （用于解析 JSON ）</span>
+
+<span class="comment">//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];</span>
+
+<span class="comment">// 发送 POST 请求，添加需要发送的文件，此处为图片</span>
+
+[ manager POST :urlString parameters :parameters constructingBodyWithBlock :^( <span class="keyword">id</span> &lt; AFMultipartFormData &gt; formData) {
+
+<span class="comment">// 添加图片，并对其进行压缩（ 0.0 为最大压缩率， 1.0 为最小压缩率）</span>
+
+<span class="built_in">NSData</span> *imageData = <span class="built_in">UIImageJPEGRepresentation</span> (image, <span class="number">1.0</span> );
+
+<span class="built_in">NSDateFormatter</span> *formatter = [[ <span class="built_in">NSDateFormatter</span> alloc ] init ];
+
+<span class="comment">// 设置时间格式</span>
+
+formatter. dateFormat = <span class="string">@"yyyyMMddHHmmss"</span> ;
+
+<span class="built_in">NSString</span> *str = [formatter stringFromDate :[ <span class="built_in">NSDate</span> date ]];
+
+<span class="built_in">NSString</span> *fileName = [ <span class="built_in">NSString</span> stringWithFormat : <span class="string">@"%@.png"</span> , str];
+
+<span class="comment">// 添加要上传的文件，此处为图片</span>
+
+[formData appendPartWithFileData :imageData
+
+name : <span class="string">@"uploadFile"</span>
+
+fileName :fileName
+
+mimeType : <span class="string">@"image/jpeg"</span> ];
+
+} success :^( AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) {
+
+<span class="comment">// 请求成功（当解析器为 AFJSONResponseSerializer 时）</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Success: %@"</span> , responseObject);
+
+[ <span class="keyword">self</span> . delegate passValue :responseObject];
+
+<span class="comment">// 请求成功（当解析器为 AFHTTPResponseSerializer 时）</span>
+
+<span class="comment">//        NSString *JSONString = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];</span>
+
+<span class="comment">//        NSLog(@"success:%@", JSONString);</span>
+
+} failure :^( AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) {
+
+<span class="comment">// 请求失败</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Error: %@"</span> , error);
+
+}];
+
+}
+
+<span class="preprocessor">#pragma mark - Download Request (iOS 6-7)</span>
+
+<span class="comment">// 下载</span>
+
+- ( <span class="keyword">void</span> )methodDownload
+
+{
+
+<span class="comment">/*
+
+// 下载进度条
+
+UIProgressView  *downProgressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+
+downProgressView.center = CGPointMake(self.view.center.x, 220);
+
+downProgressView.progress = 0;
+
+downProgressView.progressTintColor = [UIColor blueColor];
+
+downProgressView.trackTintColor = [UIColor grayColor];
+
+[self.view addSubview:downProgressView];
+
+// 设置存放文件的位置（此 Demo 把文件保存在 iPhone 沙盒中的 Documents 文件夹中。关于如何获取文件路径，请自行搜索相关资料）
+
+// 方法一
+
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+//    NSString *cachesDirectory = [paths objectAtIndex:0];
+
+//    NSString *filePath = [cachesDirectory stringByAppendingPathComponent:@" 文件名 "];
+
+// 方法二
+
+NSString *filePath = [NSString stringWithFormat:@"%@/Documents/ 文件名（注意后缀名） ", NSHomeDirectory()];
+
+// 打印文件保存的路径
+
+NSLog(@"%@",filePath);
+
+// 创建请求管理
+
+operation = [[AFHTTPRequestOperation alloc] initWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@" 下载地址 "]]];
+
+// 添加下载请求（获取服务器的输出流）
+
+operation.outputStream = [NSOutputStream outputStreamToFileAtPath:filePath append:NO];
+
+// 设置下载进度条
+
+[operation setDownloadProgressBlock:^(NSUInteger bytesRead, long long totalBytesRead, long long totalBytesExpectedToRead) {
+
+// 显示下载进度
+
+CGFloat progress = ((float)totalBytesRead) / totalBytesExpectedToRead;
+
+[downProgressView setProgress:progress animated:YES];
+
+}];
+
+// 请求管理判断请求结果
+
+[operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+// 请求成功
+
+NSLog(@"Finish and Download to: %@", filePath);
+
+} failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+
+// 请求失败
+
+NSLog(@"Error: %@",error);
+
+}];
+
+*/</span>
+
+}
+
+<span class="preprocessor">#pragma mark - Download Management (iOS 6-7)</span>
+
+<span class="comment">// 开始下载（断点续传）</span>
+
+- ( <span class="keyword">void</span> )downloadStart
+
+{
+
+[ <span class="keyword">self</span> methodDownload ];
+
+[ operation start ];
+
+}
+
+<span class="comment">// 暂停下载（断点续传）</span>
+
+- ( <span class="keyword">void</span> )downloadPause
+
+{
+
+[ operation pause ];
+
+}
+
+<span class="comment">// 继续下载（断点续传）</span>
+
+- ( <span class="keyword">void</span> )downloadResume
+
+{
+
+[ operation resume ];
+
+}
+
+<span class="preprocessor">#pragma mark - Upload Request (iOS 7 only)</span>
+
+<span class="comment">// 上传（ iOS7 专用）</span>
+
+- ( <span class="keyword">void</span> )methodUploadFor7
+
+{
+
+<span class="comment">// 致空请求</span>
+
+<span class="keyword">if</span> ( sessionManager ) {
+
+sessionManager = <span class="literal">nil</span> ;
+
+}
+
+<span class="comment">// 创建请求（ iOS7 专用）</span>
+
+sessionManager = [[ AFURLSessionManager alloc ] initWithSessionConfiguration :[ <span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration ]];
+
+<span class="comment">// 添加请求接口</span>
+
+<span class="built_in">NSURLRequest</span> *request = [ <span class="built_in">NSURLRequest</span> requestWithURL :[ <span class="built_in">NSURL</span> URLWithString : <span class="string">@" 上传地址 "</span> ]];
+
+<span class="comment">// 添加上传的文件</span>
+
+<span class="built_in">NSURL</span> *filePath = [ <span class="built_in">NSURL</span> fileURLWithPath : <span class="string">@" 本地文件地址 "</span> ];
+
+<span class="comment">// 发送上传请求</span>
+
+<span class="built_in">NSURLSessionUploadTask</span> *uploadTask = [ sessionManager uploadTaskWithRequest :request fromFile :filePath progress : <span class="literal">nil</span> completionHandler :^( <span class="built_in">NSURLResponse</span> *response, <span class="keyword">id</span> responseObject, <span class="built_in">NSError</span> *error) {
+
+<span class="keyword">if</span> (error) {
+
+<span class="comment">// 请求失败</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Error: %@"</span> , error);
+
+} <span class="keyword">else</span> {
+
+<span class="comment">// 请求成功</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Success: %@ %@"</span> , response, responseObject);
+
+}
+
+}];
+
+<span class="comment">// 开始上传</span>
+
+[uploadTask resume ];
+
+}
+
+<span class="preprocessor">#pragma mark - Download Request (iOS 7 only)</span>
+
+<span class="comment">// 下载（ iOS7 专用）</span>
+
+- ( <span class="keyword">void</span> )methodDownloadFor7
+
+{
+
+<span class="comment">// 致空请求</span>
+
+<span class="keyword">if</span> ( sessionManager ) {
+
+sessionManager = <span class="literal">nil</span> ;
+
+}
+
+<span class="comment">// 创建请求（ iOS7 专用）</span>
+
+sessionManager = [[ AFURLSessionManager alloc ] initWithSessionConfiguration :[ <span class="built_in">NSURLSessionConfiguration</span> defaultSessionConfiguration ]];
+
+<span class="comment">// 添加请求接口</span>
+
+<span class="built_in">NSURLRequest</span> *request = [ <span class="built_in">NSURLRequest</span> requestWithURL :[ <span class="built_in">NSURL</span> URLWithString : <span class="string">@" 下载地址 "</span> ]];
+
+<span class="comment">// 发送下载请求</span>
+
+<span class="built_in">NSURLSessionDownloadTask</span> *downloadTask = [ sessionManager downloadTaskWithRequest :request progress : <span class="literal">nil</span> destination :^ <span class="built_in">NSURL</span> *( <span class="built_in">NSURL</span> *targetPath, <span class="built_in">NSURLResponse</span> *response) {
+
+<span class="comment">// 设置存放文件的位置（此 Demo 把文件保存在 iPhone 沙盒中的 Documents 文件夹中。关于如何获取文件路径，请自行搜索相关资料）</span>
+
+<span class="built_in">NSURL</span> *filePath = [ <span class="built_in">NSURL</span> fileURLWithPath :[ <span class="built_in">NSSearchPathForDirectoriesInDomains</span> ( <span class="built_in">NSDocumentDirectory</span> , <span class="built_in">NSUserDomainMask</span> , <span class="literal">YES</span> ) firstObject ]];
+
+<span class="keyword">return</span> [filePath URLByAppendingPathComponent :[response suggestedFilename ]];
+
+} completionHandler :^( <span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSURL</span> *filePath, <span class="built_in">NSError</span> *error) {
+
+<span class="comment">// 下载完成</span>
+
+<span class="built_in">NSLog</span> ( <span class="string">@"Finish and Download to: %@"</span> , filePath);
+
+}];
+
+<span class="comment">// 开始下载</span>
+
+[downloadTask resume ];
+
+}
+
+<span class="keyword">@end</span>
+
+工程完美，自己复制可用
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/09/AFNetworking简单使用/" data-id="cij5xh6o7002yi33m43ar5p12" class="article-share-link" data-share="baidu" data-title="AFNetworking简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/09/AFNetworking简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-常用命令总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/06/常用命令总结/" class="article-date">
+  <time datetime="2015-10-06T09:10:07.000Z" itemprop="datePublished">2015-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/06/常用命令总结/">常用命令总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>po [self.view recursiveDescription];</p>
+<p>pod install –verbose –no-repo-update<br>pod update –verbose –no-repo-update</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/06/常用命令总结/" data-id="cij5xh6ma000ci33mhjcj4fd8" class="article-share-link" data-share="baidu" data-title="常用命令总结">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/06/常用命令总结/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/命令行/">命令行</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Macbook使用技巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/06/Macbook使用技巧/" class="article-date">
+  <time datetime="2015-10-06T01:44:36.000Z" itemprop="datePublished">2015-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/06/Macbook使用技巧/">Macbook使用技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在终端中输入下面一整条命令行，来调整Time Machine备份周期：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int <span class="number">14400</span></span><br></pre></td></tr></table></figure></p>
+<p>复制代码<br>在这里面，最后的数字是以秒计算的，3600秒就是一个小时，而上面的14400秒就是4个小时。Time Machine默认的备份周期是一个小时，所以你可以根据自己的需要改称其他的时间长度。</p>
+<p>所以，想要恢复成默认状态，就可以在终端输入3600秒的命令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo defaults write /System/Library/LaunchDaemons/com.apple.backupd-auto StartInterval -int <span class="number">3600</span></span><br></pre></td></tr></table></figure></p>
+<p>复制代码</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/10/06/Macbook使用技巧/" data-id="cij5xh6np0025i33m8sdai1or" class="article-share-link" data-share="baidu" data-title="Macbook使用技巧">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/10/06/Macbook使用技巧/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-UIFont简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/24/UIFont简单使用/" class="article-date">
+  <time datetime="2015-09-24T03:50:07.000Z" itemprop="datePublished">2015-09-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/24/UIFont简单使用/">UIFont简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>UIFont<em> font = [UIFont fontWithName:@”Arial-ItalicMT” size:21.0];<br>NSDictionary</em> textAttributes = @{NSFontAttributeName:font,<br>NSForegroundColorAttributeName:[UIColor blackColor]}; </p>
+<p>[[UINavigationBar appearance]setTitleTextAttributes:textAttributes]; </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/24/UIFont简单使用/" data-id="cij5xh6n1001di33mqgbdhll6" class="article-share-link" data-share="baidu" data-title="UIFont简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/24/UIFont简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS-Swift/">IOS-Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开源项目/">IOS开源项目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios开发/">ios开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios经验/">ios经验</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心情/">心情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IOS-Swift/" style="font-size: 10px;">IOS-Swift</a> <a href="/tags/IOS开发SDK/" style="font-size: 20px;">IOS开发SDK</a> <a href="/tags/IOS开发经验总结/" style="font-size: 16.67px;">IOS开发经验总结</a> <a href="/tags/IOS开源项目/" style="font-size: 10px;">IOS开源项目</a> <a href="/tags/IOS网站博客/" style="font-size: 10px;">IOS网站博客</a> <a href="/tags/MarkDown/" style="font-size: 16.67px;">MarkDown</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios开发/" style="font-size: 10px;">ios开发</a> <a href="/tags/ios经验/" style="font-size: 10px;">ios经验</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/07/textsadasd/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/教你如何获取ios系统信息/">教你如何获取ios系统信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/Git的简单使用/">Git的简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/05/MVC，MVP 和 MVVM 架构/">MVC，MVP 和 MVVM 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/30/UIViewController简单使用/">UIViewController简单使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 DexSinister<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

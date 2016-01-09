@@ -1,0 +1,386 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript">
+  var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//dexsinister.github.io/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+  
+  <title>AsyncSocket简单使用 | DexSinis Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="有一段时间没有认真总结和写博客了
+前段时间找工作、进入工作阶段。比较少静下来认真总结，现在静下心来总结一下最近的一些心得
+前言AsyncSocket介绍AsyncSocket详解AsyncSocket示例一、前言
+公司的项目用到了Socket编程，之前在学习的过程当中，用到的更多的还是http请求的方式。但是既然用到了就必须学习一下，所以就在网上找一些例子，然后想自己写一个demo。可是发现很多写">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AsyncSocket简单使用">
+<meta property="og:url" content="http://yoursite.com/2015/09/06/AsyncSocket简单使用/index.html">
+<meta property="og:site_name" content="DexSinis Blog">
+<meta property="og:description" content="有一段时间没有认真总结和写博客了
+前段时间找工作、进入工作阶段。比较少静下来认真总结，现在静下心来总结一下最近的一些心得
+前言AsyncSocket介绍AsyncSocket详解AsyncSocket示例一、前言
+公司的项目用到了Socket编程，之前在学习的过程当中，用到的更多的还是http请求的方式。但是既然用到了就必须学习一下，所以就在网上找一些例子，然后想自己写一个demo。可是发现很多写">
+<meta property="og:image" content="http://yoursite.com/MyImage/AsyncSocket/AsyncSocket.jpg">
+<meta property="og:updated_time" content="2015-09-09T03:18:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AsyncSocket简单使用">
+<meta name="twitter:description" content="有一段时间没有认真总结和写博客了
+前段时间找工作、进入工作阶段。比较少静下来认真总结，现在静下心来总结一下最近的一些心得
+前言AsyncSocket介绍AsyncSocket详解AsyncSocket示例一、前言
+公司的项目用到了Socket编程，之前在学习的过程当中，用到的更多的还是http请求的方式。但是既然用到了就必须学习一下，所以就在网上找一些例子，然后想自己写一个demo。可是发现很多写">
+  
+    <link rel="alternative" href="/atom.xml" title="DexSinis Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67376920-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DexSinis Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-AsyncSocket简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/06/AsyncSocket简单使用/" class="article-date">
+  <time datetime="2015-09-06T03:50:07.000Z" itemprop="datePublished">2015-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      AsyncSocket简单使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有一段时间没有认真总结和写博客了</p>
+<p>前段时间找工作、进入工作阶段。比较少静下来认真总结，现在静下心来总结一下最近的一些心得</p>
+<p>前言<br>AsyncSocket介绍<br>AsyncSocket详解<br>AsyncSocket示例<br>一、前言</p>
+<p>公司的项目用到了Socket编程，之前在学习的过程当中，用到的更多的还是http请求的方式。但是既然用到了就必须学习一下，所以就在网上找一些例子，然后想自己写一个demo。可是发现很多写iOS Socket的博客并没有很详细的说明，也可能是大神们觉得其他东西都浅显易懂。</p>
+<p>自己专研了一下，将自己的一些理解总结出来，一方面整理自己的学习思路，另一方面，为一些和我有同样困惑的小伙伴们，稍做指引。</p>
+<p> 二、AsyncSocket介绍</p>
+<p>1⃣️iOS中Socket编程的方式有哪些？</p>
+<p>－BSD Socket</p>
+<p>BSD Socket 是UNIX系统中通用的网络接口，它不仅支持各种不同的网络类型，而且也是一种内部进程之间的通信机制。而iOS系统其实本质就是UNIX，所以可以用，但是比较复杂。</p>
+<p>－CFSocket</p>
+<p>CFSocket是苹果提供给我们的使用Socket的方式，但是用起来还是会不太顺手。当然想使用的话，可以细细研究一下。</p>
+<p>－AsyncSocket</p>
+<p>这次博客的主讲内容，也是我们在开发项目中经常会用到的。</p>
+<p>2⃣️为什么选择AsyncSocket？</p>
+<p>iphone的CFNetwork编程比较艰深。使用AsyncSocket开源库来开发相对较简单，帮助我们封装了很多东西。</p>
+<p>三、AsyncSocket详解</p>
+<p> 1⃣️说明</p>
+<p>在我们开发当中，我们主要的任务是开发客户端。所以详解里主要将客户端的整个连接建立过程，以及在说明时候回调哪些函数。在后面的示例代码中，也会给出服务器端的简单开发。</p>
+<p>2 过程详解</p>
+<p>1.建立连接</p>
+<ul>
+<li>(int)connectServer:(NSString *)hostIP port:(int)hostPort</li>
+</ul>
+<p>2.连接成功后，会回调的函数</p>
+<ul>
+<li>(void)onSocket:(AsyncSocket <em>)sock didConnectToHost:(NSString </em>)host port:(UInt16)port</li>
+</ul>
+<p>3.发送数据</p>
+<ul>
+<li>(void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;</li>
+</ul>
+<p>4.接受数据</p>
+<p>-(void)onSocket:(AsyncSocket <em>)sock didReadData:(NSData </em>)data withTag:(long)tag</p>
+<p>5.断开连接</p>
+<ul>
+<li><p>(void)onSocket:(AsyncSocket <em>)sock willDisconnectWithError:(NSError </em>)err</p>
+</li>
+<li><p>(void)onSocketDidDisconnect:(AsyncSocket *)sock</p>
+</li>
+</ul>
+<p>主要就是上述的几个方法，只是说在真正开发当中，很可能我们在收发数据的时候，我们收发的数据并不仅仅是一个字符串包装成NSData即可，我们很可能会发送结构体等类型，这个时候我们就需要和服务器端的人员协作来开发：定义怎样的结构体。</p>
+<p>四、AsyncSocket示例</p>
+<p>客户端代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "ViewController.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define SRV_CONNECTED 0</span></span><br><span class="line"><span class="comment">#define SRV_CONNECT_SUC 1</span></span><br><span class="line"><span class="comment">#define SRV_CONNECT_FAIL 2</span></span><br><span class="line"><span class="comment">#define HOST_IP @"192.168.83.40"</span></span><br><span class="line"><span class="comment">#define HOST_PORT 8008</span></span><br><span class="line"></span><br><span class="line">@interface <span class="function"><span class="title">ViewController</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">    NSString *_content;</span><br><span class="line">&#125;</span><br><span class="line">-(int) connectServer: (NSString *) hostIP port:(int) hostPort;</span><br><span class="line">-(void)showMessage:(NSString *) msg;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">@synthesize clientSocket,tbInputMsg,lblOutputMsg;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark - view lifecycle</span></span><br><span class="line">- (void)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [self connectServer:HOST_IP port:HOST_PORT];</span><br><span class="line">&#125;</span><br><span class="line">- (void)viewDidUnload</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidUnload];</span><br><span class="line">    [clientSocket release], clientSocket = nil;</span><br><span class="line">    [tbInputMsg release], tbInputMsg = nil;</span><br><span class="line">    [lblOutputMsg release], lblOutputMsg = nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (int)connectServer:(NSString *)hostIP port:(int)hostPort</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (clientSocket == nil)</span><br><span class="line">    &#123;</span><br><span class="line">        // 在需要联接地方使用connectToHost联接服务器</span><br><span class="line">        clientSocket = [[AsyncSocket alloc] initWithDelegate:self];</span><br><span class="line">        NSError *err = nil;</span><br><span class="line">        <span class="keyword">if</span> (![clientSocket connectToHost:hostIP onPort:hostPort error:&amp;err])</span><br><span class="line">        &#123;</span><br><span class="line">            NSLog(@<span class="string">"Error %d:%@"</span>, err.code, [err localizedDescription]);</span><br><span class="line">            </span><br><span class="line">            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[@<span class="string">"Connection failed to host"</span> stringByAppendingString:hostIP] message:[NSString stringWithFormat:@<span class="string">"%d:%@"</span>,err.code,err.localizedDescription] delegate:self cancelButtonTitle:@<span class="string">"OK"</span> otherButtonTitles:nil];</span><br><span class="line">            [alert show];</span><br><span class="line">            [alert release];</span><br><span class="line">            <span class="built_in">return</span> SRV_CONNECT_FAIL;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            NSLog(@<span class="string">"Connected!"</span>);</span><br><span class="line">            <span class="built_in">return</span> SRV_CONNECT_SUC;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> SRV_CONNECTED;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark - IBAction</span></span><br><span class="line">// 发送数据</span><br><span class="line">- (IBAction) sendMsg:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    NSString *inputMsgStr = tbInputMsg.text;</span><br><span class="line">    NSString * content = [inputMsgStr stringByAppendingString:@<span class="string">"\r\n"</span>];</span><br><span class="line">    NSLog(@<span class="string">"%@"</span>,content);</span><br><span class="line">    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    // NSData *data = [content dataUsingEncoding:NSISOLatin1StringEncoding];</span><br><span class="line">    [clientSocket writeData:data withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line">// 连接/重新连接</span><br><span class="line">- (IBAction) reconnect:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    int <span class="built_in">stat</span> = [self connectServer:HOST_IP port:HOST_PORT];</span><br><span class="line">    switch (<span class="built_in">stat</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECT_SUC:</span><br><span class="line">            [self showMessage:@<span class="string">"connect success"</span>];</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECTED:</span><br><span class="line">            [self showMessage:@<span class="string">"It's connected,don't agian"</span>];</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        default:</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">- (void)showMessage:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@<span class="string">"Alert!"</span></span><br><span class="line">                                                    message:msg</span><br><span class="line">                                                   delegate:nil</span><br><span class="line">                                          cancelButtonTitle:@<span class="string">"OK"</span></span><br><span class="line">                                          otherButtonTitles:nil];</span><br><span class="line">    [alert show];</span><br><span class="line">    [alert release];</span><br><span class="line">&#125;</span><br><span class="line">- (IBAction)textFieldDoneEditing:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    [tbInputMsg resignFirstResponder];</span><br><span class="line">&#125;</span><br><span class="line">- (IBAction)backgroundTouch:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    [tbInputMsg resignFirstResponder];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark socket delegate</span></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</span><br><span class="line">&#123;</span><br><span class="line">    [clientSocket <span class="built_in">read</span>DataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">"Error"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    NSString *msg = @<span class="string">"Sorry this connect is failure"</span>;</span><br><span class="line">    [self showMessage:msg];</span><br><span class="line">    [msg release];</span><br><span class="line">    clientSocket = nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidSecure:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 接收到数据（可以通过tag区分）</span><br><span class="line">-(void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">    NSString* aStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</span><br><span class="line">    _content = lblOutputMsg.text;</span><br><span class="line">    NSLog(@<span class="string">"Hava received datas is :%@"</span>,aStr);</span><br><span class="line">    NSString *newStr = [NSString stringWithFormat:@<span class="string">"\n%@"</span>, aStr];</span><br><span class="line">    lblOutputMsg.text = [_content stringByAppendingString:newStr];</span><br><span class="line">    [aStr release];</span><br><span class="line">    [clientSocket <span class="built_in">read</span>DataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>服务器端代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "SocketView.h"</span></span><br><span class="line"><span class="comment">#import "AsyncSocket.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define WELCOME_MSG  0</span></span><br><span class="line"><span class="comment">#define ECHO_MSG     1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]</span></span><br><span class="line"></span><br><span class="line">@interface SocketView (PrivateAPI)</span><br><span class="line">- (void)<span class="built_in">log</span>Error:(NSString *)msg;</span><br><span class="line">- (void)<span class="built_in">log</span>Info:(NSString *)msg;</span><br><span class="line">- (void)<span class="built_in">log</span>Message:(NSString *)msg;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation SocketView</span><br><span class="line"></span><br><span class="line">// 初始化</span><br><span class="line">- (void)awakeFromNib</span><br><span class="line">&#123;</span><br><span class="line">    listenSocket = [[AsyncSocket alloc] initWithDelegate:self];</span><br><span class="line">    [listenSocket <span class="built_in">set</span>RunLoopModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];</span><br><span class="line">    </span><br><span class="line">    connectedSockets = [[NSMutableArray alloc] initWithCapacity:<span class="number">1</span>];</span><br><span class="line">    isRunning = NO;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">log</span>View <span class="built_in">set</span>String:@<span class="string">""</span>];</span><br><span class="line">    // [portField <span class="built_in">set</span>String:@<span class="string">"8080"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (IBAction)startStop:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isRunning)</span><br><span class="line">    &#123;</span><br><span class="line">        int port = [portField intValue];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(port &lt; <span class="number">0</span> || port &gt; <span class="number">65535</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            port = <span class="number">0</span>; // 会随即取端口</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        NSError *error = nil;</span><br><span class="line">        <span class="keyword">if</span>(![listenSocket acceptOnPort:port error:&amp;error])</span><br><span class="line">        &#123;</span><br><span class="line">            [self <span class="built_in">log</span>Error:FORMAT(@<span class="string">"Error starting server: %@"</span>, error)];</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Echo server started on port %hu"</span>, [listenSocket <span class="built_in">local</span>Port])];</span><br><span class="line">        isRunning = YES;</span><br><span class="line">        </span><br><span class="line">        [portField <span class="built_in">set</span>Enabled:NO];</span><br><span class="line">        [startStopButton <span class="built_in">set</span>Title:@<span class="string">"Stop"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        // Stop accepting connections</span><br><span class="line">        [listenSocket disconnect];</span><br><span class="line">        </span><br><span class="line">        // Stop any client connections</span><br><span class="line">        int i;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; [connectedSockets count]; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            // Call disconnect on the socket,</span><br><span class="line">            // <span class="built_in">which</span> will invoke the onSocketDidDisconnect: method,</span><br><span class="line">            // <span class="built_in">which</span> will remove the socket from the list.</span><br><span class="line">            [[connectedSockets objectAtIndex:i] disconnect];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self <span class="built_in">log</span>Info:@<span class="string">"Stopped Echo server"</span>];</span><br><span class="line">        isRunning = <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        [portField <span class="built_in">set</span>Enabled:YES];</span><br><span class="line">        [startStopButton <span class="built_in">set</span>Title:@<span class="string">"Start"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)scrollToBottom</span><br><span class="line">&#123;</span><br><span class="line">    NSScrollView *scrollView = [<span class="built_in">log</span>View enclosingScrollView];</span><br><span class="line">    NSPoint newScrollOrigin;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([[scrollView documentView] isFlipped])</span><br><span class="line">        newScrollOrigin = NSMakePoint(<span class="number">0.0</span>, NSMaxY([[scrollView documentView] frame]));</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        newScrollOrigin = NSMakePoint(<span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">    </span><br><span class="line">    [[scrollView documentView] scrollPoint:newScrollOrigin];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Error:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor redColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Info:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor purpleColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Message:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor blackColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket</span><br><span class="line">&#123;</span><br><span class="line">    [connectedSockets addObject:newSocket];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 客户连接成功！</span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</span><br><span class="line">&#123;</span><br><span class="line">    [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Accepted client %@:%hu"</span>, host, port)];</span><br><span class="line">    </span><br><span class="line">    NSString *welcomeMsg = @<span class="string">"恭喜您,已经通过scoket连接上服务器!"</span>;</span><br><span class="line">    NSData *welcomeData = [welcomeMsg dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    </span><br><span class="line">    [sock writeData:welcomeData withTimeout:-<span class="number">1</span> tag:WELCOME_MSG];</span><br><span class="line">    </span><br><span class="line">    // We could call <span class="built_in">read</span>DataToData:withTimeout:tag: here - that would be perfectly fine.</span><br><span class="line">    // If we did this, we want to add a check <span class="keyword">in</span> onSocket:didWriteDataWithTag: and only</span><br><span class="line">    // queue another <span class="built_in">read</span> <span class="keyword">if</span> tag != WELCOME_MSG.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">   [sock <span class="built_in">read</span>DataToData:[AsyncSocket CRLFData] withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line">// 接收到数据</span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">    NSData *strData = [data subdataWithRange:NSMakeRange(<span class="number">0</span>, [data length] - <span class="number">2</span>)];</span><br><span class="line">    NSString *recvMsg = [[[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding] autorelease];</span><br><span class="line">    <span class="keyword">if</span>(recvMsg)</span><br><span class="line">    &#123;</span><br><span class="line">        [self <span class="built_in">log</span>Message:recvMsg];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        [self <span class="built_in">log</span>Error:@<span class="string">"Error converting received data into UTF-8 String"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    NSString *backStr = nil;</span><br><span class="line">    <span class="keyword">for</span> (AsyncSocket *socket <span class="keyword">in</span> connectedSockets) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([sock isEqualTo:socket]) &#123;</span><br><span class="line">            backStr = [NSString stringWithFormat:@<span class="string">"我说: %@"</span>,recvMsg];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            backStr = [NSString stringWithFormat:@<span class="string">"他说: %@"</span>,recvMsg];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 回发数据</span><br><span class="line">    NSData* backData = [backStr dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    [sock writeData:backData withTimeout:-<span class="number">1</span> tag:ECHO_MSG];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</span><br><span class="line">&#123;</span><br><span class="line">    [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort])];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    [connectedSockets removeObject:sock];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>界面搭建<br><img src="/MyImage/AsyncSocket/AsyncSocket.jpg" alt="界面搭建"></p>
+<h3 id="源代码_(/CodeSource/AsyncSocket/AsyncSocket-zip)"><a href="/CodeSource/AsyncSocket/AsyncSocket.zip">源代码</a> (/CodeSource/AsyncSocket/AsyncSocket.zip)</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/06/AsyncSocket简单使用/" data-id="cij5xh6o5002wi33mc0bpcppv" class="article-share-link" data-share="baidu" data-title="AsyncSocket简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/06/AsyncSocket简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/07/UIImage简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          UIImage简单使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/05/IOSFamousBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">IOSFamousBlog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/09/06/AsyncSocket简单使用/" data-title="AsyncSocket简单使用" data-url="http://yoursite.com/2015/09/06/AsyncSocket简单使用/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS-Swift/">IOS-Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开源项目/">IOS开源项目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios开发/">ios开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios经验/">ios经验</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心情/">心情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IOS-Swift/" style="font-size: 10px;">IOS-Swift</a> <a href="/tags/IOS开发SDK/" style="font-size: 20px;">IOS开发SDK</a> <a href="/tags/IOS开发经验总结/" style="font-size: 16.67px;">IOS开发经验总结</a> <a href="/tags/IOS开源项目/" style="font-size: 10px;">IOS开源项目</a> <a href="/tags/IOS网站博客/" style="font-size: 10px;">IOS网站博客</a> <a href="/tags/MarkDown/" style="font-size: 16.67px;">MarkDown</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios开发/" style="font-size: 10px;">ios开发</a> <a href="/tags/ios经验/" style="font-size: 10px;">ios经验</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/07/textsadasd/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/教你如何获取ios系统信息/">教你如何获取ios系统信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/Git的简单使用/">Git的简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/05/MVC，MVP 和 MVVM 架构/">MVC，MVP 和 MVVM 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/30/UIViewController简单使用/">UIViewController简单使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 DexSinister<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

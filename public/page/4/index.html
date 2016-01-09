@@ -1,0 +1,1172 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript">
+  var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//dexsinister.github.io/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+  
+  <title>DexSinis Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="How to use Hexo">
+<meta property="og:type" content="website">
+<meta property="og:title" content="DexSinis Blog">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
+<meta property="og:site_name" content="DexSinis Blog">
+<meta property="og:description" content="How to use Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="DexSinis Blog">
+<meta name="twitter:description" content="How to use Hexo">
+  
+    <link rel="alternative" href="/atom.xml" title="DexSinis Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67376920-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DexSinis Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main">
+  
+    <article id="post-UITableView简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/08/UITableView简单使用/" class="article-date">
+  <time datetime="2015-09-08T03:50:07.000Z" itemprop="datePublished">2015-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/08/UITableView简单使用/">UITableView简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>标签（空格分隔）： 未分类</p>
+<hr>
+<p>在此输入正文</p>
+<p>cell.selectionStyle = UITableViewCellSelectionStyleNone;  </p>
+<p>tableView: cellForRowAtIndexPath:方法中有两个获得重用cell的方法<br>UITableViewCell <em>cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];<br>和<br>UITableViewCell </em>cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath]</p>
+<p>请问他们有什么区别？<br>当我用 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath]的时候为什么总报错<br>reason: ‘unable to dequeue a cell with identifier Cell - must register a nib or a class for the identifier or connect a prototype cell in a storyboard’</p>
+<p>——解决方案——————————————————–</p>
+<ul>
+<li>(id)dequeueReusableCellWithIdentifier:(NSString *)identifier;</li>
+<li>(id)dequeueReusableCellWithIdentifier:(NSString <em>)identifier forIndexPath:(NSIndexPath </em>)indexPath<br>NS_AVAILABLE_IOS(6_0); // newer</li>
+</ul>
+<p>区别在这儿</p>
+<p>——解决方案——————————————————–<br>1 这个方法在SDK5.0是运行不起来的。<br>2 如果需要使用这个方法，你必须使用配套的方法来一起用，下面两个配套方法：<br>// Beginning in iOS 6, clients can register a nib or class for each cell.<br>// If all reuse identifiers are registered, use the newer -dequeueReusableCellWithIdentifier:forIndexPath: to guarantee that a cell instance is returned.<br>// Instances returned from the new dequeue method will also be properly sized when they are returned.</p>
+<ul>
+<li>(void)registerNib:(UINib <em>)nib forCellReuseIdentifier:(NSString </em>)identifier NS_AVAILABLE_IOS(5_0);</li>
+<li>(void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier NS_AVAILABLE_IOS(6_0);</li>
+</ul>
+<p>注意看上面的注释</p>
+<p>3 比如你已经用NIB做了一个Cell，或者自定义了一个Cell。我们在你创建UITableView的时候，就可以顺带</p>
+<p>self.tableView.backgroundColor = xxxx;<br>[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@”CustomCell”];</p>
+<p>这样你在- (UITableViewCell <em>)tableView:(UITableView </em>)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath这个方法里，你就可以省下这些代码：</p>
+<pre><code><span class="keyword">static</span> <span class="built_in">NSString</span> *CellIdentifier = <span class="string">@"Cell"</span>;
+<span class="keyword">if</span> (cell == <span class="literal">nil</span>) {
+    cell = [[<span class="built_in">UITableViewCell</span> alloc] initWithStyle:<span class="built_in">UITableViewCellStyleDefault</span> reuseIdentifier:CellIdentifier];
+  <span class="comment">//设置你的cell</span>
+</code></pre><p>｝<br>而只需要</p>
+<pre><code>UITableViewCell *cell = [tableView <span class="string">dequeueReusableCellWithIdentifier:</span>@<span class="string">"Cell"</span> <span class="string">forIndexPath:</span>indexPath];
+</code></pre><p>这样就够了，这下你明白了吗？</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/08/UITableView简单使用/" data-id="cij5xh6mw0017i33moaita39e" class="article-share-link" data-share="baidu" data-title="UITableView简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/08/UITableView简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-UIImage简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/07/UIImage简单使用/" class="article-date">
+  <time datetime="2015-09-07T03:50:07.000Z" itemprop="datePublished">2015-09-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/07/UIImage简单使用/">UIImage简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//NSData转换为UIImage</span><br><span class="line">NSData *imageData = [NSData dataWithContentsOfFile: imagePath];</span><br><span class="line">UIImage *image = [UIImage imageWithData: imageData]**;</span><br><span class="line"></span><br><span class="line">//UIImage转换为NSData</span><br><span class="line">**NSData *imageData = UIImagePNGRepresentation(aimae);</span><br></pre></td></tr></table></figure>
+<p>IOS中对图片的处理 UIImage<br>相信做项目时肯定会有用到 UIImage 这个类，那我们就来看一下这个类中都有什么内容。<br>其实这篇文章就是在看文档的时候想记录一下文档中得方法。<br>UIImage 继承于NSObject<br>下面介绍一下UIImage中的方法<br>首先是我们最常用的</p>
+<p>通过图片的文件名来获取这个图片<br><strong>+ (UIImage <em>)imageNamed:(NSString </em>)name</strong><br>//要注意的是这个方法适用于已经导入到工程中的图片</p>
+<p>创建新图片</p>
+<p><strong>1、+ (UIImage <em>)imageWithContentsOfFile:(NSString </em>)path</strong><br>//通过文件加载指定路径下的文件内容获得新图片</p>
+<p><strong>2、+ (UIImage <em>)imageWithData:(NSData </em>)data</strong><br>//通过一个NSData对象来获得图片<br><strong>3、+ (UIImage <em>)imageWithData:(NSData </em>)data scale:(CGFloat)scale</strong><br>//同上，只是再加上一个图片大小比例，用来改变图片的大小</p>
+<p><strong>4、+ (UIImage *)imageWithCGImage:(CGImageRef)cgImage</strong><br>//使用Quartz 2D对象创建UIImage<br><strong>5、+ (UIImage *)imageWithCGImage:(CGImageRef)imageRef scale:(CGFloat)scale orientation:(UIImageOrientation)orientation</strong><br>//制定图片的比例和方向，其中方向是个枚举类。</p>
+<p><strong>6、+ (UIImage <em>)imageWithCIImage:(CIImage </em>)ciImage</strong><br>//用一个Core Image 对象创建图像<br><strong>7、+ (UIImage <em>)imageWithCIImage:(CIImage </em>)ciImage scale:(CGFloat)scale orientation:(UIImageOrientation)orientation</strong><br>//再加上比例和图片方向</p>
+<p><strong>8、- (UIImage *)imageWithAlignmentRectInsets:(UIEdgeInsets)alignmentInsets</strong><br>//返回指定矩形区域内的图像</p>
+<p><strong>9、+ (UIImage <em>)animatedImageNamed:(NSString </em>)name duration:(NSTimeInterval)duration</strong><br>//创建一个动态图片，动态图片持续的时间为duration<br><strong>10、+ (UIImage <em>)animatedImageWithImages:(NSArray </em>)images duration:(NSTimeInterval)duration</strong><br>//用一组图片创建一个动态图片，动态持续时间duration</p>
+<p><strong>11、+ (UIImage <em>)animatedResizableImageNamed:(NSString </em>)name capInsets:(UIEdgeInsets)capInsets duration:(NSTimeInterval)duration</strong><br>//创建一个在可变大小的图片上指定矩形区域内的动态图片<br><strong>12、+ (UIImage <em>)animatedResizableImageNamed:(NSString </em>)name capInsets:(UIEdgeInsets)capInsets resizingMode:(UIImageResizingMode)resizingMode duration:(NSTimeInterval)duration</strong><br>//同上，只是多了一个图片变化的方式，具体来说就是平铺或者拉伸</p>
+<p><strong>13、- (UIImage *)resizableImageWithCapInsets:(UIEdgeInsets)capInsets</strong><br>//用制定矩形区域创建图像<br><strong>14、- (UIImage *)resizableImageWithCapInsets:(UIEdgeInsets)capInsets resizingMode:(UIImageResizingMode)resizingMode</strong><br>//同上，指定图片变化方式</p>
+<p>初始化图片</p>
+<p>方法的作用在从上面的一些方法中都能找到原型，这里就不一一注释了<br><strong>1、– initWithContentsOfFile: //从文件加载图片<br>2、– initWithData: //用NSData对象初始化图片<br>3、– initWithData:scale: //用NSData对象,指定的比例，初始化图片<br>4、– initWithCGImage:<br>5、– initWithCGImage:scale:orientation:<br>6、– initWithCIImage:<br>7、– initWithCIImage:scale:orientation:</strong></p>
+<p>绘画图片</p>
+<p><strong>1、– drawAtPoint:</strong><br>//在指定的点开始绘画图片，这个点就是图片的做上角顶点<br><strong>2、- (void)drawAtPoint:(CGPoint)point blendMode:(CGBlendMode)blendMode alpha:(CGFloat)alpha</strong><br>//在指定的点绘制整个图片，并使用自定义图片复合模式，并设置透明度</p>
+<p><strong>3、– drawInRect:</strong><br>//在指定区域内绘制图片，可根据需要缩放图片<br><strong>4、– drawInRect:blendMode:alpha:</strong><br>//参照上面第二条<br><strong>5、– drawAsPatternInRect:</strong><br>//在指定区域内，平铺图片</p>
+<p>image的属性<br>imageOrientation //图片的方向<br>size //图片的大小size<br>scale //图片的比例<br>resizingMode //图片变化方式<br>CGImage //潜在的Quartz image<br>CIImage //潜在的Core Image<br>images //返回一个由图片组成的数组，针对于由一组图片生成的动态图片<br>duration //返回动态图片持续的时间（即动态图片播放一遍的时间）<br>capInsets //图片上选定的区域<br>alignmentRectInsets //图片平铺的区域</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/07/UIImage简单使用/" data-id="cij5xh6n0001bi33mpaoyjj9m" class="article-share-link" data-share="baidu" data-title="UIImage简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/07/UIImage简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-AsyncSocket简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/06/AsyncSocket简单使用/" class="article-date">
+  <time datetime="2015-09-06T03:50:07.000Z" itemprop="datePublished">2015-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/06/AsyncSocket简单使用/">AsyncSocket简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>有一段时间没有认真总结和写博客了</p>
+<p>前段时间找工作、进入工作阶段。比较少静下来认真总结，现在静下心来总结一下最近的一些心得</p>
+<p>前言<br>AsyncSocket介绍<br>AsyncSocket详解<br>AsyncSocket示例<br>一、前言</p>
+<p>公司的项目用到了Socket编程，之前在学习的过程当中，用到的更多的还是http请求的方式。但是既然用到了就必须学习一下，所以就在网上找一些例子，然后想自己写一个demo。可是发现很多写iOS Socket的博客并没有很详细的说明，也可能是大神们觉得其他东西都浅显易懂。</p>
+<p>自己专研了一下，将自己的一些理解总结出来，一方面整理自己的学习思路，另一方面，为一些和我有同样困惑的小伙伴们，稍做指引。</p>
+<p> 二、AsyncSocket介绍</p>
+<p>1⃣️iOS中Socket编程的方式有哪些？</p>
+<p>－BSD Socket</p>
+<p>BSD Socket 是UNIX系统中通用的网络接口，它不仅支持各种不同的网络类型，而且也是一种内部进程之间的通信机制。而iOS系统其实本质就是UNIX，所以可以用，但是比较复杂。</p>
+<p>－CFSocket</p>
+<p>CFSocket是苹果提供给我们的使用Socket的方式，但是用起来还是会不太顺手。当然想使用的话，可以细细研究一下。</p>
+<p>－AsyncSocket</p>
+<p>这次博客的主讲内容，也是我们在开发项目中经常会用到的。</p>
+<p>2⃣️为什么选择AsyncSocket？</p>
+<p>iphone的CFNetwork编程比较艰深。使用AsyncSocket开源库来开发相对较简单，帮助我们封装了很多东西。</p>
+<p>三、AsyncSocket详解</p>
+<p> 1⃣️说明</p>
+<p>在我们开发当中，我们主要的任务是开发客户端。所以详解里主要将客户端的整个连接建立过程，以及在说明时候回调哪些函数。在后面的示例代码中，也会给出服务器端的简单开发。</p>
+<p>2 过程详解</p>
+<p>1.建立连接</p>
+<ul>
+<li>(int)connectServer:(NSString *)hostIP port:(int)hostPort</li>
+</ul>
+<p>2.连接成功后，会回调的函数</p>
+<ul>
+<li>(void)onSocket:(AsyncSocket <em>)sock didConnectToHost:(NSString </em>)host port:(UInt16)port</li>
+</ul>
+<p>3.发送数据</p>
+<ul>
+<li>(void)writeData:(NSData *)data withTimeout:(NSTimeInterval)timeout tag:(long)tag;</li>
+</ul>
+<p>4.接受数据</p>
+<p>-(void)onSocket:(AsyncSocket <em>)sock didReadData:(NSData </em>)data withTag:(long)tag</p>
+<p>5.断开连接</p>
+<ul>
+<li><p>(void)onSocket:(AsyncSocket <em>)sock willDisconnectWithError:(NSError </em>)err</p>
+</li>
+<li><p>(void)onSocketDidDisconnect:(AsyncSocket *)sock</p>
+</li>
+</ul>
+<p>主要就是上述的几个方法，只是说在真正开发当中，很可能我们在收发数据的时候，我们收发的数据并不仅仅是一个字符串包装成NSData即可，我们很可能会发送结构体等类型，这个时候我们就需要和服务器端的人员协作来开发：定义怎样的结构体。</p>
+<p>四、AsyncSocket示例</p>
+<p>客户端代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "ViewController.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define SRV_CONNECTED 0</span></span><br><span class="line"><span class="comment">#define SRV_CONNECT_SUC 1</span></span><br><span class="line"><span class="comment">#define SRV_CONNECT_FAIL 2</span></span><br><span class="line"><span class="comment">#define HOST_IP @"192.168.83.40"</span></span><br><span class="line"><span class="comment">#define HOST_PORT 8008</span></span><br><span class="line"></span><br><span class="line">@interface <span class="function"><span class="title">ViewController</span></span> ()</span><br><span class="line">&#123;</span><br><span class="line">    NSString *_content;</span><br><span class="line">&#125;</span><br><span class="line">-(int) connectServer: (NSString *) hostIP port:(int) hostPort;</span><br><span class="line">-(void)showMessage:(NSString *) msg;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation ViewController</span><br><span class="line"></span><br><span class="line">@synthesize clientSocket,tbInputMsg,lblOutputMsg;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark - view lifecycle</span></span><br><span class="line">- (void)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [self connectServer:HOST_IP port:HOST_PORT];</span><br><span class="line">&#125;</span><br><span class="line">- (void)viewDidUnload</span><br><span class="line">&#123;</span><br><span class="line">    [super viewDidUnload];</span><br><span class="line">    [clientSocket release], clientSocket = nil;</span><br><span class="line">    [tbInputMsg release], tbInputMsg = nil;</span><br><span class="line">    [lblOutputMsg release], lblOutputMsg = nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (int)connectServer:(NSString *)hostIP port:(int)hostPort</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (clientSocket == nil)</span><br><span class="line">    &#123;</span><br><span class="line">        // 在需要联接地方使用connectToHost联接服务器</span><br><span class="line">        clientSocket = [[AsyncSocket alloc] initWithDelegate:self];</span><br><span class="line">        NSError *err = nil;</span><br><span class="line">        <span class="keyword">if</span> (![clientSocket connectToHost:hostIP onPort:hostPort error:&amp;err])</span><br><span class="line">        &#123;</span><br><span class="line">            NSLog(@<span class="string">"Error %d:%@"</span>, err.code, [err localizedDescription]);</span><br><span class="line">            </span><br><span class="line">            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[@<span class="string">"Connection failed to host"</span> stringByAppendingString:hostIP] message:[NSString stringWithFormat:@<span class="string">"%d:%@"</span>,err.code,err.localizedDescription] delegate:self cancelButtonTitle:@<span class="string">"OK"</span> otherButtonTitles:nil];</span><br><span class="line">            [alert show];</span><br><span class="line">            [alert release];</span><br><span class="line">            <span class="built_in">return</span> SRV_CONNECT_FAIL;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            NSLog(@<span class="string">"Connected!"</span>);</span><br><span class="line">            <span class="built_in">return</span> SRV_CONNECT_SUC;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="built_in">return</span> SRV_CONNECTED;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark - IBAction</span></span><br><span class="line">// 发送数据</span><br><span class="line">- (IBAction) sendMsg:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    NSString *inputMsgStr = tbInputMsg.text;</span><br><span class="line">    NSString * content = [inputMsgStr stringByAppendingString:@<span class="string">"\r\n"</span>];</span><br><span class="line">    NSLog(@<span class="string">"%@"</span>,content);</span><br><span class="line">    NSData *data = [content dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    // NSData *data = [content dataUsingEncoding:NSISOLatin1StringEncoding];</span><br><span class="line">    [clientSocket writeData:data withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line">// 连接/重新连接</span><br><span class="line">- (IBAction) reconnect:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    int <span class="built_in">stat</span> = [self connectServer:HOST_IP port:HOST_PORT];</span><br><span class="line">    switch (<span class="built_in">stat</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECT_SUC:</span><br><span class="line">            [self showMessage:@<span class="string">"connect success"</span>];</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        <span class="keyword">case</span> SRV_CONNECTED:</span><br><span class="line">            [self showMessage:@<span class="string">"It's connected,don't agian"</span>];</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">        default:</span><br><span class="line">            <span class="built_in">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">- (void)showMessage:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@<span class="string">"Alert!"</span></span><br><span class="line">                                                    message:msg</span><br><span class="line">                                                   delegate:nil</span><br><span class="line">                                          cancelButtonTitle:@<span class="string">"OK"</span></span><br><span class="line">                                          otherButtonTitles:nil];</span><br><span class="line">    [alert show];</span><br><span class="line">    [alert release];</span><br><span class="line">&#125;</span><br><span class="line">- (IBAction)textFieldDoneEditing:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    [tbInputMsg resignFirstResponder];</span><br><span class="line">&#125;</span><br><span class="line">- (IBAction)backgroundTouch:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    [tbInputMsg resignFirstResponder];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#pragma mark socket delegate</span></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</span><br><span class="line">&#123;</span><br><span class="line">    [clientSocket <span class="built_in">read</span>DataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</span><br><span class="line">&#123;</span><br><span class="line">    NSLog(@<span class="string">"Error"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    NSString *msg = @<span class="string">"Sorry this connect is failure"</span>;</span><br><span class="line">    [self showMessage:msg];</span><br><span class="line">    [msg release];</span><br><span class="line">    clientSocket = nil;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidSecure:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 接收到数据（可以通过tag区分）</span><br><span class="line">-(void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">    NSString* aStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];</span><br><span class="line">    _content = lblOutputMsg.text;</span><br><span class="line">    NSLog(@<span class="string">"Hava received datas is :%@"</span>,aStr);</span><br><span class="line">    NSString *newStr = [NSString stringWithFormat:@<span class="string">"\n%@"</span>, aStr];</span><br><span class="line">    lblOutputMsg.text = [_content stringByAppendingString:newStr];</span><br><span class="line">    [aStr release];</span><br><span class="line">    [clientSocket <span class="built_in">read</span>DataWithTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>服务器端代码</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "SocketView.h"</span></span><br><span class="line"><span class="comment">#import "AsyncSocket.h"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define WELCOME_MSG  0</span></span><br><span class="line"><span class="comment">#define ECHO_MSG     1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#define FORMAT(format, ...) [NSString stringWithFormat:(format), ##__VA_ARGS__]</span></span><br><span class="line"></span><br><span class="line">@interface SocketView (PrivateAPI)</span><br><span class="line">- (void)<span class="built_in">log</span>Error:(NSString *)msg;</span><br><span class="line">- (void)<span class="built_in">log</span>Info:(NSString *)msg;</span><br><span class="line">- (void)<span class="built_in">log</span>Message:(NSString *)msg;</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation SocketView</span><br><span class="line"></span><br><span class="line">// 初始化</span><br><span class="line">- (void)awakeFromNib</span><br><span class="line">&#123;</span><br><span class="line">    listenSocket = [[AsyncSocket alloc] initWithDelegate:self];</span><br><span class="line">    [listenSocket <span class="built_in">set</span>RunLoopModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];</span><br><span class="line">    </span><br><span class="line">    connectedSockets = [[NSMutableArray alloc] initWithCapacity:<span class="number">1</span>];</span><br><span class="line">    isRunning = NO;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">log</span>View <span class="built_in">set</span>String:@<span class="string">""</span>];</span><br><span class="line">    // [portField <span class="built_in">set</span>String:@<span class="string">"8080"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (IBAction)startStop:(id)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isRunning)</span><br><span class="line">    &#123;</span><br><span class="line">        int port = [portField intValue];</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(port &lt; <span class="number">0</span> || port &gt; <span class="number">65535</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            port = <span class="number">0</span>; // 会随即取端口</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        NSError *error = nil;</span><br><span class="line">        <span class="keyword">if</span>(![listenSocket acceptOnPort:port error:&amp;error])</span><br><span class="line">        &#123;</span><br><span class="line">            [self <span class="built_in">log</span>Error:FORMAT(@<span class="string">"Error starting server: %@"</span>, error)];</span><br><span class="line">            <span class="built_in">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Echo server started on port %hu"</span>, [listenSocket <span class="built_in">local</span>Port])];</span><br><span class="line">        isRunning = YES;</span><br><span class="line">        </span><br><span class="line">        [portField <span class="built_in">set</span>Enabled:NO];</span><br><span class="line">        [startStopButton <span class="built_in">set</span>Title:@<span class="string">"Stop"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        // Stop accepting connections</span><br><span class="line">        [listenSocket disconnect];</span><br><span class="line">        </span><br><span class="line">        // Stop any client connections</span><br><span class="line">        int i;</span><br><span class="line">        <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; [connectedSockets count]; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            // Call disconnect on the socket,</span><br><span class="line">            // <span class="built_in">which</span> will invoke the onSocketDidDisconnect: method,</span><br><span class="line">            // <span class="built_in">which</span> will remove the socket from the list.</span><br><span class="line">            [[connectedSockets objectAtIndex:i] disconnect];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        [self <span class="built_in">log</span>Info:@<span class="string">"Stopped Echo server"</span>];</span><br><span class="line">        isRunning = <span class="literal">false</span>;</span><br><span class="line">        </span><br><span class="line">        [portField <span class="built_in">set</span>Enabled:YES];</span><br><span class="line">        [startStopButton <span class="built_in">set</span>Title:@<span class="string">"Start"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)scrollToBottom</span><br><span class="line">&#123;</span><br><span class="line">    NSScrollView *scrollView = [<span class="built_in">log</span>View enclosingScrollView];</span><br><span class="line">    NSPoint newScrollOrigin;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([[scrollView documentView] isFlipped])</span><br><span class="line">        newScrollOrigin = NSMakePoint(<span class="number">0.0</span>, NSMaxY([[scrollView documentView] frame]));</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        newScrollOrigin = NSMakePoint(<span class="number">0.0</span>, <span class="number">0.0</span>);</span><br><span class="line">    </span><br><span class="line">    [[scrollView documentView] scrollPoint:newScrollOrigin];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Error:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor redColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Info:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor purpleColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)<span class="built_in">log</span>Message:(NSString *)msg</span><br><span class="line">&#123;</span><br><span class="line">    NSString *paragraph = [NSString stringWithFormat:@<span class="string">"%@\n"</span>, msg];</span><br><span class="line">    </span><br><span class="line">    NSMutableDictionary *attributes = [NSMutableDictionary dictionaryWithCapacity:<span class="number">1</span>];</span><br><span class="line">    [attributes <span class="built_in">set</span>Object:[NSColor blackColor] <span class="keyword">for</span>Key:NSForegroundColorAttributeName];</span><br><span class="line">    </span><br><span class="line">    NSAttributedString *as = [[NSAttributedString alloc] initWithString:paragraph attributes:attributes];</span><br><span class="line">    [as autorelease];</span><br><span class="line">    </span><br><span class="line">    [[<span class="built_in">log</span>View textStorage] appendAttributedString:as];</span><br><span class="line">    [self scrollToBottom];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didAcceptNewSocket:(AsyncSocket *)newSocket</span><br><span class="line">&#123;</span><br><span class="line">    [connectedSockets addObject:newSocket];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 客户连接成功！</span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didConnectToHost:(NSString *)host port:(UInt16)port</span><br><span class="line">&#123;</span><br><span class="line">    [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Accepted client %@:%hu"</span>, host, port)];</span><br><span class="line">    </span><br><span class="line">    NSString *welcomeMsg = @<span class="string">"恭喜您,已经通过scoket连接上服务器!"</span>;</span><br><span class="line">    NSData *welcomeData = [welcomeMsg dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    </span><br><span class="line">    [sock writeData:welcomeData withTimeout:-<span class="number">1</span> tag:WELCOME_MSG];</span><br><span class="line">    </span><br><span class="line">    // We could call <span class="built_in">read</span>DataToData:withTimeout:tag: here - that would be perfectly fine.</span><br><span class="line">    // If we did this, we want to add a check <span class="keyword">in</span> onSocket:didWriteDataWithTag: and only</span><br><span class="line">    // queue another <span class="built_in">read</span> <span class="keyword">if</span> tag != WELCOME_MSG.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didWriteDataWithTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">   [sock <span class="built_in">read</span>DataToData:[AsyncSocket CRLFData] withTimeout:-<span class="number">1</span> tag:<span class="number">0</span>];</span><br><span class="line">&#125;</span><br><span class="line">// 接收到数据</span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag</span><br><span class="line">&#123;</span><br><span class="line">    NSData *strData = [data subdataWithRange:NSMakeRange(<span class="number">0</span>, [data length] - <span class="number">2</span>)];</span><br><span class="line">    NSString *recvMsg = [[[NSString alloc] initWithData:strData encoding:NSUTF8StringEncoding] autorelease];</span><br><span class="line">    <span class="keyword">if</span>(recvMsg)</span><br><span class="line">    &#123;</span><br><span class="line">        [self <span class="built_in">log</span>Message:recvMsg];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        [self <span class="built_in">log</span>Error:@<span class="string">"Error converting received data into UTF-8 String"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    NSString *backStr = nil;</span><br><span class="line">    <span class="keyword">for</span> (AsyncSocket *socket <span class="keyword">in</span> connectedSockets) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([sock isEqualTo:socket]) &#123;</span><br><span class="line">            backStr = [NSString stringWithFormat:@<span class="string">"我说: %@"</span>,recvMsg];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            backStr = [NSString stringWithFormat:@<span class="string">"他说: %@"</span>,recvMsg];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    // 回发数据</span><br><span class="line">    NSData* backData = [backStr dataUsingEncoding:NSUTF8StringEncoding];</span><br><span class="line">    [sock writeData:backData withTimeout:-<span class="number">1</span> tag:ECHO_MSG];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocket:(AsyncSocket *)sock willDisconnectWithError:(NSError *)err</span><br><span class="line">&#123;</span><br><span class="line">    [self <span class="built_in">log</span>Info:FORMAT(@<span class="string">"Client Disconnected: %@:%hu"</span>, [sock connectedHost], [sock connectedPort])];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)onSocketDidDisconnect:(AsyncSocket *)sock</span><br><span class="line">&#123;</span><br><span class="line">    [connectedSockets removeObject:sock];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+<p>界面搭建<br><img src="/MyImage/AsyncSocket/AsyncSocket.jpg" alt="界面搭建"></p>
+<h3 id="源代码_(/CodeSource/AsyncSocket/AsyncSocket-zip)"><a href="/CodeSource/AsyncSocket/AsyncSocket.zip">源代码</a> (/CodeSource/AsyncSocket/AsyncSocket.zip)</h3>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/06/AsyncSocket简单使用/" data-id="cij5xh6o5002wi33mc0bpcppv" class="article-share-link" data-share="baidu" data-title="AsyncSocket简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/06/AsyncSocket简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IOSFamousBlog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/05/IOSFamousBlog/" class="article-date">
+  <time datetime="2015-09-05T03:16:15.000Z" itemprop="datePublished">2015-09-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/05/IOSFamousBlog/">IOSFamousBlog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="中文_iOS/Mac_开发博客列表">中文 iOS/Mac 开发博客列表</h1><p>本博客列表会不断更新维护，如果有推荐的博客，请到此处<a href="https://github.com/tangqiaoboy/iOSBlogCN/issues/1" target="_blank" rel="external">提交博客信息</a>。</p>
+<p>本博客列表涉及的文章内容支持 <a href="https://www.google.com/cse/publicurl?cx=006531766708784105585:e42hjzmqfcu" target="_blank" rel="external">定制化Google搜索</a>，特别感谢 <a href="https://github.com/JeOam" target="_blank" rel="external">JeOam</a> 提供并帮助更新。</p>
+<p>本博客列表也提供同步更新的OPML文件（<a href="https://github.com/tangqiaoboy/iOSBlogCN/raw/master/blogcn.opml" target="_blank" rel="external">下载OPML文件</a>），可供导入到例如feedly等第三方定阅工具中，特别感谢 <a href="https://github.com/lcepy" target="_blank" rel="external">lcepy</a> 提供自动转换脚本。这里有<a href="http://blog.feedly.com/feedlimport/" target="_blank" rel="external">导入教程</a>。</p>
+<table>
+<thead>
+<tr>
+<th>博客地址</th>
+<th>RSS地址</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://onevcat.com" target="_blank" rel="external">OneV’s Den</a></td>
+<td><a href="http://onevcat.com/atom.xml" target="_blank" rel="external">http://onevcat.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://beyondvincent.com" target="_blank" rel="external">破船之家</a></td>
+<td><a href="http://beyondvincent.com/atom.xml" target="_blank" rel="external">http://beyondvincent.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nshipster.cn" target="_blank" rel="external">NSHipster</a></td>
+<td><a href="http://nshipster.cn/feed.xml" target="_blank" rel="external">http://nshipster.cn/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.leezhong.com/" target="_blank" rel="external">Limboy 无网不剩</a></td>
+<td><a href="http://feeds.feedburner.com/lzyy" target="_blank" rel="external">http://feeds.feedburner.com/lzyy</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.devtang.com" target="_blank" rel="external">唐巧的技术博客</a></td>
+<td><a href="http://blog.devtang.com/atom.xml" target="_blank" rel="external">http://blog.devtang.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://lexrus.com/" target="_blank" rel="external">Lex Tang</a></td>
+<td><a href="http://lexrus.com/feed.xml" target="_blank" rel="external">http://lexrus.com/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nianxi.net" target="_blank" rel="external">念茜的博客</a></td>
+<td><a href="http://nianxi.net/feed.xml" target="_blank" rel="external">http://nianxi.net/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.xcodev.com" target="_blank" rel="external">Xcode Dev</a></td>
+<td><a href="http://blog.xcodev.com/atom.xml" target="_blank" rel="external">http://blog.xcodev.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wufawei.com/" target="_blank" rel="external">Ted’s Homepage</a></td>
+<td><a href="http://wufawei.com/feed" target="_blank" rel="external">http://wufawei.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.t-xx.me" target="_blank" rel="external">txx’s blog</a></td>
+<td><a href="http://blog.t-xx.me/atom.xml" target="_blank" rel="external">http://blog.t-xx.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://zhowkev.in" target="_blank" rel="external">Kevin Blog</a></td>
+<td><a href="http://zhowkev.in/rss" target="_blank" rel="external">http://zhowkev.in/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://www.xiangwangfeng.com" target="_blank" rel="external">阿毛的蛋疼地</a></td>
+<td><a href="http://www.xiangwangfeng.com/atom.xml" target="_blank" rel="external">http://www.xiangwangfeng.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://billwang1990.github.io" target="_blank" rel="external">亚庆的 Blog</a></td>
+<td><a href="http://billwang1990.github.io/atom.xml" target="_blank" rel="external">http://billwang1990.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://nonomori.farbox.com" target="_blank" rel="external">Nonomori</a></td>
+<td><a href="http://nonomori.farbox.com/feed" target="_blank" rel="external">http://nonomori.farbox.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://tang3w.com" target="_blank" rel="external">言无不尽</a></td>
+<td><a href="http://tang3w.com/atom.xml" target="_blank" rel="external">http://tang3w.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://wonderffee.github.io" target="_blank" rel="external">Wonderffee’s Blog</a></td>
+<td><a href="http://wonderffee.github.io/atom.xml" target="_blank" rel="external">http://wonderffee.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imtx.me" target="_blank" rel="external">I’m TualatriX</a></td>
+<td><a href="http://imtx.me/feed/latest/" target="_blank" rel="external">http://imtx.me/feed/latest/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.cocoabit.com" target="_blank" rel="external">Cocoabit</a></td>
+<td><a href="http://blog.cocoabit.com/rss/" target="_blank" rel="external">http://blog.cocoabit.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://nixzhu.me" target="_blank" rel="external">nixzhu on scriptogr.am</a></td>
+<td><a href="http://nixzhu.me/feed" target="_blank" rel="external">http://nixzhu.me/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://studentdeng.github.io" target="_blank" rel="external">不会开机的男孩</a></td>
+<td><a href="http://studentdeng.github.io/atom.xml" target="_blank" rel="external">http://studentdeng.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.inico.me" target="_blank" rel="external">Nico</a></td>
+<td><a href="http://blog.inico.me/atom.xml" target="_blank" rel="external">http://blog.inico.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://hufeng825.github.io" target="_blank" rel="external">阿峰的技术窝窝</a></td>
+<td><a href="http://hufeng825.github.io/atom.xml" target="_blank" rel="external">http://hufeng825.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://answerhuang.duapp.com" target="_blank" rel="external">answer_huang</a></td>
+<td><a href="http://answerhuang.duapp.com/index.php/feed/" target="_blank" rel="external">http://answerhuang.duapp.com/index.php/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.nswebfrog.com/" target="_blank" rel="external">webfrogs</a></td>
+<td><a href="http://blog.nswebfrog.com/feed/" target="_blank" rel="external">http://blog.nswebfrog.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://joeyio.com" target="_blank" rel="external">代码手工艺人</a></td>
+<td><a href="http://joeyio.com/atom.xml" target="_blank" rel="external">http://joeyio.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://gracelancy.com" target="_blank" rel="external">Lancy’s Blog</a></td>
+<td><a href="http://gracelancy.com/atom.xml" target="_blank" rel="external">http://gracelancy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.imallen.com" target="_blank" rel="external">I’m Allen</a></td>
+<td><a href="http://www.imallen.com/atom.xml" target="_blank" rel="external">http://www.imallen.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://imi.im/" target="_blank" rel="external">Travis’ Blog</a></td>
+<td><a href="http://imi.im/feed" target="_blank" rel="external">http://imi.im/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://wangzz.github.io/" target="_blank" rel="external">王中周的技术博客</a></td>
+<td><a href="http://wangzz.github.io/atom.xml" target="_blank" rel="external">http://wangzz.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://jiajun.org/" target="_blank" rel="external">会写代码的猪</a></td>
+<td><a href="http://gaosboy.com/feed/atom/" target="_blank" rel="external">http://gaosboy.com/feed/atom/</a></td>
+</tr>
+<tr>
+<td><a href="http://wangkewei.cnblogs.com/" target="_blank" rel="external">克伟的博客</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/23857/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/23857/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://cnblogs.com/biosli" target="_blank" rel="external">摇滚诗人</a></td>
+<td><a href="http://feed.cnblogs.com/blog/u/35410/rss" target="_blank" rel="external">http://feed.cnblogs.com/blog/u/35410/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://geeklu.com/" target="_blank" rel="external">Luke’s Homepage</a></td>
+<td><a href="http://geeklu.com/feed/" target="_blank" rel="external">http://geeklu.com/feed/</a></td>
+</tr>
+<tr>
+<td><a href="http://iiiyu.com/" target="_blank" rel="external">萧宸宇</a></td>
+<td><a href="http://iiiyu.com/atom.xml" target="_blank" rel="external">http://iiiyu.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.heyuan110.com/" target="_blank" rel="external">Yuan博客</a></td>
+<td><a href="http://www.heyuan110.com/?feed=rss2" target="_blank" rel="external">http://www.heyuan110.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://shiningio.com/" target="_blank" rel="external">Shining IO</a></td>
+<td><a href="http://shiningio.com/atom.xml" target="_blank" rel="external">http://shiningio.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.yifeiyang.net/" target="_blank" rel="external">YIFEIYANG–易飞扬的博客</a></td>
+<td><a href="http://www.yifeiyang.net/feed" target="_blank" rel="external">http://www.yifeiyang.net/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://koofrank.com/" target="_blank" rel="external">KooFrank’s Blog</a></td>
+<td><a href="http://koofrank.com/rss" target="_blank" rel="external">http://koofrank.com/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://helloitworks.com" target="_blank" rel="external">hello it works</a></td>
+<td><a href="http://helloitworks.com/feed" target="_blank" rel="external">http://helloitworks.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://msching.github.io/" target="_blank" rel="external">码农人生</a></td>
+<td><a href="http://msching.github.io/atom.xml" target="_blank" rel="external">http://msching.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://yulingtianxia.com" target="_blank" rel="external">玉令天下的Blog</a></td>
+<td><a href="http://yulingtianxia.com/atom.xml" target="_blank" rel="external">http://yulingtianxia.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.hotobear.com/" target="_blank" rel="external">不掏蜂窝的熊</a></td>
+<td><a href="http://www.hotobear.com/?feed=rss2" target="_blank" rel="external">http://www.hotobear.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="https://andelf.github.io/" target="_blank" rel="external">猫·仁波切</a></td>
+<td><a href="https://andelf.github.io/atom.xml" target="_blank" rel="external">https://andelf.github.io/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://ivoryxiong.org/" target="_blank" rel="external">煲仔饭</a></td>
+<td><a href="http://ivoryxiong.org/feed.xml" target="_blank" rel="external">http://ivoryxiong.org/feed.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://adad184.com" target="_blank" rel="external">里脊串的开发随笔</a></td>
+<td><a href="http://adad184.com/atom.xml" target="_blank" rel="external">http://adad184.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://chun.tips/" target="_blank" rel="external">Chun Tips</a></td>
+<td><a href="http://chun.tips/atom.xml" target="_blank" rel="external">http://chun.tips/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.callmewhy.com/" target="_blank" rel="external">Why’s blog - 汪海的实验室</a></td>
+<td><a href="http://blog.callmewhy.com/atom.xml" target="_blank" rel="external">http://blog.callmewhy.com/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://tutuge.me/" target="_blank" rel="external">土土哥的技术Blog</a></td>
+<td><a href="http://tutuge.me/atom.xml" target="_blank" rel="external">http://tutuge.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.olinone.com/" target="_blank" rel="external">庞海礁的个人空间 </a></td>
+<td><a href="http://www.olinone.com/?feed=rss2" target="_blank" rel="external">http://www.olinone.com/?feed=rss2</a></td>
+</tr>
+<tr>
+<td><a href="http://casatwy.com/" target="_blank" rel="external">Casa Taloyum</a></td>
+<td><a href="http://casatwy.com/feeds/all.atom.xml" target="_blank" rel="external">http://casatwy.com/feeds/all.atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.cnblogs.com/kenshincui/" target="_blank" rel="external">Kenshin Cui’s Blog</a></td>
+<td><a href="http://www.cnblogs.com/kenshincui/rss" target="_blank" rel="external">http://www.cnblogs.com/kenshincui/rss</a></td>
+</tr>
+<tr>
+<td><a href="http://suenblog.duapp.com/" target="_blank" rel="external">技术哥的博客</a></td>
+<td><a href="http://suenblog.duapp.com/rss/" target="_blank" rel="external">http://suenblog.duapp.com/rss/</a></td>
+</tr>
+<tr>
+<td><a href="http://www.tanhao.me/" target="_blank" rel="external">老谭笔记</a></td>
+<td><a href="http://www.tanhao.me/atom.xml" target="_blank" rel="external">http://www.tanhao.me/atom.xml</a></td>
+</tr>
+<tr>
+<td><a href="http://www.coderyi.com/" target="_blank" rel="external">coderyi</a></td>
+<td><a href="http://www.coderyi.com/feed" target="_blank" rel="external">http://www.coderyi.com/feed</a></td>
+</tr>
+<tr>
+<td><a href="http://blog.leichunfeng.com" target="_blank" rel="external">雷纯锋的技术博客</a></td>
+<td><a href="http://blog.leichunfeng.com/atom.xml" target="_blank" rel="external">http://blog.leichunfeng.com/atom.xml</a></td>
+</tr>
+</tbody>
+</table>
+<p>个人收藏：<br>里脊串的开发随笔 <a href="http://adad184.com/2014/09/28/use-masonry-to-quick-solve-autolayout/" target="_blank" rel="external">http://adad184.com/2014/09/28/use-masonry-to-quick-solve-autolayout/</a><br>土土哥的技术Blog <a href="http://tutuge.me/2015/08/08/autolayout-example-with-masonry2/" target="_blank" rel="external">http://tutuge.me/2015/08/08/autolayout-example-with-masonry2/</a></p>
+<p><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="external">http://github.ibireme.com/github/list/ios/</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/05/IOSFamousBlog/" data-id="cij5xh6nz002ki33m77v75vno" class="article-share-link" data-share="baidu" data-title="IOSFamousBlog">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/05/IOSFamousBlog/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-StoryBoard简单使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/09/02/StoryBoard简单使用/" class="article-date">
+  <time datetime="2015-09-02T03:50:07.000Z" itemprop="datePublished">2015-09-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/09/02/StoryBoard简单使用/">StoryBoard简单使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">KMMovieDetailsViewController* viewController </span><br><span class="line">= (KMMovieDetailsViewController*)[StoryBoardUtilities viewControllerForStoryboardName:@<span class="string">"KMMovieDetailsStoryboard"</span> class:[KMMovieDetailsViewController class]];</span><br></pre></td></tr></table></figure>
+<p>界面配置<br><img src="/MyImage/StoryBoard/StoryBoard.png" alt="界面配置"></p>
+<h3 id="源代码_(/CodeSource/StoryBoard/StoryBoardUtilities-zip)"><a href="/CodeSource/StoryBoard/StoryBoardUtilities.zip">源代码</a> (/CodeSource/StoryBoard/StoryBoardUtilities.zip)</h3><p>xib加载  建立名字为appxib.xib文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSArray  *apparray= [[NSBundle mainBundle]loadNibNamed:@&#34;appxib&#34; owner:nil options:nil];&#10;UIView *appview=[apparray firstObject];</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/09/02/StoryBoard简单使用/" data-id="cij5xh6n7001mi33mrr3unsg5" class="article-share-link" data-share="baidu" data-title="StoryBoard简单使用">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/09/02/StoryBoard简单使用/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IOS学习经验过程总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/27/IOS学习经验过程总结/" class="article-date">
+  <time datetime="2015-08-27T01:44:36.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/IOS学习经验过程总结/">IOS学习经验过程总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里<br>但是iOS开发就是这样 他是封闭的 本身就是在雾里…<br>关于iOS开发的学习 打个比方就像把汽车分解<br>最底层的原料有塑料 钢铁<br>再用这些底层的东西造出来发动机 座椅<br>最后再加上写螺丝 胶水等 把汽车就拼起来了<br>iOS基本都是英文的资料 也由于封闭 文档写的相当好<br>在遇到新框架的时候</p>
+<p>弄明白框架的功能<br>去文档里搜搜 框架的 Programming Guide 很有用<br>要弄明白框架类的继承结构<br>写iOS的程序不一定都是用OBJC 很多框架是用C写的<br>学习iOS开发基础可以按照下面两个方面学</p>
+<h2 id="基础_(原料_钢铁_塑料)">基础 (原料 钢铁 塑料)</h2><p><strong>OBJ-C</strong> — 语法弄明白 @interface @property 这些东西总要知道是干嘛的 怎么用<br>基础库 — NSString NSArray NSDictionary等 这些东西在所有的框架里都会出现<br>iOS大部分类都是继承自NSObject (我还没见过不是继承自NSObject的..)<br>还有一些 像NSCopying的接口(经@李禹龙提醒 应该叫协议) 不是特别用到开始不用了解<br><strong>NSObject</strong> 创建对象的时候用 + (id)alloc 方法 创建后需要init方法初始化 这个init指的是所有前面是init的方法比如UIView的初始化方法是 - (id)initWithFrame:(CGRect)aRect 在Objc里有很多这样关于函数命名的约定 类似于在python中的函数__xxx<br><strong>NSString</strong> 字符串 NSArray 数组 NSDictionary 字典 这些都需要弄很清楚 其他的类都是一个套路<br><strong>NSMutableArray</strong> 这样带Mutable的类代表可变的 继承自相应的不可变类 比如NSMutableArray继承自NSArray 他们都添加了可以改变对象内容的方法比如<br><strong>- (void)addObject:(id)anObject</strong> 添加对象<br><strong>- (void)removeObject:(id)anObject</strong> 删除对象<br>  上面只是一个大概的总结 还有很多东西需要学 iOS5的SDK已经支持ARC 可以自动进行release 但是对iOS4的支持还有一个小问题 现在要开发应用 可能还需要按照之前的MRC的方式alloc release retain autorelease 之类的内存管理方法 不过如果你现在开始学 到编出像样的APP iOS5可能已经普及了 可以直接用ARC (另 之前对ARC的了解很粗浅 现在开发程序完全可以直接ARC iOS4不支持的weak是有办法替代的 用unsafe_unretained 如果同时支持iOS5和iOS4 用宏判断下就可以 当然也可以直接用assign)<br>还有一点开始学习的时候肯定很疑惑 内存管理是基于函数名称的 比如带alloc copy的函数 用了之后返回的对象一定要release 这个不用疑惑 照做就行了<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html</a></p>
+<h2 id="高级库(发动机)">高级库(发动机)</h2><p><strong>UIKit</strong> — UI库 OBJC<br><strong>UIResponder</strong> 父类是NSObject UIKit里最底层的库 可以响应一些触摸事件 设置焦点等功能<br><strong>UIView</strong> 父类是UIResponder 所有View的父类 方法太多了 大部分很有用 这个不赘述了 中文的资料也很多了<br>比如: <a href="http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html" target="_blank" rel="external">http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html</a><br>文档: <a href="http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html</a><br>关于UIView的子类 有很多 UIButton UITableView 这个都需要各个击破 看看文档从名字上就很容易理解是做什么的<br><strong>UIViewController</strong> 是管理View 和 Model的类 (@张开 说UIViewController是用来管理view的，管理model 的类自己写，当然，model也可以用UIViewController来管理，不过恐怕成为不好的代码。 的确是这样的 Model的改变最好通过Notification来传播 之前吃过这样的亏 最好不要用delegate模式)</p>
+<p><strong>UIViewController</strong> 管理所有设备发生的事件 比如屏幕旋转 屏幕关闭 或者一些其他的 程序的控制逻辑也应该写在这里<br>他的初始化函数是- (id)initWithNibName:(NSString <em>)nibName bundle:(NSBundle </em>)nibBundle 后面那个NibName 是Interface Builder 里设计的界面</p>
+<p>现在IB已经集成到XCode里了 打开.xib的文件打开的就是IB<br>IB和代码交互用的是IBAction IBOutlet 这些标记 这些标记追踪到他们的定义其实对编译器来说什么都不表示 只能IB识别<br>IB也没那么高深 XIB文件解开之后就是一堆代码<br>之前面过一家小公司 看我当时写的程序里面用到了IB 一脸不屑 说他们都是用代码控制view 意思他们玩的都是高科技 IB都是垃圾 很多人也纠结到底用不用IB 的确 很多时候IB灵活度不行 但是不需要灵活度的时候还不用IB 那不是装X吗 要是没人用苹果还开发IB干嘛 早去掉了 IB在很多时候节省很多工作量</p>
+<p><strong>UINavigationController</strong><br>再说说NavigationController刚接触开发的时候 不明白 View和View之间怎么切换的 最重要的就是<strong>UINavigationController</strong> 他是一层一层推进view的 打开iPhone里的联系人 每点一个联系人屏幕就会像右推到下一个界面 这就是<strong>UINavigationController</strong>在做的事<br><strong>UINavigationController</strong> 维护一个堆栈<br><strong>- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated</strong> 是像堆栈里压一个UIViewController<br><strong>- (UIViewController *)popViewControllerAnimated:(BOOL)animated</strong> 是从堆栈里弹出来一个UIViewController<br>就算你的程序不是像联系人那样 向右推进也可以用UINavigationController 管理你的ViewController的层次 可以自己写View切换的动画 关掉他默认的动画<br>文档: <a href="http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html</a></p>
+<p><strong>UIWindow</strong> 还有个蛋疼的<strong>UIWindow</strong> 都快忘了他了 因为iOS是从Mac os X过来的 很多东西直接拿来用 这个<strong>UIWindow</strong>就是 在iOS里 每个App独占屏幕 所以同时存在的只有一个<strong>UIWindow</strong> 除了在程序加载的时候把我的view 加载到他上 目前我还没用到过其他的<br>苹果一直很推崇MVC的程序结构 视图 模型 控制器 简单说就是 视图负责显示内容 模型负责所有数据的保存结构或者一些其他数据操作 控制器是用来协调 视图和模型 举车的发动机系统的例子 视图是仪表盘 模型是发动机 控制器是控制芯片</p>
+<p><strong>Core Data</strong> — 管理数据 OBJC<br>刚学的时候觉得 CD很高深 其实他是最容易用的库之一 他麻烦之处在于多线程问题 还有胶水代码的问题<br>建立一个 基于Core Data的工程 你会看到他自动创建3个类的对象</p>
+<p><strong>NSManagedObjectModel</strong><br>管理数据的存储结构文件 扩展名是 xcdatamodeld</p>
+<p><strong>NSPersistentStoreCoordinator</strong><br>用来管理底层数据的存储 用官方的话说<br>Core Data is not a relational database or a relational database management system (RDBMS).<br>所以你可以用很多方法存储数据 比如最长用的sqlite 当然如果另类也可以用plist文件 或者其他<br><strong>NSManagedObjectContext</strong><br><strong>NSManagedObjectContext</strong> 把上面两个对象连在一起 把他们变成一个整体<br>所有的CD操作都是通过这个类的 这个需要仔细看文档了<br>举个不恰当的例子 就像三个人收拾衣服 一个人负责衣服的存放位置(<strong>NSManagedObjectModel</strong>) 一个人负责把衣服分类 冬天穿 夏天穿等(<strong>NSPersistentStoreCoordinator</strong>) 一个人负责协调他们的工作 并且如果有新增加的衣服或者要移除之前的衣服 通知他俩(<strong>NSManagedObjectContext</strong>)<br><strong>NSManagedObject</strong> 这个类是具体的数据对象 用上面的例子说就是衣服<br>一般都是继承这个对象 XCode 可以帮你做 具体搜搜 这种文章很多<br><strong>NSFetchRequest</strong><br>用来执行CD请求的 相当与select语句外壳<br><strong>NSEntityDescription</strong><br>用来描述实体的 对应sql里的table</p>
+<p><strong>NSPredicate</strong><br>谓语 类似select语句中的条件<br>上面这三个类就可以用来请求数据了 具体看教程吧<br>中文介绍:<a href="http://c.gzl.name/archives/tag/core-data" target="_blank" rel="external">http://c.gzl.name/archives/tag/core-data</a> (访问需要点技术…)<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html</a><br>掌握上面的内容 差不多就能写个APP了 最好的学习方法就是边写边学 自己构想一个小的APP 在做的时候遇到问题 去找找资料 我觉得这样学习比较快 也比较扎实<br>下面这些库都是有专门功能的库</p>
+<p><strong>Core Animation</strong> — 制作动画 很强大 很喜欢的框架 可以用少量的代码写出漂亮的动画 C</p>
+<p><strong>Quartz 2D</strong> — 强大的2D绘图库 C</p>
+<p><strong>OpenGL</strong> — 不用介绍了 超级强大的3D库 C</p>
+<p><strong>Core Image</strong> — 听说 iOS5开始支持Core Image 了 还没去看 Mac 上的CI是很强大的</p>
+<p><strong>CFNetwork</strong> — 从来没用过 我一般都会用ASIHttpRequset 封装好的高层网络库 OBJC实现的 <strong>CFNetwork</strong> 好像是C实现</p>
+<p><strong>Core Location</strong> — 获取位置的库 东西很少 很简单 OBJC</p>
+<p><strong>AVFoundation</strong> — 播放视频相关的库 最近正在学习<br>这些算是学iOS开发的一些方法 当时要是有人告诉我这些 估计少走不少弯路<br>还有提醒各位初学者 刚开始学的时候 会有几个月的低谷期 很容易放弃 如果挺过最开始的几个月 后来就越学越容易了</p>
+<p>IP<br>//<br>//  HYBIPHelper.h<br>//  XiaoYaoUser<br>//<br>//  Created by 黄仪标 on 14/12/9.<br>//  Copyright (c) 2014年 xiaoyaor. All rights reserved.<br>//<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import &lt;Foundation/Foundation.h&gt;  </span></span><br><span class="line">  </span><br><span class="line">@interface HYBIPHelper : NSObject  </span><br><span class="line">  </span><br><span class="line">/*! </span><br><span class="line"> * get device ip address </span><br><span class="line"> */  </span><br><span class="line">+ (NSString *)deviceIPAdress;  </span><br><span class="line">  </span><br><span class="line">@end  </span><br><span class="line"></span><br><span class="line">//  </span><br><span class="line">//  HYBIPHelper.m  </span><br><span class="line">//  XiaoYaoUser  </span><br><span class="line">//  </span><br><span class="line">//  Created by 黄仪标 on <span class="number">14</span>/<span class="number">12</span>/<span class="number">9</span>.  </span><br><span class="line">//  Copyright (c) <span class="number">2014</span>年 xiaoyaor. All rights reserved.  </span><br><span class="line">//</span><br></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "HYBIPHelper.h"  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#include &lt;ifaddrs.h&gt;  </span></span><br><span class="line"><span class="comment">#include &lt;arpa/inet.h&gt;  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">@implementation HYBIPHelper  </span><br><span class="line">  </span><br><span class="line">+ (NSString *)deviceIPAdress &#123;  </span><br><span class="line">  NSString *address = @<span class="string">"an error occurred when obtaining ip address"</span>;  </span><br><span class="line">  struct ifaddrs *interfaces = NULL;  </span><br><span class="line">  struct ifaddrs *temp_addr = NULL;  </span><br><span class="line">  int success = <span class="number">0</span>;  </span><br><span class="line">    </span><br><span class="line">  success = getifaddrs(&amp;interfaces);  </span><br><span class="line">    </span><br><span class="line">  <span class="keyword">if</span> (success == <span class="number">0</span>) &#123; // <span class="number">0</span> 表示获取成功  </span><br><span class="line">  </span><br><span class="line">    temp_addr = interfaces;  </span><br><span class="line">    <span class="keyword">while</span> (temp_addr != NULL) &#123;  </span><br><span class="line">      <span class="keyword">if</span>( temp_addr-&gt;ifa_addr-&gt;sa_family == AF_INET) &#123;  </span><br><span class="line">        // Check <span class="keyword">if</span> interface is en0 <span class="built_in">which</span> is the wifi connection on the iPhone  </span><br><span class="line">        <span class="keyword">if</span> ([[NSString stringWithUTF8String:temp_addr-&gt;ifa_name] isEqualToString:@<span class="string">"en0"</span>]) &#123;  </span><br><span class="line">          // Get NSString from C String  </span><br><span class="line">          address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_<span class="keyword">in</span> *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)];  </span><br><span class="line">        &#125;  </span><br><span class="line">      &#125;  </span><br><span class="line">        </span><br><span class="line">      temp_addr = temp_addr-&gt;ifa_next;  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">    </span><br><span class="line">  freeifaddrs(interfaces);  </span><br><span class="line">    </span><br><span class="line">  DDLogVerbose(@<span class="string">"手机的IP是：%@"</span>, address);  </span><br><span class="line">  <span class="built_in">return</span> address;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/27/IOS学习经验过程总结/" data-id="cij5xh6nv002di33m5fg38b06" class="article-share-link" data-share="baidu" data-title="IOS学习经验过程总结">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/27/IOS学习经验过程总结/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-IOS学习经验总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/27/IOS学习经验总结/" class="article-date">
+  <time datetime="2015-08-27T01:44:36.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/27/IOS学习经验总结/">IOS学习经验总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里<br>但是iOS开发就是这样 他是封闭的 本身就是在雾里…</p>
+<p>关于iOS开发的学习 打个比方就像把汽车分解</p>
+<p>最底层的原料有塑料 钢铁<br>再用这些底层的东西造出来发动机 座椅<br>最后再加上写螺丝 胶水等 把汽车就拼起来了<br>iOS基本都是英文的资料 也由于封闭 文档写的相当好<br>在遇到新框架的时候</p>
+<p>弄明白框架的功能<br>去文档里搜搜 框架的 Programming Guide 很有用<br>要弄明白框架类的继承结构<br>写iOS的程序不一定都是用OBJC 很多框架是用C写的<br>学习iOS开发基础可以按照下面两个方面学</p>
+<p>基础 (原料 钢铁 塑料)<br>OBJ-C — 语法弄明白 @interface @property 这些东西总要知道是干嘛的 怎么用<br>基础库 — NSString NSArray NSDictionary等 这些东西在所有的框架里都会出现<br>iOS大部分类都是继承自NSObject (我还没见过不是继承自NSObject的..)<br>还有一些 像NSCopying的接口(经@李禹龙提醒 应该叫协议) 不是特别用到开始不用了解<br>NSObject 创建对象的时候用 + (id)alloc 方法 创建后需要init方法初始化 这个init指的是所有前面是init的方法比如UIView的初始化方法是 - (id)initWithFrame:(CGRect)aRect 在Objc里有很多这样关于函数命名的约定 类似于在python中的函数__xxx<br>NSString 字符串 NSArray 数组 NSDictionary 字典 这些都需要弄很清楚 其他的类都是一个套路<br>NSMutableArray 这样带Mutable的类代表可变的 继承自相应的不可变类 比如NSMutableArray继承自NSArray 他们都添加了可以改变对象内容的方法比如</p>
+<ul>
+<li>(void)addObject:(id)anObject 添加对象</li>
+<li>(void)removeObject:(id)anObject 删除对象<br>上面只是一个大概的总结 还有很多东西需要学 iOS5的SDK已经支持ARC 可以自动进行release 但是对iOS4的支持还有一个小问题 现在要开发应用 可能还需要按照之前的MRC的方式alloc release retain autorelease 之类的内存管理方法 不过如果你现在开始学 到编出像样的APP iOS5可能已经普及了 可以直接用ARC (另 之前对ARC的了解很粗浅 现在开发程序完全可以直接ARC iOS4不支持的weak是有办法替代的 用unsafe_unretained 如果同时支持iOS5和iOS4 用宏判断下就可以 当然也可以直接用assign)<br>还有一点开始学习的时候肯定很疑惑 内存管理是基于函数名称的 比如带alloc copy的函数 用了之后返回的对象一定要release 这个不用疑惑 照做就行了<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html</a><br>高级库(发动机)<br>UIKit — UI库 OBJC<br>UIResponder 父类是NSObject UIKit里最底层的库 可以响应一些触摸事件 设置焦点等功能<br>UIView 父类是UIResponder 所有View的父类 方法太多了 大部分很有用 这个不赘述了 中文的资料也很多了<br>比如: <a href="http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html" target="_blank" rel="external">http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html</a><br>文档: <a href="http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html</a><br>关于UIView的子类 有很多 UIButton UITableView 这个都需要各个击破 看看文档从名字上就很容易理解是做什么的<br>UIViewController 是管理View 和 Model的类 (@张开 说UIViewController是用来管理view的，管理model 的类自己写，当然，model也可以用UIViewController来管理，不过恐怕成为不好的代码。 的确是这样的 Model的改变最好通过Notification来传播 之前吃过这样的亏 最好不要用delegate模式)<br>UIViewController 管理所有设备发生的事件 比如屏幕旋转 屏幕关闭 或者一些其他的 程序的控制逻辑也应该写在这里<br>他的初始化函数是- (id)initWithNibName:(NSString <em>)nibName bundle:(NSBundle </em>)nibBundle 后面那个NibName 是Interface Builder 里设计的界面<br>现在IB已经集成到XCode里了 打开.xib的文件打开的就是IB<br>IB和代码交互用的是IBAction IBOutlet 这些标记 这些标记追踪到他们的定义其实对编译器来说什么都不表示 只能IB识别<br>IB也没那么高深 XIB文件解开之后就是一堆代码<br>之前面过一家小公司 看我当时写的程序里面用到了IB 一脸不屑 说他们都是用代码控制view 意思他们玩的都是高科技 IB都是垃圾 很多人也纠结到底用不用IB 的确 很多时候IB灵活度不行 但是不需要灵活度的时候还不用IB 那不是装X吗 要是没人用苹果还开发IB干嘛 早去掉了 IB在很多时候节省很多工作量<br>UINavigationController 再说说NavigationController<br>刚接触开发的时候 不明白 View和View之间怎么切换的 最重要的就是UINavigationController 他是一层一层推进view的 打开iPhone里的联系人 每点一个联系人屏幕就会像右推到下一个界面 这就是UINavigationController在做的事<br>UINavigationController 维护一个堆栈 </li>
+<li>(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated 是像堆栈里压一个UIViewController</li>
+<li>(UIViewController *)popViewControllerAnimated:(BOOL)animated 是从堆栈里弹出来一个UIViewController<br>就算你的程序不是像联系人那样 向右推进 也可以用UINavigationController 管理你的ViewController的层次 可以自己写View切换的动画 关掉他默认的动画<br>文档: <a href="http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html</a><br>UIWindow 还有个蛋疼的UIWindow 都快忘了他了 因为iOS是从Mac os X过来的 很多东西直接拿来用 这个UIWindow就是 在iOS里 每个App独占屏幕 所以同时存在的只有一个UIWindow 除了在程序加载的时候把我的view 加载到他上 目前我还没用到过其他的<br>苹果一直很推崇MVC的程序结构 视图 模型 控制器 简单说就是 视图负责显示内容 模型负责所有数据的保存结构或者一些其他数据操作 控制器是用来协调 视图和模型 举车的发动机系统的例子 视图是仪表盘 模型是发动机 控制器是控制芯片<br>Core Data — 管理数据 OBJC<br>刚学的时候觉得 CD很高深 其实他是最容易用的库之一 他麻烦之处在于多线程问题 还有胶水代码的问题<br>建立一个 基于Core Data的工程 你会看到他自动创建3个类的对象<br>NSManagedObjectModel<br>管理数据的存储结构文件 扩展名是 xcdatamodeld<br>NSPersistentStoreCoordinator<br>用来管理底层数据的存储 用官方的话说<br>Core Data is not a relational database or a relational database management system (RDBMS).<br>所以你可以用很多方法存储数据 比如最长用的sqlite 当然如果另类也可以用plist文件 或者其他<br>NSManagedObjectContext<br>NSManagedObjectContext 把上面两个对象连在一起 把他们变成一个整体<br>所有的CD操作都是通过这个类的 这个需要仔细看文档了<br>举个不恰当的例子 就像三个人收拾衣服 一个人负责衣服的存放位置(NSManagedObjectModel) 一个人负责把衣服分类 冬天穿 夏天穿等(NSPersistentStoreCoordinator) 一个人负责协调他们的工作 并且如果有新增加的衣服或者要移除之前的衣服 通知他俩(NSManagedObjectContext)<br>NSManagedObject 这个类是具体的数据对象 用上面的例子说就是衣服<br>一般都是继承这个对象 XCode 可以帮你做 具体搜搜 这种文章很多<br>NSFetchRequest<br>用来执行CD请求的 相当与select语句外壳<br>NSEntityDescription<br>用来描述实体的 对应sql里的table<br>NSPredicate<br>谓语 类似select语句中的条件<br>上面这三个类就可以用来请求数据了 具体看教程吧<br>中文介绍:<a href="http://c.gzl.name/archives/tag/core-data" target="_blank" rel="external">http://c.gzl.name/archives/tag/core-data</a> (访问需要点技术…)<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html</a><br>掌握上面的内容 差不多就能写个APP了 最好的学习方法就是边写边学 自己构想一个小的APP 在做的时候遇到问题 去找找资料 我觉得这样学习比较快 也比较扎实<br>下面这些库都是有专门功能的库</li>
+</ul>
+<p>Core Animation — 制作动画 很强大 很喜欢的框架 可以用少量的代码写出漂亮的动画 C<br>Quartz 2D — 强大的2D绘图库 C<br>OpenGL — 不用介绍了 超级强大的3D库 C<br>Core Image — 听说 iOS5开始支持Core Image 了 还没去看 Mac 上的CI是很强大的<br>CFNetwork — 从来没用过 我一般都会用ASIHttpRequset 封装好的高层网络库 OBJC实现的 CFNetwork 好像是C实现<br>Core Location — 获取位置的库 东西很少 很简单 OBJC<br>AVFoundation — 播放视频相关的库 最近正在学习<br>这些算是学iOS开发的一些方法 当时要是有人告诉我这些 估计少走不少弯路<br>还有提醒各位初学者 刚开始学的时候 会有几个月的低谷期 很容易放弃 如果挺过最开始的几个月 后来就越学越容易了</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/27/IOS学习经验总结/" data-id="cij5xh6nx002fi33mn175obpb" class="article-share-link" data-share="baidu" data-title="IOS学习经验总结">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/27/IOS学习经验总结/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios开发/">ios开发</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios经验/">ios经验</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/10/hexo博客搭建/" class="article-date">
+  <time datetime="2015-08-10T09:10:07.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/hexo博客搭建/">hexo博客搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="git配置">git配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">mkdir key_backup</span><br><span class="line">cp id_rsa* key_backup</span><br><span class="line">rm id_rsa*</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"dexsinis@gmail.com"</span></span><br><span class="line"></span><br><span class="line">(多账号配置 gitlab与github) 新建打开config文件</span><br><span class="line">Host git.meiriq.com</span><br><span class="line">    HostName git.meiriq.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_work</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">(添加远程库)</span><br><span class="line">git config --global user.name <span class="string">"DexSinis"</span> </span><br><span class="line">git config --global user.email <span class="string">"dexinis343731621@gmail.com"</span></span><br><span class="line">(进入你想上传的文件夹)</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:DexSinis/DexSinis.github.io.git</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">(从远程库克隆)</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:DexSinis/DexSinis.github.io.git</span><br></pre></td></tr></table></figure>
+<p><strong>git基本常用命令</strong> (<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b topic (开始一个分支) == (git branch topic 加 git checkout topic)</span><br><span class="line">git branch (查看分支)</span><br><span class="line">git checkout master (回到主分支)</span><br><span class="line">git merge topic (合并分支)</span><br><span class="line">git branch <span class="operator">-d</span> topic (删除分支)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git flog (查看当前的历史版本)</span><br><span class="line">git reflog (查看所有的历史的版本)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git reset --hard commit_id (前进或者回退到特定的版本号)</span><br></pre></td></tr></table></figure></p>
+<h2 id="hexo_配置">hexo 配置</h2><p>基本配置(hexo官网) <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a> <strong>(必须看懂搭建好才进行下一步)</strong><br>主要修改文件 _config.yml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:DexSinis/DexSinis.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p><strong>主题修改</strong><br>/themes/lascape/_config.yml<br>推荐：<a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a></p>
+<p>集成多说样式(/themes/lascape/_config.yml中的duoshuo_shortname:)<br>/Users/a000/IDE/Blog/themes/landscape-plus/layout/_partial/head.ejs<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  var duoshuoQuery = &#123;short_name:<span class="string">"&lt;%= theme.duoshuo_shortname %&gt;"</span>&#125;;</span><br><span class="line">  (<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var ds = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">    ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">    ds.src = <span class="string">'//dexsinister.github.io/js/embed.js'</span>;</span><br><span class="line">    ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">    (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">    || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">  &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>多说样式配置(可省略)</strong><br>进入 (<a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a>) 后台管理–&gt;设置–&gt;自定义CSS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line">/*多说UA开始*/</span><br><span class="line">span.ua&#123;</span><br><span class="line">	margin: <span class="number">0</span> <span class="number">1</span>px!important;</span><br><span class="line">	color:<span class="comment">#FFFFFF!important;</span></span><br><span class="line">	/*text-transform: Capitalize!important;</span><br><span class="line">	<span class="built_in">float</span>: right!important;</span><br><span class="line">	line-height: <span class="number">18</span>px!important;*/</span><br><span class="line">&#125;</span><br><span class="line">.ua_other.os_other&#123;</span><br><span class="line">	background-color: <span class="comment">#ccc!important;</span></span><br><span class="line">	color: <span class="comment">#fff;</span></span><br><span class="line">	border: <span class="number">1</span>px solid <span class="comment">#BBB!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ie&#123;</span><br><span class="line">	background-color: <span class="comment">#428bca!important;</span></span><br><span class="line">	border-color: <span class="comment">#357ebd!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_firefox&#123;</span><br><span class="line">	background-color: <span class="comment">#f0ad4e!important;</span></span><br><span class="line">	border-color: <span class="comment">#eea236!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_maxthon&#123;</span><br><span class="line">	background-color: <span class="comment">#7373B9!important;</span></span><br><span class="line">	border-color: <span class="comment">#7373B9!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ucweb&#123;</span><br><span class="line">	background-color: <span class="comment">#FF740F!important;</span></span><br><span class="line">	border-color: <span class="comment">#d43f3a!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_sogou&#123;</span><br><span class="line">	background-color: <span class="comment">#78ACE9!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345explorer&#123;</span><br><span class="line">	background-color: <span class="comment">#2478B8!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345chrome&#123;</span><br><span class="line">	background-color: <span class="comment">#F9D024!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_mi&#123;</span><br><span class="line">	background-color: <span class="comment">#FF4A00!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_lbbrowser&#123;</span><br><span class="line">	background-color: <span class="comment">#FC9D2E!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_chrome&#123;</span><br><span class="line">	background-color: <span class="comment">#EE6252!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_qq&#123;</span><br><span class="line">	background-color: <span class="comment">#3D88A8!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_apple&#123;</span><br><span class="line">	background-color: <span class="comment">#E95620!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_opera&#123;</span><br><span class="line">	background-color: <span class="comment">#d9534f!important;</span></span><br><span class="line">	border-color: <span class="comment">#d43f3a!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">.os_vista,.os_2000,.os_windows,.os_xp,.os_7,.os_8,.os_8_1 &#123;</span><br><span class="line">	background-color: <span class="comment">#39b3d7!important;</span></span><br><span class="line">	border-color: <span class="comment">#46b8da!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">.os_android &#123;</span><br><span class="line">	background-color: <span class="comment">#98C13D!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_ubuntu&#123;</span><br><span class="line">	background-color: <span class="comment">#DD4814!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_linux &#123;</span><br><span class="line">	background-color: <span class="comment">#3A3A3A!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_mac&#123;</span><br><span class="line">	background-color: <span class="comment">#666666!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_unix&#123;</span><br><span class="line">	background-color: <span class="comment">#006600!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_nokia&#123;</span><br><span class="line">	background-color: <span class="comment">#014485!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.sskadmin&#123;</span><br><span class="line">background-color: <span class="comment">#00a67c!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line">/*多说UA结束*/</span><br></pre></td></tr></table></figure></p>
+<p><strong>集成谷歌分析(/themes/lascape/_config.yml中的google_analytics:)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Google Analytics --&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">(<span class="keyword">function</span>(i,s,o,g,r,a,m)&#123;i[<span class="string">'GoogleAnalyticsObject'</span>]=r;i[r]=i[r]||<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=<span class="number">1</span>*new Date();a=s.createElement(o),</span><br><span class="line">m=s.getElementsByTagName(o)[<span class="number">0</span>];a.async=<span class="number">1</span>;a.src=g;m.parentNode.insertBefore(a,m)</span><br><span class="line">&#125;)(window,document,<span class="string">'script'</span>,<span class="string">'//www.google-analytics.com/analytics.js'</span>,<span class="string">'ga'</span>);</span><br><span class="line">ga(<span class="string">'create'</span>, <span class="string">'&lt;%= theme.google_analytics %&gt;'</span>, <span class="string">'auto'</span>);</span><br><span class="line">ga(<span class="string">'send'</span>, <span class="string">'pageview'</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="markdown_编辑器推荐">markdown 编辑器推荐</h2><p>  Ulysses<br>  飞象markdown<br>  cmdmarkdown</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/10/hexo博客搭建/" data-id="cij5xh6mk000pi33mi6b2kfm3" class="article-share-link" data-share="baidu" data-title="hexo博客搭建">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/10/hexo博客搭建/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MarkDown/">MarkDown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-git的简单使用和hexo博客搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/10/git的简单使用和hexo博客搭建/" class="article-date">
+  <time datetime="2015-08-10T09:10:07.000Z" itemprop="datePublished">2015-08-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/10/git的简单使用和hexo博客搭建/">git的简单使用和hexo博客搭建</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="git配置">git配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line">mkdir key_backup</span><br><span class="line">cp id_rsa* key_backup</span><br><span class="line">rm id_rsa*</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"dexsinis@gmail.com"</span></span><br><span class="line"></span><br><span class="line">(多账号配置 gitlab与github) 新建打开config文件</span><br><span class="line">Host git.meiriq.com</span><br><span class="line">    HostName git.meiriq.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_work</span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"></span><br><span class="line">(添加远程库)</span><br><span class="line">git config --global user.name <span class="string">"DexSinis"</span> </span><br><span class="line">git config --global user.email <span class="string">"dexinis343731621@gmail.com"</span></span><br><span class="line">(进入你想上传的文件夹)</span><br><span class="line">git init</span><br><span class="line">touch README.md</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:DexSinis/DexSinis.github.io.git</span><br><span class="line">git push -u origin master</span><br><span class="line"></span><br><span class="line">(从远程库克隆)</span><br><span class="line">git <span class="built_in">clone</span> git@github.com:DexSinis/DexSinis.github.io.git</span><br></pre></td></tr></table></figure>
+<p><strong>git基本常用命令</strong> (<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b topic (开始一个分支) == (git branch topic 加 git checkout topic)</span><br><span class="line">git branch (查看分支)</span><br><span class="line">git checkout master (回到主分支)</span><br><span class="line">git merge topic (合并分支)</span><br><span class="line">git branch <span class="operator">-d</span> topic (删除分支)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git flog (查看当前的历史版本)</span><br><span class="line">git reflog (查看所有的历史的版本)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">git reset --hard commit_id (前进或者回退到特定的版本号)</span><br></pre></td></tr></table></figure></p>
+<h2 id="hexo_配置">hexo 配置</h2><p>基本配置(hexo官网) <a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a> <strong>(必须看懂搭建好才进行下一步)</strong><br>主要修改文件 _config.yml<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git</span><br><span class="line">  repository: git@github.com:DexSinis/DexSinis.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p><strong>主题修改</strong><br>/themes/lascape/_config.yml<br>推荐：<a href="http://www.zhihu.com/question/24422335" target="_blank" rel="external">http://www.zhihu.com/question/24422335</a></p>
+<p>集成多说样式(/themes/lascape/_config.yml中的duoshuo_shortname:)<br>/Users/a000/IDE/Blog/themes/landscape-plus/layout/_partial/head.ejs<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">"utf-8"</span>&gt;</span><br><span class="line">    &lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">  var duoshuoQuery = &#123;short_name:<span class="string">"&lt;%= theme.duoshuo_shortname %&gt;"</span>&#125;;</span><br><span class="line">  (<span class="function"><span class="title">function</span></span>() &#123;</span><br><span class="line">    var ds = document.createElement(<span class="string">'script'</span>);</span><br><span class="line">    ds.type = <span class="string">'text/javascript'</span>;ds.async = <span class="literal">true</span>;</span><br><span class="line">    ds.src = <span class="string">'//dexsinister.github.io/js/embed.js'</span>;</span><br><span class="line">    ds.charset = <span class="string">'UTF-8'</span>;</span><br><span class="line">    (document.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>]</span><br><span class="line">    || document.getElementsByTagName(<span class="string">'body'</span>)[<span class="number">0</span>]).appendChild(ds);</span><br><span class="line">  &#125;)();</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>多说样式配置(可省略)</strong><br>进入 (<a href="http://duoshuo.com/" target="_blank" rel="external">http://duoshuo.com/</a>) 后台管理–&gt;设置–&gt;自定义CSS<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line">/*多说UA开始*/</span><br><span class="line">span.ua&#123;</span><br><span class="line">	margin: <span class="number">0</span> <span class="number">1</span>px!important;</span><br><span class="line">	color:<span class="comment">#FFFFFF!important;</span></span><br><span class="line">	/*text-transform: Capitalize!important;</span><br><span class="line">	<span class="built_in">float</span>: right!important;</span><br><span class="line">	line-height: <span class="number">18</span>px!important;*/</span><br><span class="line">&#125;</span><br><span class="line">.ua_other.os_other&#123;</span><br><span class="line">	background-color: <span class="comment">#ccc!important;</span></span><br><span class="line">	color: <span class="comment">#fff;</span></span><br><span class="line">	border: <span class="number">1</span>px solid <span class="comment">#BBB!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ie&#123;</span><br><span class="line">	background-color: <span class="comment">#428bca!important;</span></span><br><span class="line">	border-color: <span class="comment">#357ebd!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_firefox&#123;</span><br><span class="line">	background-color: <span class="comment">#f0ad4e!important;</span></span><br><span class="line">	border-color: <span class="comment">#eea236!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_maxthon&#123;</span><br><span class="line">	background-color: <span class="comment">#7373B9!important;</span></span><br><span class="line">	border-color: <span class="comment">#7373B9!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_ucweb&#123;</span><br><span class="line">	background-color: <span class="comment">#FF740F!important;</span></span><br><span class="line">	border-color: <span class="comment">#d43f3a!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_sogou&#123;</span><br><span class="line">	background-color: <span class="comment">#78ACE9!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345explorer&#123;</span><br><span class="line">	background-color: <span class="comment">#2478B8!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_2345chrome&#123;</span><br><span class="line">	background-color: <span class="comment">#F9D024!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_mi&#123;</span><br><span class="line">	background-color: <span class="comment">#FF4A00!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_lbbrowser&#123;</span><br><span class="line">	background-color: <span class="comment">#FC9D2E!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_chrome&#123;</span><br><span class="line">	background-color: <span class="comment">#EE6252!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_qq&#123;</span><br><span class="line">	background-color: <span class="comment">#3D88A8!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_apple&#123;</span><br><span class="line">	background-color: <span class="comment">#E95620!important;</span></span><br><span class="line">	border-color: <span class="comment">#4cae4c!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.ua_opera&#123;</span><br><span class="line">	background-color: <span class="comment">#d9534f!important;</span></span><br><span class="line">	border-color: <span class="comment">#d43f3a!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">.os_vista,.os_2000,.os_windows,.os_xp,.os_7,.os_8,.os_8_1 &#123;</span><br><span class="line">	background-color: <span class="comment">#39b3d7!important;</span></span><br><span class="line">	border-color: <span class="comment">#46b8da!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">.os_android &#123;</span><br><span class="line">	background-color: <span class="comment">#98C13D!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_ubuntu&#123;</span><br><span class="line">	background-color: <span class="comment">#DD4814!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_linux &#123;</span><br><span class="line">	background-color: <span class="comment">#3A3A3A!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_mac&#123;</span><br><span class="line">	background-color: <span class="comment">#666666!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_unix&#123;</span><br><span class="line">	background-color: <span class="comment">#006600!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.os_nokia&#123;</span><br><span class="line">	background-color: <span class="comment">#014485!important;</span></span><br><span class="line">	border-color: <span class="comment">#1F1F1F!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line">&#125;</span><br><span class="line">.sskadmin&#123;</span><br><span class="line">background-color: <span class="comment">#00a67c!important;</span></span><br><span class="line">	border-color: <span class="comment">#01B171!important;</span></span><br><span class="line">	border-radius: <span class="number">4</span>px;</span><br><span class="line">	padding: <span class="number">0</span> <span class="number">5</span>px!important;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line">/*多说UA结束*/</span><br></pre></td></tr></table></figure></p>
+<p><strong>集成谷歌分析(/themes/lascape/_config.yml中的google_analytics:)</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Google Analytics --&gt;</span><br><span class="line">&lt;script <span class="built_in">type</span>=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">(<span class="keyword">function</span>(i,s,o,g,r,a,m)&#123;i[<span class="string">'GoogleAnalyticsObject'</span>]=r;i[r]=i[r]||<span class="function"><span class="title">function</span></span>()&#123;</span><br><span class="line">(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=<span class="number">1</span>*new Date();a=s.createElement(o),</span><br><span class="line">m=s.getElementsByTagName(o)[<span class="number">0</span>];a.async=<span class="number">1</span>;a.src=g;m.parentNode.insertBefore(a,m)</span><br><span class="line">&#125;)(window,document,<span class="string">'script'</span>,<span class="string">'//www.google-analytics.com/analytics.js'</span>,<span class="string">'ga'</span>);</span><br><span class="line">ga(<span class="string">'create'</span>, <span class="string">'&lt;%= theme.google_analytics %&gt;'</span>, <span class="string">'auto'</span>);</span><br><span class="line">ga(<span class="string">'send'</span>, <span class="string">'pageview'</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="markdown_编辑器推荐">markdown 编辑器推荐</h2><p>  Ulysses<br>  飞象markdown<br>  cmdmarkdown</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/10/git的简单使用和hexo博客搭建/" data-id="cij5xh6mn000si33m12w32xy9" class="article-share-link" data-share="baidu" data-title="git的简单使用和hexo博客搭建">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/10/git的简单使用和hexo博客搭建/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-欢迎使用 Cmd Markdown 编辑阅读器" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/09/欢迎使用 Cmd Markdown 编辑阅读器/" class="article-date">
+  <time datetime="2015-08-09T12:11:07.000Z" itemprop="datePublished">2015-08-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/08/09/欢迎使用 Cmd Markdown 编辑阅读器/">欢迎使用 Cmd Markdown 编辑阅读器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们理解您需要更便捷更高效的工具记录思想，整理笔记、知识，并将其中承载的价值传播给他人，<strong>Cmd Markdown</strong> 是我们给出的答案 —— 我们为记录思想和分享知识提供更专业的工具。 您可以使用 Cmd Markdown：</p>
+<blockquote>
+<ul>
+<li>整理知识，学习笔记</li>
+<li>发布日记，杂文，所见所想</li>
+<li>撰写发布技术文稿（代码支持）</li>
+<li>撰写发布学术论文（LaTeX 公式支持）</li>
+</ul>
+</blockquote>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+<p>除了您现在看到的这个 Cmd Markdown 在线版本，您还可以前往以下网址下载：</p>
+<h3 id="Windows/Mac/Linux_全平台客户端"><a href="https://www.zybuluo.com/cmd/" target="_blank" rel="external">Windows/Mac/Linux 全平台客户端</a></h3><blockquote>
+<p>请保留此份 Cmd Markdown 的欢迎稿兼使用说明，如需撰写新稿件，点击顶部工具栏右侧的 <i class="icon-file"></i> <strong>新文稿</strong> 或者使用快捷键 <code>Ctrl+Alt+N</code>。</p>
+</blockquote>
+<hr>
+<h2 id="什么是_Markdown">什么是 Markdown</h2><p>Markdown 是一种方便记忆、书写的纯文本标记语言，用户可以使用这些标记符号以最小的输入代价生成极富表现力的文档：譬如您正在阅读的这份文档。它使用简单的符号标记不同的标题，分割不同的段落，<strong>粗体</strong> 或者 <em>斜体</em> 某些文字，更棒的是，它还可以</p>
+<h3 id="1-_制作一份待办事宜_Todo_列表">1. 制作一份待办事宜 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#13-待办事宜-todo-列表" target="_blank" rel="external">Todo 列表</a></h3><ul>
+<li>[ ] 支持以 PDF 格式导出文稿</li>
+<li>[ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率</li>
+<li>[x] 新增 Todo 列表功能</li>
+<li>[x] 修复 LaTex 公式渲染问题</li>
+<li>[x] 新增 LaTex 公式编号功能</li>
+</ul>
+<h3 id="2-_书写一个质能守恒公式[^LaTeX]">2. 书写一个质能守恒公式[^LaTeX]</h3><p>$$E=mc^2$$</p>
+<h3 id="3-_高亮一段代码[^code]">3. 高亮一段代码[^code]</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="decorator">@requires_authorization</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SomeClass</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># A comment</span></span><br><span class="line">    <span class="keyword">print</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-_高效绘制_流程图">4. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#7-流程图" target="_blank" rel="external">流程图</a></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">st=&#62;start: Start&#10;op=&#62;operation: Your Operation&#10;cond=&#62;condition: Yes or No?&#10;e=&#62;end&#10;&#10;st-&#62;op-&#62;cond&#10;cond(yes)-&#62;e&#10;cond(no)-&#62;op</span><br></pre></td></tr></table></figure>
+<h3 id="5-_高效绘制_序列图">5. 高效绘制 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#8-序列图" target="_blank" rel="external">序列图</a></h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Alice-&#62;Bob: Hello Bob, how are you?&#10;Note right of Bob: Bob thinks&#10;Bob--&#62;Alice: I am good thanks!</span><br></pre></td></tr></table></figure>
+<h3 id="6-_绘制表格">6. 绘制表格</h3><table>
+<thead>
+<tr>
+<th>项目</th>
+<th style="text-align:right">价格</th>
+<th style="text-align:center">数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>计算机</td>
+<td style="text-align:right">\$1600</td>
+<td style="text-align:center">5</td>
+</tr>
+<tr>
+<td>手机</td>
+<td style="text-align:right">\$12</td>
+<td style="text-align:center">12</td>
+</tr>
+<tr>
+<td>管线</td>
+<td style="text-align:right">\$1</td>
+<td style="text-align:center">234</td>
+</tr>
+</tbody>
+</table>
+<h3 id="7-_更详细语法说明">7. 更详细语法说明</h3><p>想要查看更详细的语法说明，可以参考我们准备的 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown" target="_blank" rel="external">Cmd Markdown 简明语法手册</a>，进阶用户可以参考 <a href="https://www.zybuluo.com/mdeditor?url=https://www.zybuluo.com/static/editor/md-help.markdown#cmd-markdown-高阶语法手册" target="_blank" rel="external">Cmd Markdown 高阶语法手册</a> 了解更多高级功能。</p>
+<p>总而言之，不同于其它 <em>所见即所得</em> 的编辑器：你只需使用键盘专注于书写文本内容，就可以生成印刷级的排版格式，省却在键盘和工具栏之间来回切换，调整内容和格式的麻烦。<strong>Markdown 在流畅的书写和印刷级的阅读体验之间找到了平衡。</strong> 目前它已经成为世界上最大的技术分享网站 GitHub 和 技术问答网站 StackOverFlow 的御用书写格式。</p>
+<hr>
+<h2 id="什么是_Cmd_Markdown">什么是 Cmd Markdown</h2><p>您可以使用很多工具书写 Markdown，但是 Cmd Markdown 是这个星球上我们已知的、最好的 Markdown 工具——没有之一 ：）因为深信文字的力量，所以我们和你一样，对流畅书写，分享思想和知识，以及阅读体验有极致的追求，我们把对于这些诉求的回应整合在 Cmd Markdown，并且一次，两次，三次，乃至无数次地提升这个工具的体验，最终将它演化成一个 <strong>编辑/发布/阅读</strong> Markdown 的在线平台——您可以在任何地方，任何系统/设备上管理这里的文字。</p>
+<h3 id="1-_实时同步预览">1. 实时同步预览</h3><p>我们将 Cmd Markdown 的主界面一分为二，左边为<strong>编辑区</strong>，右边为<strong>预览区</strong>，在编辑区的操作会实时地渲染到预览区方便查看最终的版面效果，并且如果你在其中一个区拖动滚动条，我们有一个巧妙的算法把另一个区的滚动条同步到等价的位置，超酷！</p>
+<h3 id="2-_编辑工具栏">2. 编辑工具栏</h3><p>也许您还是一个 Markdown 语法的新手，在您完全熟悉它之前，我们在 <strong>编辑区</strong> 的顶部放置了一个如下图所示的工具栏，您可以使用鼠标在工具栏上调整格式，不过我们仍旧鼓励你使用键盘标记格式，提高书写的流畅度。</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-editor.png" alt="tool-editor"></p>
+<h3 id="3-_编辑模式">3. 编辑模式</h3><p>完全心无旁骛的方式编辑文字：点击 <strong>编辑工具栏</strong> 最右测的拉伸按钮或者按下 <code>Ctrl + M</code>，将 Cmd Markdown 切换到独立的编辑模式，这是一个极度简洁的写作环境，所有可能会引起分心的元素都已经被挪除，超清爽！</p>
+<h3 id="4-_实时的云端文稿">4. 实时的云端文稿</h3><p>为了保障数据安全，Cmd Markdown 会将您每一次击键的内容保存至云端，同时在 <strong>编辑工具栏</strong> 的最右侧提示 <code>已保存</code> 的字样。无需担心浏览器崩溃，机器掉电或者地震，海啸——在编辑的过程中随时关闭浏览器或者机器，下一次回到 Cmd Markdown 的时候继续写作。</p>
+<h3 id="5-_离线模式">5. 离线模式</h3><p>在网络环境不稳定的情况下记录文字一样很安全！在您写作的时候，如果电脑突然失去网络连接，Cmd Markdown 会智能切换至离线模式，将您后续键入的文字保存在本地，直到网络恢复再将他们传送至云端，即使在网络恢复前关闭浏览器或者电脑，一样没有问题，等到下次开启 Cmd Markdown 的时候，她会提醒您将离线保存的文字传送至云端。简而言之，我们尽最大的努力保障您文字的安全。</p>
+<h3 id="6-_管理工具栏">6. 管理工具栏</h3><p>为了便于管理您的文稿，在 <strong>预览区</strong> 的顶部放置了如下所示的 <strong>管理工具栏</strong>：</p>
+<p><img src="https://www.zybuluo.com/static/img/toolbar-manager.jpg" alt="tool-manager"></p>
+<p>通过管理工具栏可以：</p>
+<p><i class="icon-share"></i> 发布：将当前的文稿生成固定链接，在网络上发布，分享<br><i class="icon-file"></i> 新建：开始撰写一篇新的文稿<br><i class="icon-trash"></i> 删除：删除当前的文稿<br><i class="icon-cloud"></i> 导出：将当前的文稿转化为 Markdown 文本或者 Html 格式，并导出到本地<br><i class="icon-reorder"></i> 列表：所有新增和过往的文稿都可以在这里查看、操作<br><i class="icon-pencil"></i> 模式：切换 普通/Vim/Emacs 编辑模式</p>
+<h3 id="7-_阅读工具栏">7. 阅读工具栏</h3><p><img src="https://www.zybuluo.com/static/img/toolbar-reader.jpg" alt="tool-manager"></p>
+<p>通过 <strong>预览区</strong> 右上角的 <strong>阅读工具栏</strong>，可以查看当前文稿的目录并增强阅读体验。</p>
+<p>工具栏上的五个图标依次为：</p>
+<p><i class="icon-list"></i> 目录：快速导航当前文稿的目录结构以跳转到感兴趣的段落<br><i class="icon-chevron-sign-left"></i> 视图：互换左边编辑区和右边预览区的位置<br><i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 <strong>黑色主题</strong>，超炫！<br><i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验<br><i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境</p>
+<h3 id="8-_阅读模式">8. 阅读模式</h3><p>在 <strong>阅读工具栏</strong> 点击 <i class="icon-desktop"></i> 或者按下 <code>Ctrl+Alt+M</code> 随即进入独立的阅读模式界面，我们在版面渲染上的每一个细节：字体，字号，行间距，前背景色都倾注了大量的时间，努力提升阅读的体验和品质。</p>
+<h3 id="9-_标签、分类和搜索">9. 标签、分类和搜索</h3><p>在编辑区任意行首位置输入以下格式的文字可以标签当前文档：</p>
+<p>标签： 未分类</p>
+<p>标签以后的文稿在【文件列表】（Ctrl+Alt+F）里会按照标签分类，用户可以同时使用键盘或者鼠标浏览查看，或者在【文件列表】的搜索文本框内搜索标题关键字过滤文稿，如下图所示：</p>
+<p><img src="https://www.zybuluo.com/static/img/file-list.png" alt="file-list"></p>
+<h3 id="10-_快捷键">10. 快捷键</h3><p>帮助    <code>Ctrl + /</code><br>同步文档    <code>Ctrl + S</code><br>创建文档    <code>Ctrl + Alt + N</code><br>最大化编辑器    <code>Ctrl + Enter</code><br>预览文档 <code>Ctrl + Alt + Enter</code><br>文档管理    <code>Ctrl + O</code><br>系统菜单    <code>Ctrl + M</code> </p>
+<p>加粗    <code>Ctrl + B</code><br>插入图片    <code>Ctrl + G</code><br>插入链接    <code>Ctrl + L</code><br>提升标题    <code>Ctrl + H</code></p>
+<h3 id="11-_文稿发布和分享">11. 文稿发布和分享</h3><p>在您使用 Cmd Markdown 记录，创作，整理，阅读文稿的同时，我们不仅希望它是一个有力的工具，更希望您的思想和知识通过这个平台，连同优质的阅读体验，将他们分享给有相同志趣的人，进而鼓励更多的人来到这里记录分享他们的思想和知识，尝试点击 <i class="icon-share"></i> (Ctrl+Alt+P) 发布这份文档给好友吧！</p>
+<hr>
+<p>再一次感谢您花费时间阅读这份欢迎稿，点击 <i class="icon-file"></i> (Ctrl+Alt+N) 开始撰写新的文稿吧！祝您在这里记录、阅读、分享愉快！</p>
+<p>作者 <a href="http://weibo.com/ghosert" target="_blank" rel="external">@ghosert</a><br>2015 年 06月 15日    </p>
+<p>[^LaTeX]: 支持 <strong>LaTeX</strong> 编辑显示支持，例如：$\sum_{i=1}^n a_i=0$， 访问 <a href="http://meta.math.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="external">MathJax</a> 参考更多使用方法。</p>
+<p>[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，<strong>四十一</strong>种主流编程语言。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/09/欢迎使用 Cmd Markdown 编辑阅读器/" data-id="cij5xh6m60003i33m0q157nhs" class="article-share-link" data-share="baidu" data-title="欢迎使用 Cmd Markdown 编辑阅读器">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/09/欢迎使用 Cmd Markdown 编辑阅读器/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MarkDown/">MarkDown</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
+    </nav>
+  
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS-Swift/">IOS-Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开源项目/">IOS开源项目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios开发/">ios开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios经验/">ios经验</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心情/">心情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IOS-Swift/" style="font-size: 10px;">IOS-Swift</a> <a href="/tags/IOS开发SDK/" style="font-size: 20px;">IOS开发SDK</a> <a href="/tags/IOS开发经验总结/" style="font-size: 16.67px;">IOS开发经验总结</a> <a href="/tags/IOS开源项目/" style="font-size: 10px;">IOS开源项目</a> <a href="/tags/IOS网站博客/" style="font-size: 10px;">IOS网站博客</a> <a href="/tags/MarkDown/" style="font-size: 16.67px;">MarkDown</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios开发/" style="font-size: 10px;">ios开发</a> <a href="/tags/ios经验/" style="font-size: 10px;">ios经验</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/07/textsadasd/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/教你如何获取ios系统信息/">教你如何获取ios系统信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/Git的简单使用/">Git的简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/05/MVC，MVP 和 MVVM 架构/">MVC，MVP 和 MVVM 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/30/UIViewController简单使用/">UIViewController简单使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 DexSinister<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>

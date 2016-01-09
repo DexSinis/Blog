@@ -1,0 +1,628 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		266782E41BA266B300093EC1 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266782E31BA266B300093EC1 /* Restaurant.swift */; };
+		266782E61BA26E5D00093EC1 /* DidSet_WillSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266782E51BA26E5D00093EC1 /* DidSet_WillSet.swift */; };
+		266783041BA2B0D000093EC1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 266782EA1BA2B0D000093EC1 /* Info.plist */; };
+		266783051BA2B0D000093EC1 /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782EC1BA2B0D000093EC1 /* MASCompositeConstraint.m */; };
+		266783061BA2B0D000093EC1 /* MASConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782EF1BA2B0D000093EC1 /* MASConstraint.m */; };
+		266783071BA2B0D000093EC1 /* MASConstraintMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782F11BA2B0D000093EC1 /* MASConstraintMaker.m */; };
+		266783081BA2B0D000093EC1 /* MASLayoutConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782F31BA2B0D000093EC1 /* MASLayoutConstraint.m */; };
+		266783091BA2B0D000093EC1 /* MASViewAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782F71BA2B0D000093EC1 /* MASViewAttribute.m */; };
+		2667830A1BA2B0D000093EC1 /* MASViewConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782F91BA2B0D000093EC1 /* MASViewConstraint.m */; };
+		2667830B1BA2B0D000093EC1 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782FB1BA2B0D000093EC1 /* NSArray+MASAdditions.m */; };
+		2667830C1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 266782FE1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.m */; };
+		2667830D1BA2B0D000093EC1 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 266783001BA2B0D000093EC1 /* View+MASAdditions.m */; };
+		2667830E1BA2B0D000093EC1 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 266783031BA2B0D000093EC1 /* ViewController+MASAdditions.m */; };
+		2667832A1BA2BC2A00093EC1 /* MASExampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783231BA2BC2A00093EC1 /* MASExampleView.swift */; };
+		2667832B1BA2BC2A00093EC1 /* MASExampleBasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783241BA2BC2A00093EC1 /* MASExampleBasicView.swift */; };
+		2667832C1BA2BC2A00093EC1 /* MASExampleUpdateConstraintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783251BA2BC2A00093EC1 /* MASExampleUpdateConstraintsView.swift */; };
+		2667832D1BA2BC2A00093EC1 /* MASExampleRemakeConstraintsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783261BA2BC2A00093EC1 /* MASExampleRemakeConstraintsView.swift */; };
+		2667832E1BA2BC2A00093EC1 /* MASExampleUsingConstantsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783271BA2BC2A00093EC1 /* MASExampleUsingConstantsView.swift */; };
+		2667832F1BA2BC2A00093EC1 /* MASExampleCompositeEdgesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783281BA2BC2A00093EC1 /* MASExampleCompositeEdgesView.swift */; };
+		266783301BA2BC2A00093EC1 /* MASExampleBasicAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266783291BA2BC2A00093EC1 /* MASExampleBasicAnimationView.swift */; };
+		266783371BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 266783341BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.m */; };
+		266783381BA2C0F600093EC1 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 266783351BA2C0F600093EC1 /* LICENSE */; };
+		266783391BA2C0F600093EC1 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 266783361BA2C0F600093EC1 /* README.md */; };
+		2667833E1BA2DCE700093EC1 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2667833D1BA2DCE700093EC1 /* RestaurantController.swift */; };
+		266783411BA2DD8B00093EC1 /* HWTestHeightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 266783401BA2DD8B00093EC1 /* HWTestHeightCell.m */; };
+		2677F29E1BA16AD6007F9D5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677F29D1BA16AD6007F9D5C /* AppDelegate.swift */; };
+		2677F2A01BA16AD6007F9D5C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677F29F1BA16AD6007F9D5C /* ViewController.swift */; };
+		2677F2A31BA16AD6007F9D5C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2677F2A11BA16AD6007F9D5C /* Main.storyboard */; };
+		2677F2A51BA16AD6007F9D5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2677F2A41BA16AD6007F9D5C /* Images.xcassets */; };
+		2677F2A81BA16AD6007F9D5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2677F2A61BA16AD6007F9D5C /* LaunchScreen.xib */; };
+		2677F2B41BA16AD6007F9D5C /* FoodPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677F2B31BA16AD6007F9D5C /* FoodPinTests.swift */; };
+		2677F2BE1BA16B17007F9D5C /* RestaurantTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677F2BD1BA16B17007F9D5C /* RestaurantTableViewController.swift */; };
+		2677F2C21BA16E39007F9D5C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2677F2C11BA16E39007F9D5C /* CustomTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2677F2AE1BA16AD6007F9D5C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2677F2901BA16AD6007F9D5C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2677F2971BA16AD6007F9D5C;
+			remoteInfo = FoodPin;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		266782E31BA266B300093EC1 /* Restaurant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		266782E51BA26E5D00093EC1 /* DidSet_WillSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DidSet_WillSet.swift; sourceTree = "<group>"; };
+		266782EA1BA2B0D000093EC1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		266782EB1BA2B0D000093EC1 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
+		266782EC1BA2B0D000093EC1 /* MASCompositeConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASCompositeConstraint.m; sourceTree = "<group>"; };
+		266782ED1BA2B0D000093EC1 /* MASConstraint+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MASConstraint+Private.h"; sourceTree = "<group>"; };
+		266782EE1BA2B0D000093EC1 /* MASConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraint.h; sourceTree = "<group>"; };
+		266782EF1BA2B0D000093EC1 /* MASConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraint.m; sourceTree = "<group>"; };
+		266782F01BA2B0D000093EC1 /* MASConstraintMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASConstraintMaker.h; sourceTree = "<group>"; };
+		266782F11BA2B0D000093EC1 /* MASConstraintMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASConstraintMaker.m; sourceTree = "<group>"; };
+		266782F21BA2B0D000093EC1 /* MASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASLayoutConstraint.h; sourceTree = "<group>"; };
+		266782F31BA2B0D000093EC1 /* MASLayoutConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASLayoutConstraint.m; sourceTree = "<group>"; };
+		266782F41BA2B0D000093EC1 /* Masonry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Masonry.h; sourceTree = "<group>"; };
+		266782F51BA2B0D000093EC1 /* MASUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASUtilities.h; sourceTree = "<group>"; };
+		266782F61BA2B0D000093EC1 /* MASViewAttribute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewAttribute.h; sourceTree = "<group>"; };
+		266782F71BA2B0D000093EC1 /* MASViewAttribute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewAttribute.m; sourceTree = "<group>"; };
+		266782F81BA2B0D000093EC1 /* MASViewConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASViewConstraint.h; sourceTree = "<group>"; };
+		266782F91BA2B0D000093EC1 /* MASViewConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASViewConstraint.m; sourceTree = "<group>"; };
+		266782FA1BA2B0D000093EC1 /* NSArray+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASAdditions.h"; sourceTree = "<group>"; };
+		266782FB1BA2B0D000093EC1 /* NSArray+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MASAdditions.m"; sourceTree = "<group>"; };
+		266782FC1BA2B0D000093EC1 /* NSArray+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		266782FD1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+MASDebugAdditions.h"; sourceTree = "<group>"; };
+		266782FE1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		266782FF1BA2B0D000093EC1 /* View+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASAdditions.h"; sourceTree = "<group>"; };
+		266783001BA2B0D000093EC1 /* View+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "View+MASAdditions.m"; sourceTree = "<group>"; };
+		266783011BA2B0D000093EC1 /* View+MASShorthandAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "View+MASShorthandAdditions.h"; sourceTree = "<group>"; };
+		266783021BA2B0D000093EC1 /* ViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewController+MASAdditions.h"; sourceTree = "<group>"; };
+		266783031BA2B0D000093EC1 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
+		266783211BA2B98400093EC1 /* Swift-Masonry-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Swift-Masonry-Bridging-Header.h"; sourceTree = "<group>"; };
+		266783231BA2BC2A00093EC1 /* MASExampleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleView.swift; sourceTree = "<group>"; };
+		266783241BA2BC2A00093EC1 /* MASExampleBasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleBasicView.swift; sourceTree = "<group>"; };
+		266783251BA2BC2A00093EC1 /* MASExampleUpdateConstraintsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleUpdateConstraintsView.swift; sourceTree = "<group>"; };
+		266783261BA2BC2A00093EC1 /* MASExampleRemakeConstraintsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleRemakeConstraintsView.swift; sourceTree = "<group>"; };
+		266783271BA2BC2A00093EC1 /* MASExampleUsingConstantsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleUsingConstantsView.swift; sourceTree = "<group>"; };
+		266783281BA2BC2A00093EC1 /* MASExampleCompositeEdgesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleCompositeEdgesView.swift; sourceTree = "<group>"; };
+		266783291BA2BC2A00093EC1 /* MASExampleBasicAnimationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MASExampleBasicAnimationView.swift; sourceTree = "<group>"; };
+		266783331BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+FDTemplateLayoutCell.h"; sourceTree = "<group>"; };
+		266783341BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+FDTemplateLayoutCell.m"; sourceTree = "<group>"; };
+		266783351BA2C0F600093EC1 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		266783361BA2C0F600093EC1 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		2667833D1BA2DCE700093EC1 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
+		2667833F1BA2DD8B00093EC1 /* HWTestHeightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWTestHeightCell.h; path = ../HWTestHeightCell.h; sourceTree = "<group>"; };
+		266783401BA2DD8B00093EC1 /* HWTestHeightCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWTestHeightCell.m; path = ../HWTestHeightCell.m; sourceTree = "<group>"; };
+		2677F2981BA16AD6007F9D5C /* FoodPin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodPin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2677F29C1BA16AD6007F9D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2677F29D1BA16AD6007F9D5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2677F29F1BA16AD6007F9D5C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2677F2A21BA16AD6007F9D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2677F2A41BA16AD6007F9D5C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2677F2A71BA16AD6007F9D5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2677F2AD1BA16AD6007F9D5C /* FoodPinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodPinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2677F2B21BA16AD6007F9D5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2677F2B31BA16AD6007F9D5C /* FoodPinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinTests.swift; sourceTree = "<group>"; };
+		2677F2BD1BA16B17007F9D5C /* RestaurantTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewController.swift; sourceTree = "<group>"; };
+		2677F2C11BA16E39007F9D5C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2677F2951BA16AD6007F9D5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2677F2AA1BA16AD6007F9D5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		266782E81BA2B0BE00093EC1 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				266783311BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell */,
+				266783221BA2BC0200093EC1 /* MasonryDemo */,
+				266782E91BA2B0D000093EC1 /* Masonry */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		266782E91BA2B0D000093EC1 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				266782EA1BA2B0D000093EC1 /* Info.plist */,
+				266782EB1BA2B0D000093EC1 /* MASCompositeConstraint.h */,
+				266782EC1BA2B0D000093EC1 /* MASCompositeConstraint.m */,
+				266782ED1BA2B0D000093EC1 /* MASConstraint+Private.h */,
+				266782EE1BA2B0D000093EC1 /* MASConstraint.h */,
+				266782EF1BA2B0D000093EC1 /* MASConstraint.m */,
+				266782F01BA2B0D000093EC1 /* MASConstraintMaker.h */,
+				266782F11BA2B0D000093EC1 /* MASConstraintMaker.m */,
+				266782F21BA2B0D000093EC1 /* MASLayoutConstraint.h */,
+				266782F31BA2B0D000093EC1 /* MASLayoutConstraint.m */,
+				266782F41BA2B0D000093EC1 /* Masonry.h */,
+				266782F51BA2B0D000093EC1 /* MASUtilities.h */,
+				266782F61BA2B0D000093EC1 /* MASViewAttribute.h */,
+				266782F71BA2B0D000093EC1 /* MASViewAttribute.m */,
+				266782F81BA2B0D000093EC1 /* MASViewConstraint.h */,
+				266782F91BA2B0D000093EC1 /* MASViewConstraint.m */,
+				266782FA1BA2B0D000093EC1 /* NSArray+MASAdditions.h */,
+				266782FB1BA2B0D000093EC1 /* NSArray+MASAdditions.m */,
+				266782FC1BA2B0D000093EC1 /* NSArray+MASShorthandAdditions.h */,
+				266782FD1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.h */,
+				266782FE1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.m */,
+				266782FF1BA2B0D000093EC1 /* View+MASAdditions.h */,
+				266783001BA2B0D000093EC1 /* View+MASAdditions.m */,
+				266783011BA2B0D000093EC1 /* View+MASShorthandAdditions.h */,
+				266783021BA2B0D000093EC1 /* ViewController+MASAdditions.h */,
+				266783031BA2B0D000093EC1 /* ViewController+MASAdditions.m */,
+			);
+			path = Masonry;
+			sourceTree = "<group>";
+		};
+		266783221BA2BC0200093EC1 /* MasonryDemo */ = {
+			isa = PBXGroup;
+			children = (
+				266783231BA2BC2A00093EC1 /* MASExampleView.swift */,
+				266783241BA2BC2A00093EC1 /* MASExampleBasicView.swift */,
+				266783251BA2BC2A00093EC1 /* MASExampleUpdateConstraintsView.swift */,
+				266783261BA2BC2A00093EC1 /* MASExampleRemakeConstraintsView.swift */,
+				266783271BA2BC2A00093EC1 /* MASExampleUsingConstantsView.swift */,
+				266783281BA2BC2A00093EC1 /* MASExampleCompositeEdgesView.swift */,
+				266783291BA2BC2A00093EC1 /* MASExampleBasicAnimationView.swift */,
+			);
+			name = MasonryDemo;
+			path = Masonry/Demo;
+			sourceTree = "<group>";
+		};
+		266783311BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell */ = {
+			isa = PBXGroup;
+			children = (
+				266783321BA2C0F600093EC1 /* Classes */,
+				266783351BA2C0F600093EC1 /* LICENSE */,
+				266783361BA2C0F600093EC1 /* README.md */,
+			);
+			path = "UITableView+FDTemplateLayoutCell";
+			sourceTree = "<group>";
+		};
+		266783321BA2C0F600093EC1 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				266783331BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.h */,
+				266783341BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		266783421BA2DF1000093EC1 /* backup */ = {
+			isa = PBXGroup;
+			children = (
+				2667833D1BA2DCE700093EC1 /* RestaurantController.swift */,
+				2667833F1BA2DD8B00093EC1 /* HWTestHeightCell.h */,
+				266783401BA2DD8B00093EC1 /* HWTestHeightCell.m */,
+			);
+			path = backup;
+			sourceTree = "<group>";
+		};
+		2677F28F1BA16AD6007F9D5C = {
+			isa = PBXGroup;
+			children = (
+				2677F29A1BA16AD6007F9D5C /* FoodPin */,
+				2677F2B01BA16AD6007F9D5C /* FoodPinTests */,
+				2677F2991BA16AD6007F9D5C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2677F2991BA16AD6007F9D5C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2677F2981BA16AD6007F9D5C /* FoodPin.app */,
+				2677F2AD1BA16AD6007F9D5C /* FoodPinTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2677F29A1BA16AD6007F9D5C /* FoodPin */ = {
+			isa = PBXGroup;
+			children = (
+				266783421BA2DF1000093EC1 /* backup */,
+				266782E81BA2B0BE00093EC1 /* Lib */,
+				2677F29D1BA16AD6007F9D5C /* AppDelegate.swift */,
+				2677F29F1BA16AD6007F9D5C /* ViewController.swift */,
+				2677F2BD1BA16B17007F9D5C /* RestaurantTableViewController.swift */,
+				2677F2C11BA16E39007F9D5C /* CustomTableViewCell.swift */,
+				2677F2A11BA16AD6007F9D5C /* Main.storyboard */,
+				2677F2A41BA16AD6007F9D5C /* Images.xcassets */,
+				2677F2A61BA16AD6007F9D5C /* LaunchScreen.xib */,
+				2677F29B1BA16AD6007F9D5C /* Supporting Files */,
+				266782E31BA266B300093EC1 /* Restaurant.swift */,
+				266782E51BA26E5D00093EC1 /* DidSet_WillSet.swift */,
+			);
+			path = FoodPin;
+			sourceTree = "<group>";
+		};
+		2677F29B1BA16AD6007F9D5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				266783211BA2B98400093EC1 /* Swift-Masonry-Bridging-Header.h */,
+				2677F29C1BA16AD6007F9D5C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2677F2B01BA16AD6007F9D5C /* FoodPinTests */ = {
+			isa = PBXGroup;
+			children = (
+				2677F2B31BA16AD6007F9D5C /* FoodPinTests.swift */,
+				2677F2B11BA16AD6007F9D5C /* Supporting Files */,
+			);
+			path = FoodPinTests;
+			sourceTree = "<group>";
+		};
+		2677F2B11BA16AD6007F9D5C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2677F2B21BA16AD6007F9D5C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2677F2971BA16AD6007F9D5C /* FoodPin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2677F2B71BA16AD6007F9D5C /* Build configuration list for PBXNativeTarget "FoodPin" */;
+			buildPhases = (
+				2677F2941BA16AD6007F9D5C /* Sources */,
+				2677F2951BA16AD6007F9D5C /* Frameworks */,
+				2677F2961BA16AD6007F9D5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoodPin;
+			productName = FoodPin;
+			productReference = 2677F2981BA16AD6007F9D5C /* FoodPin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2677F2AC1BA16AD6007F9D5C /* FoodPinTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2677F2BA1BA16AD6007F9D5C /* Build configuration list for PBXNativeTarget "FoodPinTests" */;
+			buildPhases = (
+				2677F2A91BA16AD6007F9D5C /* Sources */,
+				2677F2AA1BA16AD6007F9D5C /* Frameworks */,
+				2677F2AB1BA16AD6007F9D5C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2677F2AF1BA16AD6007F9D5C /* PBXTargetDependency */,
+			);
+			name = FoodPinTests;
+			productName = FoodPinTests;
+			productReference = 2677F2AD1BA16AD6007F9D5C /* FoodPinTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2677F2901BA16AD6007F9D5C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = 000;
+				TargetAttributes = {
+					2677F2971BA16AD6007F9D5C = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					2677F2AC1BA16AD6007F9D5C = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 2677F2971BA16AD6007F9D5C;
+					};
+				};
+			};
+			buildConfigurationList = 2677F2931BA16AD6007F9D5C /* Build configuration list for PBXProject "FoodPin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2677F28F1BA16AD6007F9D5C;
+			productRefGroup = 2677F2991BA16AD6007F9D5C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2677F2971BA16AD6007F9D5C /* FoodPin */,
+				2677F2AC1BA16AD6007F9D5C /* FoodPinTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2677F2961BA16AD6007F9D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266783041BA2B0D000093EC1 /* Info.plist in Resources */,
+				2677F2A31BA16AD6007F9D5C /* Main.storyboard in Resources */,
+				2677F2A81BA16AD6007F9D5C /* LaunchScreen.xib in Resources */,
+				2677F2A51BA16AD6007F9D5C /* Images.xcassets in Resources */,
+				266783381BA2C0F600093EC1 /* LICENSE in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2677F2AB1BA16AD6007F9D5C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2677F2941BA16AD6007F9D5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				266783301BA2BC2A00093EC1 /* MASExampleBasicAnimationView.swift in Sources */,
+				2667832F1BA2BC2A00093EC1 /* MASExampleCompositeEdgesView.swift in Sources */,
+				266783061BA2B0D000093EC1 /* MASConstraint.m in Sources */,
+				266783091BA2B0D000093EC1 /* MASViewAttribute.m in Sources */,
+				2667830E1BA2B0D000093EC1 /* ViewController+MASAdditions.m in Sources */,
+				2667832E1BA2BC2A00093EC1 /* MASExampleUsingConstantsView.swift in Sources */,
+				2667830B1BA2B0D000093EC1 /* NSArray+MASAdditions.m in Sources */,
+				2667832D1BA2BC2A00093EC1 /* MASExampleRemakeConstraintsView.swift in Sources */,
+				2667833E1BA2DCE700093EC1 /* RestaurantController.swift in Sources */,
+				266782E41BA266B300093EC1 /* Restaurant.swift in Sources */,
+				266783371BA2C0F600093EC1 /* UITableView+FDTemplateLayoutCell.m in Sources */,
+				2667830A1BA2B0D000093EC1 /* MASViewConstraint.m in Sources */,
+				266783411BA2DD8B00093EC1 /* HWTestHeightCell.m in Sources */,
+				266783081BA2B0D000093EC1 /* MASLayoutConstraint.m in Sources */,
+				266783391BA2C0F600093EC1 /* README.md in Sources */,
+				266782E61BA26E5D00093EC1 /* DidSet_WillSet.swift in Sources */,
+				2677F2BE1BA16B17007F9D5C /* RestaurantTableViewController.swift in Sources */,
+				2667830D1BA2B0D000093EC1 /* View+MASAdditions.m in Sources */,
+				266783051BA2B0D000093EC1 /* MASCompositeConstraint.m in Sources */,
+				2667830C1BA2B0D000093EC1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				266783071BA2B0D000093EC1 /* MASConstraintMaker.m in Sources */,
+				2667832C1BA2BC2A00093EC1 /* MASExampleUpdateConstraintsView.swift in Sources */,
+				2667832B1BA2BC2A00093EC1 /* MASExampleBasicView.swift in Sources */,
+				2677F2A01BA16AD6007F9D5C /* ViewController.swift in Sources */,
+				2677F2C21BA16E39007F9D5C /* CustomTableViewCell.swift in Sources */,
+				2667832A1BA2BC2A00093EC1 /* MASExampleView.swift in Sources */,
+				2677F29E1BA16AD6007F9D5C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2677F2A91BA16AD6007F9D5C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2677F2B41BA16AD6007F9D5C /* FoodPinTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2677F2AF1BA16AD6007F9D5C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2677F2971BA16AD6007F9D5C /* FoodPin */;
+			targetProxy = 2677F2AE1BA16AD6007F9D5C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2677F2A11BA16AD6007F9D5C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2677F2A21BA16AD6007F9D5C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2677F2A61BA16AD6007F9D5C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2677F2A71BA16AD6007F9D5C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2677F2B51BA16AD6007F9D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2677F2B61BA16AD6007F9D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2677F2B81BA16AD6007F9D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = FoodPin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/Swift-Masonry-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		2677F2B91BA16AD6007F9D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
+				GCC_PREFIX_HEADER = "";
+				INFOPLIST_FILE = FoodPin/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(PRODUCT_NAME)/Swift-Masonry-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		2677F2BB1BA16AD6007F9D5C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FoodPinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodPin.app/FoodPin";
+			};
+			name = Debug;
+		};
+		2677F2BC1BA16AD6007F9D5C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FoodPinTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoodPin.app/FoodPin";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2677F2931BA16AD6007F9D5C /* Build configuration list for PBXProject "FoodPin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2677F2B51BA16AD6007F9D5C /* Debug */,
+				2677F2B61BA16AD6007F9D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2677F2B71BA16AD6007F9D5C /* Build configuration list for PBXNativeTarget "FoodPin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2677F2B81BA16AD6007F9D5C /* Debug */,
+				2677F2B91BA16AD6007F9D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2677F2BA1BA16AD6007F9D5C /* Build configuration list for PBXNativeTarget "FoodPinTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2677F2BB1BA16AD6007F9D5C /* Debug */,
+				2677F2BC1BA16AD6007F9D5C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2677F2901BA16AD6007F9D5C /* Project object */;
+}

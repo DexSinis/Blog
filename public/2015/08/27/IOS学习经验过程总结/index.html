@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <script type="text/javascript">
+  var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//dexsinister.github.io/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script>
+  
+  <title>IOS学习经验过程总结 | DexSinis Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候
+弄明白框架的功能去文档里搜搜 框架的 Progra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOS学习经验过程总结">
+<meta property="og:url" content="http://yoursite.com/2015/08/27/IOS学习经验过程总结/index.html">
+<meta property="og:site_name" content="DexSinis Blog">
+<meta property="og:description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候
+弄明白框架的功能去文档里搜搜 框架的 Progra">
+<meta property="og:updated_time" content="2015-10-06T09:53:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="IOS学习经验过程总结">
+<meta name="twitter:description" content="我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里但是iOS开发就是这样 他是封闭的 本身就是在雾里…关于iOS开发的学习 打个比方就像把汽车分解最底层的原料有塑料 钢铁再用这些底层的东西造出来发动机 座椅最后再加上写螺丝 胶水等 把汽车就拼起来了iOS基本都是英文的资料 也由于封闭 文档写的相当好在遇到新框架的时候
+弄明白框架的功能去文档里搜搜 框架的 Progra">
+  
+    <link rel="alternative" href="/atom.xml" title="DexSinis Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-67376920-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/solarized_dark.min.css">
+<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</head>
+
+<body>
+<div id="container">
+  <div id="wrap">
+    <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">DexSinis Blog</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="http://www.baidu.com/baidu" method="get" accept-charset="utf-8" class="search-form">
+          <input type="search" name="word" maxlength="20" class="search-form-input" placeholder="Search">
+          <input type="submit" value="" class="search-form-submit">
+          <input name=tn type=hidden value="bds">
+          <input name=cl type=hidden value="3">
+          <input name=ct type=hidden value="2097152">
+          <input type="hidden" name="si" value="yoursite.com">
+        </form>
+      </div>
+    </div>
+  </div>
+</header>
+    <div class="outer">
+      <section id="main"><article id="post-IOS学习经验过程总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/08/27/IOS学习经验过程总结/" class="article-date">
+  <time datetime="2015-08-27T01:44:36.000Z" itemprop="datePublished">2015-08-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      IOS学习经验过程总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我当时刚学iOS开发的时候一样的感觉 总想知道原理 内部怎么回事 感觉在像在雾里<br>但是iOS开发就是这样 他是封闭的 本身就是在雾里…<br>关于iOS开发的学习 打个比方就像把汽车分解<br>最底层的原料有塑料 钢铁<br>再用这些底层的东西造出来发动机 座椅<br>最后再加上写螺丝 胶水等 把汽车就拼起来了<br>iOS基本都是英文的资料 也由于封闭 文档写的相当好<br>在遇到新框架的时候</p>
+<p>弄明白框架的功能<br>去文档里搜搜 框架的 Programming Guide 很有用<br>要弄明白框架类的继承结构<br>写iOS的程序不一定都是用OBJC 很多框架是用C写的<br>学习iOS开发基础可以按照下面两个方面学</p>
+<h2 id="基础_(原料_钢铁_塑料)">基础 (原料 钢铁 塑料)</h2><p><strong>OBJ-C</strong> — 语法弄明白 @interface @property 这些东西总要知道是干嘛的 怎么用<br>基础库 — NSString NSArray NSDictionary等 这些东西在所有的框架里都会出现<br>iOS大部分类都是继承自NSObject (我还没见过不是继承自NSObject的..)<br>还有一些 像NSCopying的接口(经@李禹龙提醒 应该叫协议) 不是特别用到开始不用了解<br><strong>NSObject</strong> 创建对象的时候用 + (id)alloc 方法 创建后需要init方法初始化 这个init指的是所有前面是init的方法比如UIView的初始化方法是 - (id)initWithFrame:(CGRect)aRect 在Objc里有很多这样关于函数命名的约定 类似于在python中的函数__xxx<br><strong>NSString</strong> 字符串 NSArray 数组 NSDictionary 字典 这些都需要弄很清楚 其他的类都是一个套路<br><strong>NSMutableArray</strong> 这样带Mutable的类代表可变的 继承自相应的不可变类 比如NSMutableArray继承自NSArray 他们都添加了可以改变对象内容的方法比如<br><strong>- (void)addObject:(id)anObject</strong> 添加对象<br><strong>- (void)removeObject:(id)anObject</strong> 删除对象<br>  上面只是一个大概的总结 还有很多东西需要学 iOS5的SDK已经支持ARC 可以自动进行release 但是对iOS4的支持还有一个小问题 现在要开发应用 可能还需要按照之前的MRC的方式alloc release retain autorelease 之类的内存管理方法 不过如果你现在开始学 到编出像样的APP iOS5可能已经普及了 可以直接用ARC (另 之前对ARC的了解很粗浅 现在开发程序完全可以直接ARC iOS4不支持的weak是有办法替代的 用unsafe_unretained 如果同时支持iOS5和iOS4 用宏判断下就可以 当然也可以直接用assign)<br>还有一点开始学习的时候肯定很疑惑 内存管理是基于函数名称的 比如带alloc copy的函数 用了之后返回的对象一定要release 这个不用疑惑 照做就行了<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/CocoaFundamentals/Introduction/Introduction.html</a></p>
+<h2 id="高级库(发动机)">高级库(发动机)</h2><p><strong>UIKit</strong> — UI库 OBJC<br><strong>UIResponder</strong> 父类是NSObject UIKit里最底层的库 可以响应一些触摸事件 设置焦点等功能<br><strong>UIView</strong> 父类是UIResponder 所有View的父类 方法太多了 大部分很有用 这个不赘述了 中文的资料也很多了<br>比如: <a href="http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html" target="_blank" rel="external">http://www.cnblogs.com/likwo/archive/2011/06/18/2084192.html</a><br>文档: <a href="http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#documentation/WindowsViews/Conceptual/ViewPG_iPhoneOS/Introduction/Introduction.html</a><br>关于UIView的子类 有很多 UIButton UITableView 这个都需要各个击破 看看文档从名字上就很容易理解是做什么的<br><strong>UIViewController</strong> 是管理View 和 Model的类 (@张开 说UIViewController是用来管理view的，管理model 的类自己写，当然，model也可以用UIViewController来管理，不过恐怕成为不好的代码。 的确是这样的 Model的改变最好通过Notification来传播 之前吃过这样的亏 最好不要用delegate模式)</p>
+<p><strong>UIViewController</strong> 管理所有设备发生的事件 比如屏幕旋转 屏幕关闭 或者一些其他的 程序的控制逻辑也应该写在这里<br>他的初始化函数是- (id)initWithNibName:(NSString <em>)nibName bundle:(NSBundle </em>)nibBundle 后面那个NibName 是Interface Builder 里设计的界面</p>
+<p>现在IB已经集成到XCode里了 打开.xib的文件打开的就是IB<br>IB和代码交互用的是IBAction IBOutlet 这些标记 这些标记追踪到他们的定义其实对编译器来说什么都不表示 只能IB识别<br>IB也没那么高深 XIB文件解开之后就是一堆代码<br>之前面过一家小公司 看我当时写的程序里面用到了IB 一脸不屑 说他们都是用代码控制view 意思他们玩的都是高科技 IB都是垃圾 很多人也纠结到底用不用IB 的确 很多时候IB灵活度不行 但是不需要灵活度的时候还不用IB 那不是装X吗 要是没人用苹果还开发IB干嘛 早去掉了 IB在很多时候节省很多工作量</p>
+<p><strong>UINavigationController</strong><br>再说说NavigationController刚接触开发的时候 不明白 View和View之间怎么切换的 最重要的就是<strong>UINavigationController</strong> 他是一层一层推进view的 打开iPhone里的联系人 每点一个联系人屏幕就会像右推到下一个界面 这就是<strong>UINavigationController</strong>在做的事<br><strong>UINavigationController</strong> 维护一个堆栈<br><strong>- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated</strong> 是像堆栈里压一个UIViewController<br><strong>- (UIViewController *)popViewControllerAnimated:(BOOL)animated</strong> 是从堆栈里弹出来一个UIViewController<br>就算你的程序不是像联系人那样 向右推进也可以用UINavigationController 管理你的ViewController的层次 可以自己写View切换的动画 关掉他默认的动画<br>文档: <a href="http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html" target="_blank" rel="external">http://developer.apple.com/library/ios/#featuredarticles/ViewControllerPGforiPhoneOS/ModalViewControllers/ModalViewControllers.html</a></p>
+<p><strong>UIWindow</strong> 还有个蛋疼的<strong>UIWindow</strong> 都快忘了他了 因为iOS是从Mac os X过来的 很多东西直接拿来用 这个<strong>UIWindow</strong>就是 在iOS里 每个App独占屏幕 所以同时存在的只有一个<strong>UIWindow</strong> 除了在程序加载的时候把我的view 加载到他上 目前我还没用到过其他的<br>苹果一直很推崇MVC的程序结构 视图 模型 控制器 简单说就是 视图负责显示内容 模型负责所有数据的保存结构或者一些其他数据操作 控制器是用来协调 视图和模型 举车的发动机系统的例子 视图是仪表盘 模型是发动机 控制器是控制芯片</p>
+<p><strong>Core Data</strong> — 管理数据 OBJC<br>刚学的时候觉得 CD很高深 其实他是最容易用的库之一 他麻烦之处在于多线程问题 还有胶水代码的问题<br>建立一个 基于Core Data的工程 你会看到他自动创建3个类的对象</p>
+<p><strong>NSManagedObjectModel</strong><br>管理数据的存储结构文件 扩展名是 xcdatamodeld</p>
+<p><strong>NSPersistentStoreCoordinator</strong><br>用来管理底层数据的存储 用官方的话说<br>Core Data is not a relational database or a relational database management system (RDBMS).<br>所以你可以用很多方法存储数据 比如最长用的sqlite 当然如果另类也可以用plist文件 或者其他<br><strong>NSManagedObjectContext</strong><br><strong>NSManagedObjectContext</strong> 把上面两个对象连在一起 把他们变成一个整体<br>所有的CD操作都是通过这个类的 这个需要仔细看文档了<br>举个不恰当的例子 就像三个人收拾衣服 一个人负责衣服的存放位置(<strong>NSManagedObjectModel</strong>) 一个人负责把衣服分类 冬天穿 夏天穿等(<strong>NSPersistentStoreCoordinator</strong>) 一个人负责协调他们的工作 并且如果有新增加的衣服或者要移除之前的衣服 通知他俩(<strong>NSManagedObjectContext</strong>)<br><strong>NSManagedObject</strong> 这个类是具体的数据对象 用上面的例子说就是衣服<br>一般都是继承这个对象 XCode 可以帮你做 具体搜搜 这种文章很多<br><strong>NSFetchRequest</strong><br>用来执行CD请求的 相当与select语句外壳<br><strong>NSEntityDescription</strong><br>用来描述实体的 对应sql里的table</p>
+<p><strong>NSPredicate</strong><br>谓语 类似select语句中的条件<br>上面这三个类就可以用来请求数据了 具体看教程吧<br>中文介绍:<a href="http://c.gzl.name/archives/tag/core-data" target="_blank" rel="external">http://c.gzl.name/archives/tag/core-data</a> (访问需要点技术…)<br>文档: <a href="http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html" target="_blank" rel="external">http://developer.apple.com/library/mac/#documentation/cocoa/conceptual/coredata/cdprogrammingguide.html</a><br>掌握上面的内容 差不多就能写个APP了 最好的学习方法就是边写边学 自己构想一个小的APP 在做的时候遇到问题 去找找资料 我觉得这样学习比较快 也比较扎实<br>下面这些库都是有专门功能的库</p>
+<p><strong>Core Animation</strong> — 制作动画 很强大 很喜欢的框架 可以用少量的代码写出漂亮的动画 C</p>
+<p><strong>Quartz 2D</strong> — 强大的2D绘图库 C</p>
+<p><strong>OpenGL</strong> — 不用介绍了 超级强大的3D库 C</p>
+<p><strong>Core Image</strong> — 听说 iOS5开始支持Core Image 了 还没去看 Mac 上的CI是很强大的</p>
+<p><strong>CFNetwork</strong> — 从来没用过 我一般都会用ASIHttpRequset 封装好的高层网络库 OBJC实现的 <strong>CFNetwork</strong> 好像是C实现</p>
+<p><strong>Core Location</strong> — 获取位置的库 东西很少 很简单 OBJC</p>
+<p><strong>AVFoundation</strong> — 播放视频相关的库 最近正在学习<br>这些算是学iOS开发的一些方法 当时要是有人告诉我这些 估计少走不少弯路<br>还有提醒各位初学者 刚开始学的时候 会有几个月的低谷期 很容易放弃 如果挺过最开始的几个月 后来就越学越容易了</p>
+<p>IP<br>//<br>//  HYBIPHelper.h<br>//  XiaoYaoUser<br>//<br>//  Created by 黄仪标 on 14/12/9.<br>//  Copyright (c) 2014年 xiaoyaor. All rights reserved.<br>//<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import &lt;Foundation/Foundation.h&gt;  </span></span><br><span class="line">  </span><br><span class="line">@interface HYBIPHelper : NSObject  </span><br><span class="line">  </span><br><span class="line">/*! </span><br><span class="line"> * get device ip address </span><br><span class="line"> */  </span><br><span class="line">+ (NSString *)deviceIPAdress;  </span><br><span class="line">  </span><br><span class="line">@end  </span><br><span class="line"></span><br><span class="line">//  </span><br><span class="line">//  HYBIPHelper.m  </span><br><span class="line">//  XiaoYaoUser  </span><br><span class="line">//  </span><br><span class="line">//  Created by 黄仪标 on <span class="number">14</span>/<span class="number">12</span>/<span class="number">9</span>.  </span><br><span class="line">//  Copyright (c) <span class="number">2014</span>年 xiaoyaor. All rights reserved.  </span><br><span class="line">//</span><br></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#import "HYBIPHelper.h"  </span></span><br><span class="line">  </span><br><span class="line"><span class="comment">#include &lt;ifaddrs.h&gt;  </span></span><br><span class="line"><span class="comment">#include &lt;arpa/inet.h&gt;  </span></span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">@implementation HYBIPHelper  </span><br><span class="line">  </span><br><span class="line">+ (NSString *)deviceIPAdress &#123;  </span><br><span class="line">  NSString *address = @<span class="string">"an error occurred when obtaining ip address"</span>;  </span><br><span class="line">  struct ifaddrs *interfaces = NULL;  </span><br><span class="line">  struct ifaddrs *temp_addr = NULL;  </span><br><span class="line">  int success = <span class="number">0</span>;  </span><br><span class="line">    </span><br><span class="line">  success = getifaddrs(&amp;interfaces);  </span><br><span class="line">    </span><br><span class="line">  <span class="keyword">if</span> (success == <span class="number">0</span>) &#123; // <span class="number">0</span> 表示获取成功  </span><br><span class="line">  </span><br><span class="line">    temp_addr = interfaces;  </span><br><span class="line">    <span class="keyword">while</span> (temp_addr != NULL) &#123;  </span><br><span class="line">      <span class="keyword">if</span>( temp_addr-&gt;ifa_addr-&gt;sa_family == AF_INET) &#123;  </span><br><span class="line">        // Check <span class="keyword">if</span> interface is en0 <span class="built_in">which</span> is the wifi connection on the iPhone  </span><br><span class="line">        <span class="keyword">if</span> ([[NSString stringWithUTF8String:temp_addr-&gt;ifa_name] isEqualToString:@<span class="string">"en0"</span>]) &#123;  </span><br><span class="line">          // Get NSString from C String  </span><br><span class="line">          address = [NSString stringWithUTF8String:inet_ntoa(((struct sockaddr_<span class="keyword">in</span> *)temp_addr-&gt;ifa_addr)-&gt;sin_addr)];  </span><br><span class="line">        &#125;  </span><br><span class="line">      &#125;  </span><br><span class="line">        </span><br><span class="line">      temp_addr = temp_addr-&gt;ifa_next;  </span><br><span class="line">    &#125;  </span><br><span class="line">  &#125;  </span><br><span class="line">    </span><br><span class="line">  freeifaddrs(interfaces);  </span><br><span class="line">    </span><br><span class="line">  DDLogVerbose(@<span class="string">"手机的IP是：%@"</span>, address);  </span><br><span class="line">  <span class="built_in">return</span> address;  </span><br><span class="line">&#125;  </span><br><span class="line">  </span><br><span class="line">@end</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        <a data-url="http://yoursite.com/2015/08/27/IOS学习经验过程总结/" data-id="cij5xh6nv002di33m5fg38b06" class="article-share-link" data-share="baidu" data-title="IOS学习经验过程总结">分享到</a>
+      
+
+      
+        <a href="http://yoursite.com/2015/08/27/IOS学习经验过程总结/#ds-thread" class="article-comment-link">评论</a>
+      
+
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/09/02/StoryBoard简单使用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">下一篇</strong>
+      <div class="article-nav-title">
+        
+          StoryBoard简单使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/08/27/IOS学习经验总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">上一篇</strong>
+      <div class="article-nav-title">IOS学习经验总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+  <section id="comments">
+    <div id="ds-thread" class="ds-thread" data-thread-key="2015/08/27/IOS学习经验过程总结/" data-title="IOS学习经验过程总结" data-url="http://yoursite.com/2015/08/27/IOS学习经验过程总结/"></div>
+  </section>
+</section>
+      
+      <aside id="sidebar">
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GitHub/">GitHub</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS-Swift/">IOS-Swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发SDK/">IOS开发SDK</a><span class="tag-list-count">21</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开发经验总结/">IOS开发经验总结</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS开源项目/">IOS开源项目</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IOS网站博客/">IOS网站博客</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MarkDown/">MarkDown</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/">git</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios开发/">ios开发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios经验/">ios经验</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/markdown/">markdown</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nodejs/">nodejs</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift/">swift</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/命令行/">命令行</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/心情/">心情</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/架构/">架构</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/项目/">项目</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git/" style="font-size: 13.33px;">Git</a> <a href="/tags/GitHub/" style="font-size: 10px;">GitHub</a> <a href="/tags/IOS-Swift/" style="font-size: 10px;">IOS-Swift</a> <a href="/tags/IOS开发SDK/" style="font-size: 20px;">IOS开发SDK</a> <a href="/tags/IOS开发经验总结/" style="font-size: 16.67px;">IOS开发经验总结</a> <a href="/tags/IOS开源项目/" style="font-size: 10px;">IOS开源项目</a> <a href="/tags/IOS网站博客/" style="font-size: 10px;">IOS网站博客</a> <a href="/tags/MarkDown/" style="font-size: 16.67px;">MarkDown</a> <a href="/tags/Node/" style="font-size: 16.67px;">Node</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/ios开发/" style="font-size: 10px;">ios开发</a> <a href="/tags/ios经验/" style="font-size: 10px;">ios经验</a> <a href="/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/tags/nodejs/" style="font-size: 10px;">nodejs</a> <a href="/tags/swift/" style="font-size: 10px;">swift</a> <a href="/tags/命令行/" style="font-size: 10px;">命令行</a> <a href="/tags/心情/" style="font-size: 10px;">心情</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">十二月 2015</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">十一月 2015</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">十月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">九月 2015</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">七月 2015</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">近期文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/07/textsadasd/">text</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/10/教你如何获取ios系统信息/">教你如何获取ios系统信息</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/07/Git的简单使用/">Git的简单使用</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/05/MVC，MVP 和 MVVM 架构/">MVC，MVP 和 MVVM 架构</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/30/UIViewController简单使用/">UIViewController简单使用</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">友情链接</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="http://xiguabaobao.com" target="_blank">主题作者</a>
+          </li>
+        
+          <li>
+            <a href="http://reqianduan.com" target="_blank">热前端</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      
+    </div>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 DexSinister<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/xiangming/landscape-plus" target="_blank">Landscape-plus</a>
+    </div>
+  </div>
+</footer>
+  </div>
+  <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+  <!-- totop start -->
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<!-- totop end -->
+
+<!-- 多说公共js代码 start -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"dexsinis"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0]
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共js代码 end -->
+
+
+<!-- 百度分享 start -->
+
+<div id="article-share-box" class="article-share-box">
+  <div id="bdshare" class="bdsharebuttonbox article-share-links">
+    <a class="article-share-weibo" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a class="article-share-weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a class="article-share-qq" data-cmd="sqq" title="分享到QQ"></a>
+    <a class="article-share-renren" data-cmd="renren" title="分享到人人网"></a>
+    <a class="article-share-more" data-cmd="more" title="更多"></a>
+  </div>
+</div>
+<script>
+  function SetShareData(cmd, config) {
+    if (shareDataTitle && shareDataUrl) {
+      config.bdText = shareDataTitle;
+      config.bdUrl = shareDataUrl;
+    }
+    return config;
+  }
+  window._bd_share_config={
+    "common":{onBeforeClick: SetShareData},
+    "share":{"bdCustomStyle":"/css/bdshare.css"}
+  };
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+<!-- 百度分享 end -->
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+</div>
+</body>
+</html>
